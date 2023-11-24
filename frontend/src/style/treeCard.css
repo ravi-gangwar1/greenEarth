@@ -1,0 +1,40 @@
+.main-card{
+    background-color: lightseagreen;
+    height: 30vh;
+    width:16vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin: 5px;
+}
+
+.box-card{
+    height: 90%;
+    width: 90%;
+    text-align: center;
+}
+.box-card img {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cardBtns{
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+.plantBtn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+}
+.bucketBtn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+}

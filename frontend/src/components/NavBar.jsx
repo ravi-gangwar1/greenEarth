@@ -7,14 +7,17 @@ function NavBar() {
   return (
     <nav id='navBarId'>
       <div id="logoId" className="logo">
-        <Link to='/home'><img className='logoImg' src="" alt="Logo" /></Link>
+      <Link className="link-div" to='/home'>
+        <img src="/green-earth.png" alt="" />
+      </Link>
+
       </div>
         <ul>
             
-            <Link to='/home'><li>Home</li></Link>
-            <Link to='/garden'><li>Garden</li></Link>
-            <Link to='/contact'><li>Contact</li></Link>
-            <Link to='/about'><li>About Us</li>  </Link>            
+            <Link className="link-div" to='/home'><li>Home</li></Link>
+            <Link className="link-div" to='/garden'><li>Garden</li></Link>
+            <Link className="link-div" to='/contact'><li>Contact</li></Link>
+            <Link className="link-div" to='/about'><li>About Us</li>  </Link>            
         </ul>
       <div className='navBar-btns'>
         <button className='login-btn'>Login</button>
