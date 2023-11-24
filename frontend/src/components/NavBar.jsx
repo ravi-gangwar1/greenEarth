@@ -8,9 +8,8 @@ function NavBar() {
     <nav id='navBarId'>
       <div id="logoId" className="logo">
       <Link className="link-div" to='/home'>
-        <img src="/green-earth.png" alt="" />
+        <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/components/green-earth.png?raw=true" alt="" />
       </Link>
-
       </div>
         <ul>
             
