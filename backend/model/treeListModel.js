@@ -12,7 +12,7 @@ const treeListSchema = new Schema({
         type: String,
         require: [true, 'tree name is Required'],
         minLength: [5, "name min length 5 char"],
-        maxLength: [15, "name must be less than 15 char"],
+        maxLength: [30, "name must be less than 15 char"],
         trim: true
     },
     price : {
@@ -29,7 +29,7 @@ const treeListSchema = new Schema({
     },
     discription : {
         type : String,
-        maxLength: [1000, "name must be less than 1000 char"],
+        maxLength: [2000, "name must be less than 1000 char"],
     }
 },{
     timestamps: true

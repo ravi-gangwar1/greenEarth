@@ -1,13 +1,13 @@
 .main-card{
     background-color: lightseagreen;
     height: 30vh;
-    width:16vw;
+    width:18vw;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: black;
-    margin: 5px;
+    margin: 10px;
 }
 
 .box-card{
@@ -15,11 +15,21 @@
     width: 90%;
     text-align: center;
 }
-.box-card img {
+.img-div{
     height: 70%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.box-card img {
+    height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    transition:400ms;
+}
+.box-card img:hover{
+    transform:scale(1.08);
 }
 .cardBtns{
     height: fit-content;
@@ -32,11 +42,20 @@
     padding: 5px 10px;
     border: none;
     border-radius: 2px;
-    cursor: pointer;
+    transiton:400ms;
+}
+.plantBtn:hover{
+    transform:scale(1.10);
+    background-color:lightcoral;
+
 }
 .bucketBtn {
     padding: 5px 10px;
     border: none;
     border-radius: 2px;
-    cursor: pointer;
+    transiton:400ms;
+}
+.bucketBtn:hover{
+    transform: scale(1.10);
+    background-color: lightcoral;
 }
