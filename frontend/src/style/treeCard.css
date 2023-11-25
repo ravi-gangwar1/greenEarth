@@ -47,6 +47,7 @@
 .plantBtn:hover{
     transform:scale(1.10);
     background-color:lightcoral;
+    cursor: pointer;
 
 }
 .bucketBtn {
@@ -58,4 +59,5 @@
 .bucketBtn:hover{
     transform: scale(1.10);
     background-color: lightcoral;
+    cursor: pointer;
 }

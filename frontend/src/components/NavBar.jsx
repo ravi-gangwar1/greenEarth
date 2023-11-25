@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaBucket } from "react-icons/fa6";
 import '../style/navBar.css'
@@ -7,8 +6,8 @@ function NavBar() {
   return (
     <nav id='navBarId'>
       <div id="logoId" className="logo">
-      <Link className="link-div" to='/home'>
-        <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/components/green-earth.png?raw=true" alt="" />
+      <Link className="link-div" to='/'>
+        <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/green-earth.png?raw=true" alt="" />
       </Link>
       </div>
         <ul>
