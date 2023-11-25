@@ -19,6 +19,19 @@ function Home() {
       : error ? (<h1>Error while fetching.</h1>)
       :(<> <div className='search-div'>
       <input className='input-search' type="text" id="search" name="q" placeholder="Type your search"/>
+      <div className='cetageory'>
+        <span>Cetageory:</span>
+        <label htmlFor="fruit">Fruit:</label>
+        <input type="radio" name='sort'/>
+        <label htmlFor="fruit">NoneFruit:</label>
+        <input type="radio" name='sort'/>
+        <label htmlFor="fruit">Indoor:</label>
+        <input type="radio" name='sort'/>
+        <label htmlFor="fruit">Outdoor:</label>
+        <input type="radio" name='sort'/>
+        <label htmlFor="fruit">Flower:</label>
+        <input type="radio" name='sort'/>
+      </div>
       </div>
       <div className='card-div'>
       {trees.map((tree)=>(
