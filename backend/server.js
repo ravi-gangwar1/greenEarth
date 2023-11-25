@@ -4,9 +4,12 @@ import morgan, { compile } from "morgan";
 import connectDB from './config/config.js';
 import dotenv from 'dotenv';
 dotenv.config();
+import router from "./routes/treeRoute.js";
+import  cors from 'cors'
 
 
 const app = express();
+app.use(cors());
 
 
 
@@ -18,6 +21,7 @@ app.use(morgan('dev'));
 connectDB();
 
 //routes
+app.use('/api/trees', router);
 app.get('/', (req, res)=>{
     res.status(200).json({
         succuess: true,
