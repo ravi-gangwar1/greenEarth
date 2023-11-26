@@ -3,7 +3,7 @@ import 'colors';
 
 const connectDB = async () => {
   try {
-    const url = process.env.MONGO_URI;
+    const url = process.env.MONGO_URI || "mongodb+srv://zippy:ravi7465@cluster0.fxc3dyn.mongodb.net/greenEarth";
     const conn = await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

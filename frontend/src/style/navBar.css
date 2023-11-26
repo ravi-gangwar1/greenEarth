@@ -37,6 +37,10 @@ nav ul li {
     text-decoration: none;
     
 }
+nav ul li:hover {
+    text-decoration: underline;
+}
+    
 
 .navBar-btns{
     display: flex;
@@ -46,13 +50,14 @@ nav ul li {
     width: 20%;
 }
 .navBar-btns .login-btn {
-    width: 40%;
-    padding: 5px 0;
+    width: 100%;
+    padding: 5px 10px;
     cursor: pointer;
     border: none;
     border-radius: 2px;
     font-size: larger;
     font-weight: 600;
+    background-color:azure;
 }
 .login-btn:hover{
     transition:500ms;

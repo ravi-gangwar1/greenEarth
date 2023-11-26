@@ -10,7 +10,7 @@ function Home() {
   const dispatch = useDispatch();
   const treestate = useSelector(state => state.treeReducer);
   const {trees,loading, error } = treestate;
-  useEffect(()=> {dispatch(getAllTree())}, [dispatch]);
+  useEffect(()=> {dispatch(getAllTree()); console.log("Welcome to greenEarth's Console!!");}, [dispatch]);
 
   return (
     <div className='home'>

@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import About from './page/about'
 import Contact from './page/Contact'
 import Home from './page/Home'
+import BucketPage from './page/BucketPage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/bucket' element={<BucketPage/>}/>
       </Routes>
     </BrowserRouter>
   )
