@@ -6,6 +6,7 @@ import About from './page/about'
 import Contact from './page/Contact'
 import Home from './page/Home'
 import BucketPage from './page/BucketPage'
+import NotFound from './page/NotFound'
 
 function App() {
 
@@ -13,10 +14,12 @@ function App() {
     <BrowserRouter>
       <NavBar/>
       <Routes>
+        <Route path="*" element={<NotFound/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/bucket' element={<BucketPage/>}/>
+
       </Routes>
     </BrowserRouter>
   )
