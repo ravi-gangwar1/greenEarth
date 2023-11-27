@@ -1,14 +1,15 @@
-export const addAction = (tree) => (dispatch, getState) => {
-    console.log(tree, "tree");
+export const addAction = (tree, quantity) => (dispatch, getState) => {
+    quantity = quantity == null ? 1 : quantity;
     var bucketItem = {
         name: tree.name,
         _id: tree._id,
-        image: tree.image,
+        imageUrl: tree.imageUrl,
         price: tree.price,
         discription: tree.discription,
-        categeory: tree.categeory
+        categeory: tree.categeory,
+        quantity: quantity
     };
-
+    
     dispatch({ type: "ADD_TO_BUCKET", payload: bucketItem });
 
     // Use getState() to get the updated state
