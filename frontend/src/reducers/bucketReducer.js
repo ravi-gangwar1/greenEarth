@@ -7,10 +7,11 @@ const initialState = {
       case 'ADD_TO_BUCKET':
         return {
           ...state,
-          bucketItems: [...state.cartItems, action.payload],
+          bucketItems: [...state.bucketItems, action.payload],
         };
       default:
         return state;
     }
   };
+
   

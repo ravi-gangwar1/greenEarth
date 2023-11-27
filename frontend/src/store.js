@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     bucketReducer,
 });
 
-const bucketItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
+const bucketItems = localStorage.getItem('bucketItems') ? JSON.parse(localStorage.getItem('bucketItems')) : [];
 
 const initialState = {
     bucketReducer: {

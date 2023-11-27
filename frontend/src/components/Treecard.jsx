@@ -1,7 +1,8 @@
 import React from 'react'
 import "../style/treeCard.css"
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+import { addAction } from '../actions/bucketAction'
 
 
 function Treecard({ tree }) {

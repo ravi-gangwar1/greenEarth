@@ -1,17 +1,19 @@
 export const addAction = (tree) => (dispatch, getState) => {
-    console.log(tree, "tree")
+    console.log(tree, "tree");
     var bucketItem = {
         name: tree.name,
         _id: tree._id,
         image: tree.image,
-        price : tree.price,
+        price: tree.price,
         discription: tree.discription,
         categeory: tree.categeory
     };
 
-    dispatch({ type: "ADD_TO_CART", payload: bucketItem });
+    dispatch({ type: "ADD_TO_BUCKET", payload: bucketItem });
 
-    // Save to local storage using Redux Thunk
+    // Use getState() to get the updated state
     const updatedBucketItems = getState().bucketReducer.bucketItems;
-    localStorage.setItem('cartItems', JSON.stringify(updatedBucketItems));
+
+    // Save to local storage using the updated state
+    localStorage.setItem('bucketItems', JSON.stringify(updatedBucketItems));
 };
