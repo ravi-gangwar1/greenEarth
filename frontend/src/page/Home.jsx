@@ -16,7 +16,7 @@ function Home() {
     <div className='home'>
       
     {loading ? (<h1 className='loading'>Loading...</h1>) 
-      : error ? (<h1>Error while fetching.</h1>)
+      : error ? (<h1 className='error'>Server Error or data not fetched</h1>)
       :(<> <div className='search-div'>
       <input className='input-search' type="text" id="search" name="q" placeholder="Type your search"/>
       <div className='cetageory'>
