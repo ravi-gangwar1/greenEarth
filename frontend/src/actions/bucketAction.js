@@ -18,3 +18,12 @@ export const addAction = (tree, quantity) => (dispatch, getState) => {
     // Save to local storage using the updated state
     localStorage.setItem('bucketItems', JSON.stringify(updatedBucketItems));
 };
+
+
+
+
+export const deleteFromCart= (tree) => (dispatch, getState) => {
+    dispatch({type: 'DELETE_FROM_BUCKET', payload: tree});
+    const bucketItems = getState().bucketReducer.bucketItems;
+    localStorage.setItem('bucketItems', JSON.stringify(bucketItems))
+}

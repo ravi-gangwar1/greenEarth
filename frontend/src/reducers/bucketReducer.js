@@ -18,6 +18,13 @@ const initialState = {
         };
 
       }
+      case 'DELETE_FROM_BUCKET' :
+        return{
+          ...state,
+          bucketItems : state.bucketItems.filter(
+            (item) => item._id !== action.payload._id
+          ),
+        }
 
       default:
         return state;

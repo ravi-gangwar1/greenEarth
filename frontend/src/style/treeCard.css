@@ -39,10 +39,13 @@
     margin-top: 5px;
 }
 .plantBtn {
-    padding: 5px 10px;
+    background-color: rgb(234, 54, 54);
     border: none;
+    color: azure;
+    padding: 2px 5px;
     border-radius: 2px;
-    transiton:400ms;
+    cursor: pointer;
+    font-weight: 700;
 }
 .plantBtn:hover{
     transform:scale(1.10);
@@ -51,10 +54,13 @@
 
 }
 .bucketBtn {
-    padding: 5px 10px;
+    background-color: rgb(234, 54, 54);
     border: none;
+    color: azure;
+    padding: 2px 5px;
     border-radius: 2px;
-    transiton:400ms;
+    cursor: pointer;
+    font-weight: 700;
 }
 .bucketBtn:hover{
     transform: scale(1.10);
