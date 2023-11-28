@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import router from "./routes/treeRoute.js";
 import  cors from 'cors'
+import userRouter from "./routes/userRoutes.js";
 
 
 const app = express();
@@ -22,6 +23,7 @@ connectDB();
 
 //routes
 app.use('/api/trees', router);
+app.use('/api/auth', userRouter);
 app.get('/', (req, res)=>{
     res.status(200).json({
         succuess: true,
