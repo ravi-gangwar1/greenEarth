@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import { FaBucket } from 'react-icons/fa6';
 import { useSelector } from 'react-redux';
 import '../style/navBar.css';
-
+import { FaUserAlt } from "react-icons/fa";
+import { logoutAction } from '../actions/userAction';
+import { useDispatch } from 'react-redux';
 function NavBar() {
   const bucketState = useSelector((state) => state.bucketReducer);
-
+  const userState = useSelector(state => state.loginUserReducer);
+  const {currentUser} = userState;
+  const dispatch = useDispatch();
   // State to track whether the navbar should be sticky
   const [isSticky, setIsSticky] = useState(false);
-
   // Effect to handle scroll events and update the isSticky state
   useEffect(() => {
     const handleScroll = () => {
@@ -39,9 +42,14 @@ function NavBar() {
         <Link className="link-div" to="/">
           <li>Home</li>
         </Link>
-        <Link className="link-div" to="/garden">
+        <Link className="link-div" to={currentUser ? "/garden" : "/login"}>
           <li>Garden</li>
         </Link>
+        {currentUser ?
+        <>
+        <Link className="link-div" to="/orders"> <li>Orders</li></Link>
+        </> 
+         : <></>}
         <Link className="link-div" to="/contact">
           <li>Contact</li>
         </Link>
@@ -50,9 +58,15 @@ function NavBar() {
         </Link>
       </ul>
       <div className="navBar-btns">
+        {currentUser ?
+        <>
+        <Link to="/profile"> <p className='userName'><FaUserAlt/></p></Link>
+        <button className="logout-btn" onClick={()=> dispatch(logoutAction())}>Logout</button>
+        </> 
+         : 
         <Link to="/login">
           <button className="login-btn">Login</button>
-        </Link>
+        </Link>}
         <Link to="bucket">
           <button className="bucket-btn">
             <FaBucket className="bucket" />

@@ -52,4 +52,50 @@ userRouter.post('/signup' , async (req, res) => {
     }
 })
 
+
+
+
+
+userRouter.post("/login", async (req, res)=>{
+
+    try {
+        const {email, password} = req.body;
+    
+        if(!email && !password){
+            return res.status(400).json({
+                succuess: false,
+                message: "Every field is mandatory"
+            })
+        }
+    
+        const user = await userModel.find({
+            email, password
+        });
+
+        if(user.length > 0) {
+            const currentUser = {
+                name : user[0].name,
+                email : user[0].email,
+                isAdmin : user[0].isAdmin,
+                _id : user[0].id
+            }
+            res.status(200).json({
+                succuess: true,
+                data: currentUser
+            })
+        }
+        if(!user && user.password !== password){
+            return res.status(400).json({
+                succuess: false,
+                message: "Invlaid credentials"
+            })
+        }
+    } catch (error) {
+        res.status(400).json({
+            succuess: false,
+            message: `Login in Error ${error}`
+        })
+    }
+})
+
 export default userRouter;

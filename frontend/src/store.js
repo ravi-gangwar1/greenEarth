@@ -4,19 +4,28 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { treeReducer } from "./reducers/treeReducers";
 import { bucketReducer } from "./reducers/bucketReducer";
 import { signupReducer } from "./reducers/userReducer";
+import { loginUserReducer } from "./reducers/userReducer";
+
+
+
+
 
 const rootReducer = combineReducers({
     treeReducer,
     bucketReducer,
-    signupReducer
+    signupReducer,
+    loginUserReducer
 });
-
+const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null;
 const bucketItems = localStorage.getItem('bucketItems') ? JSON.parse(localStorage.getItem('bucketItems')) : [];
 
 const initialState = {
     bucketReducer: {
         bucketItems: bucketItems
-    }
+    },
+    loginUserReducer : {
+        currentUser : currentUser,
+    },
   };
   
 

@@ -103,3 +103,21 @@ nav ul li:hover {
     border-radius: 50%;
     color: azure;
 }
+
+.userName{
+    color: azure;
+    font-size: 20px;
+}
+.logout-btn {
+    padding: 5px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    font-size: larger;
+    font-weight: 600;
+    background-color:azure;
+}
+.logout-btn:hover{
+    transition:500ms;
+    box-shadow: azure 0px 0px 20px 1px;
+}

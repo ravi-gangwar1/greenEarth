@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style/login.css'
-import { signupAction } from '../actions/userAction';
-import {useDispatch, useSelector } from 'react-redux';
+import { signupAction, loginAction } from '../actions/userAction';
+import {useDispatch} from 'react-redux';
 
 const Login = () => {
 
@@ -10,11 +10,16 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
     const dispatch = useDispatch();
-
+    
+    useEffect(()=> {
+        if(localStorage.getItem('currentUser')){
+            window.location.href = '/';
+        }
+    }, []);
     const handleLogin = ()=> {
-        const user = {email, password}
+        const user = {email, password};
+        dispatch(loginAction(user));
         setEmail('');
         setPassword('');
     }
@@ -32,6 +37,9 @@ const Login = () => {
         setConfirmPassword('');
         }
     }
+
+
+
     return (
         <div className='main-div'>
            <div className='container'>
