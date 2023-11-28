@@ -16,7 +16,7 @@ function NavBar() {
       const scrollY = window.scrollY || window.pageYOffset;
 
       // Check if the user has scrolled 1vh down
-      setIsSticky(scrollY > window.innerHeight * 0);
+      setIsSticky(scrollY > window.innerHeight * 0.06);
     };
 
     // Attach the scroll event listener

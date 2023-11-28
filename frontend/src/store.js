@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { treeReducer } from "./reducers/treeReducers";
 import { bucketReducer } from "./reducers/bucketReducer";
+import { signupReducer } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
     treeReducer,
     bucketReducer,
+    signupReducer
 });
 
 const bucketItems = localStorage.getItem('bucketItems') ? JSON.parse(localStorage.getItem('bucketItems')) : [];

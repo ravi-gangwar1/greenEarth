@@ -1,0 +1,105 @@
+.main-div{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: green; */
+
+}
+.container{
+    /* background-color: red; */
+    height: 80%;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-2nd{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    height: 98%;
+    width: 95%;
+    /* background-color: yellow; */
+    border: 1px solid rgb(207, 193, 193);
+}
+.h5-fisrt{
+    text-align: center;
+    color: rgb(119, 103, 103);
+    font-size: larger;
+    margin: 2%;
+}
+.facebook-log-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 30px;
+    width: 75%;
+    font-size: larger;
+    border-radius: 5px;
+    background-color: #0095F6;
+    border: none;
+    margin-bottom: 5%;
+}
+.orDiv{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+.orDiv span {
+    width: 50%;
+
+}
+.orDiv p{
+    margin-right: 3px;
+    margin-left: 3px;
+}
+input{
+    padding: 10px;
+    height: 10px;
+    width: 70%;
+    margin-top: 10px;
+    border: 1px solid rgb(119, 103, 103);;
+}
+.para1{
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(119, 103, 103);
+}
+
+.para2{
+    text-align: center;
+    margin-top: 30px;
+    color: rgb(119, 103, 103);
+}
+.signbtn{
+
+    height: 30px;
+    width: 35%;
+    font-size: larger;
+    border-radius: 5px;
+    background-color: #0095F6;
+    border: none;
+    margin-top: 30px;
+    color: white;
+    font-weight: 500;
+}
+.signbtn:hover{
+    cursor: pointer;
+}
+.loginContainer{
+    border: 1px solid rgb(207, 193, 193);
+    height: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 335px;
+    color: rgb(119, 103, 103);
+}

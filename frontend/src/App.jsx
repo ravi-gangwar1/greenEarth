@@ -7,6 +7,7 @@ import Contact from './page/Contact'
 import Home from './page/Home'
 import BucketPage from './page/BucketPage'
 import NotFound from './page/NotFound'
+import Login from './page/Login'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/bucket' element={<BucketPage/>}/>
-
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </BrowserRouter>
   )
