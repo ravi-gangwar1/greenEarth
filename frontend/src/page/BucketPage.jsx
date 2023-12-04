@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { addAction, deleteFromCart } from '../actions/bucketAction';
 import '../style/bucketPage.css'
+import CheackOut from '../components/CheackOut';
 
 
 function BucketPage() {
@@ -46,7 +46,7 @@ function BucketPage() {
       ))}
       <div className='totalPriceDiv'> 
       <h3>Total Amount: &#x20B9;{total}/-</h3>
-      <button className='order-btn'>Place</button>
+      <CheackOut total={total}/>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .main-card{
-    background-color: lightseagreen;
+    background-color: rgb(58, 59, 64);
     height: 30vh;
+    color: azure;
     width:18vw;
     display: flex;
     justify-content: center;
@@ -8,12 +9,16 @@
     text-decoration: none;
     color: black;
     margin: 10px;
+    box-shadow: 0 0 10px rgba(26, 25, 25, 0.8); 
+    border-radius: 5px;
 }
 
 .box-card{
     height: 90%;
     width: 90%;
     text-align: center;
+    color: azure;
+
 }
 .img-div{
     height: 70%;

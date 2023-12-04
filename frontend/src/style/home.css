@@ -12,6 +12,7 @@
     top: 50%;
     left: 45%;
     font-size: 40px;
+    color: azure;
 }
 .error{
     position: absolute;
@@ -32,16 +33,14 @@
     font-size: larger;
 }
 .input-search:hover{
-    width: 40%;
-    transition: ease-in-out;
-    transition-duration: 500ms;
-    transition-delay: 200ms;
+    padding: 15px 20px;
 }
 .cetageory{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: larger;
+    color: azure;
 }
 .cetageory input {
     margin: 5px;
