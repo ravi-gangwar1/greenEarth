@@ -15,8 +15,16 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+  (async () => {
+    try {
+      await connectDB();
+      console.log("i know mongoDB url is Public".bgRed);
+    } catch (error) {
+      console.error("MongoDB connection failed:", error);
+    }
+  })();
+  
 
-connectDB();
 
 //routes
 app.use('/api/trees', router);
