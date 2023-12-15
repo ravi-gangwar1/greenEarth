@@ -32,9 +32,6 @@
     padding: 10px;
     font-size: larger;
 }
-.input-search:hover{
-    padding: 15px 20px;
-}
 .cetageory{
     display: flex;
     align-items: center;

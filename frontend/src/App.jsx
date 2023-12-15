@@ -8,6 +8,8 @@ import Home from './page/Home'
 import BucketPage from './page/BucketPage'
 import NotFound from './page/NotFound'
 import Login from './page/Login'
+import PayCancel from './components/PayCancel'
+import PaySuccess from './components/PaySuccess'
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/bucket' element={<BucketPage/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/success' element={<PaySuccess/>}/>
+        <Route path='/cancel' element={<PayCancel/>}/>
+        
       </Routes>
     </BrowserRouter>
   )
