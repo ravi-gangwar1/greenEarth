@@ -4,6 +4,7 @@ import { addAction, deleteFromCart } from '../actions/bucketAction';
 import '../style/bucketPage.css'
 import {loadStripe} from '@stripe/stripe-js';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 
 function BucketPage() {
@@ -11,12 +12,13 @@ function BucketPage() {
   const bucketItems = bucketState.bucketItems;
   const dispatch = useDispatch();
   const total = bucketItems.reduce((x, item) => x + item.price*item.quantity, 0)
-  console.log(bucketItems)
+  const userState = useSelector(state => state.loginUserReducer);
+  const {currentUser} = userState;
 
 
 // address 
-const [name, setName] = useState("");
-const [email, setEmail] = useState("");
+const [name, setName] = useState(currentUser ? currentUser.data.name : "");
+const [email, setEmail] = useState(currentUser ? currentUser.data.email : "");
 const [phone, setPhone] = useState("");
 const [state, setState] = useState("");
 const [city, setCity] = useState("");
@@ -28,6 +30,9 @@ const [landmark, setLandmark] = useState("");
 // 
 
 const addressHandler = ()=>{
+  if(!currentUser) {
+    return <Navigate to="/login" />;
+  }
   if(name && email && phone && state && city && pincode && address && landmark){
     makePayment();
   }else{
@@ -43,9 +48,11 @@ const makePayment = async () => {
   const reqBody = {
     bucketItems: bucketItems,
     address: {
+      userId: currentUser.data._id,
       name: name,
       email: email,
       phone: phone,
+      amount: total,
       state: state,
       city: city,
       pincode: pincode,

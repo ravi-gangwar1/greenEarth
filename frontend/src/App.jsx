@@ -10,6 +10,7 @@ import NotFound from './page/NotFound'
 import Login from './page/Login'
 import PayCancel from './components/PayCancel'
 import PaySuccess from './components/PaySuccess'
+import OrdersList from './page/OrdersList'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/success' element={<PaySuccess/>}/>
         <Route path='/cancel' element={<PayCancel/>}/>
+        <Route path='/orders' element={<OrdersList/>}/>
         
       </Routes>
     </BrowserRouter>

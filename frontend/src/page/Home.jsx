@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Treecard from '../components/Treecard'
 import "../style/home.css"
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllTree } from '../actions/treeAction';
-import Loader from '../components/spiner';
 
 
 

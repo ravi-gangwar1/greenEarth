@@ -6,7 +6,7 @@ import { bucketReducer } from "./reducers/bucketReducer";
 import { signupReducer } from "./reducers/userReducer";
 import { loginUserReducer } from "./reducers/userReducer";
 import { placeOrderReducer } from "./reducers/orderReducer.js";
-
+import { getUserOrdersReducer } from "./reducers/orderReducer.js";
 
 
 
@@ -16,7 +16,8 @@ const rootReducer = combineReducers({
     bucketReducer,
     signupReducer,
     loginUserReducer,
-    placeOrderReducer
+    placeOrderReducer,
+    getUserOrdersReducer
 });
 const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null;
 const bucketItems = localStorage.getItem('bucketItems') ? JSON.parse(localStorage.getItem('bucketItems')) : [];
