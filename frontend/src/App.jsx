@@ -11,14 +11,13 @@ import Login from './page/Login'
 import PayCancel from './components/PayCancel'
 import PaySuccess from './components/PaySuccess'
 import OrdersList from './page/OrdersList'
+import AdminScreen from './page/AdminScreen'
 
 function App() {
-
   return (
     <BrowserRouter>
       <NavBar/>
       <Routes>
-        <Route path="*" element={<NotFound/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
@@ -26,8 +25,9 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/success' element={<PaySuccess/>}/>
         <Route path='/cancel' element={<PayCancel/>}/>
+        <Route path='/admin' element={<AdminScreen/>}/>
         <Route path='/orders' element={<OrdersList/>}/>
-        
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   )

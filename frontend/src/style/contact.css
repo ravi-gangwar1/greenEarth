@@ -1,0 +1,104 @@
+.contactPage{
+    display: flex;
+}
+.ContactContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:150vh;
+    margin:50px auto;
+}
+.contact-box{
+   background:white;
+   display:flex; 
+}
+.contact-left{
+    flex-basis:60%;
+    padding:40px 60px;
+}
+.contact-right{
+    flex-basis:40%;
+    padding:40px;
+    background:rgb(62, 61, 61);
+    color:#fff
+}
+.heading1{
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 60px;
+}
+.ContactContainer p{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 10px;
+}
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 30px;
+    margin-left: 120px;
+}
+.input-row .input-group{
+    flex-basis: 45%;
+}
+.input-row input{
+    width:150%;
+    border:none;
+    border-bottom: 1.5px solid grey;
+    outline :none;
+    padding-bottom: 5px;
+}
+.labelContact{
+    margin-bottom: 6px;
+    display:block;
+    color:#3c3c3c;
+    text-align: center;
+}
+.contactBtns{
+    background: rgb(65, 64, 64);
+    width:250px;
+    border:none;
+    outline:none;
+    color:#fff;
+    height:40px;
+    border-radius:5px;
+    margin-top:40px;
+    box-shadow:0px 5px 15px 0px grey;
+    margin-left: 125px;
+    cursor: pointer;
+}
+.contact-left h3{
+    color:black;
+    font-weight: 600;
+    margin-bottom:20px;
+    text-align: center;
+    font-size: 40px;
+}
+.contact-right h3{
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+.contact-right h4{
+    font-weight: 500;
+    color:beige;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.contact-right p{
+    text-align: justify;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.contact-right p a{
+    text-decoration: none;
+    color:white;
+}
