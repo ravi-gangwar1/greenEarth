@@ -57,7 +57,7 @@ orderRouter.post('/placeorder', async (req, res) => {
 orderRouter.post('/getorders', async (req, res) => {
     const { userId } = req.body;
     try {
-        const orders = await orderModel.find({ userId: userId }).sort({_id: "-1"});
+        const orders = await orderModel.find({ userId: userId }).sort({ _id: -1 }).exec();
         res.send(orders);
     } catch (error) {
         console.log(error);
