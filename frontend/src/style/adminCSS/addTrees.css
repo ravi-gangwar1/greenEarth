@@ -1,0 +1,59 @@
+/* AddTree.css */
+
+.add-tree-container {
+  display: flex;
+    justify-content: center;
+    max-width: 90%;
+    min-height: 85vh;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+.add-tree-container-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+  width: 70%;
+}
+  
+  h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .admin-addtree-input1{
+    width: 90%;
+    padding: 20px 20px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+  .admin-textarea1 {
+    height: 200px;
+    width: 90%;
+    padding: 2px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  .admin-submit-btn {
+    background-color: #4caf50;
+    width: 90%;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .admin-submit-btn:hover {
+    background-color: #45a049;
+  }
+  

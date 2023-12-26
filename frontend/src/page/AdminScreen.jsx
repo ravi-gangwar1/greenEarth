@@ -1,9 +1,5 @@
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../style/adminScreen.css';
-import UserList from '../components/admin/UserList';
-import OrderList from '../components/admin/OrderList';
-import TreeList from '../components/admin/TreeList';
-import AddTree from '../components/admin/AddTree';
 
 function AdminScreen() {
   return (
@@ -17,12 +13,6 @@ function AdminScreen() {
         </ul>
       </div>
       <div className='display-controllers'>
-        <Routes>
-          <Route path='/admin/users' element={<UserList />} />
-          <Route path='/admin/orders' element={<OrderList />} />
-          <Route path='/admin/trees' element={<TreeList />} />
-          <Route path='/admin/add-tree' element={<AddTree />} />
-        </Routes>
       </div>
     </div>
   );

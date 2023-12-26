@@ -3,7 +3,7 @@
 }
 /* navBar.css */
 nav {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add any additional properties you want to transition */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   nav.sticky {
@@ -11,9 +11,9 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgb(0, 21, 36); /* Change to your desired background color */
-    box-shadow: 0px 2px 5px rgb(0, 21, 36); /* Change to your desired box shadow */
-    /* Add any additional styles you need for the sticky state */
+    background-color: rgb(0, 21, 36); 
+    box-shadow: 0px 2px 5px rgb(0, 21, 36); 
+    
   }
   
   
@@ -61,11 +61,11 @@ nav ul li:hover {
 .navBar-btns{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 5vh;
     width: 20%;
 }
-.navBar-btns .login-btn {
+.login-btn {
     width: 100%;
     padding: 5px 10px;
     cursor: pointer;
@@ -73,7 +73,7 @@ nav ul li:hover {
     border-radius: 2px;
     font-size: larger;
     font-weight: 600;
-    background-color:azure;
+    background-color:rgb(147, 163, 163);
 }
 .login-btn:hover{
     transition:500ms;
@@ -115,7 +115,8 @@ nav ul li:hover {
     border-radius: 2px;
     font-size: larger;
     font-weight: 600;
-    background-color:azure;
+    margin-bottom: 10px;
+    background-color:rgba(27, 28, 28, 0.868);
 }
 .logout-btn:hover{
     transition:500ms;

@@ -1,0 +1,50 @@
+
+.actionHead{
+  width:120px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.tree-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tree-table th, .tree-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .even-row {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .odd-row {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .error-row {
+    background-color: #ffdddd;
+    color: #ff0000;
+  }
+  .tree-table button.edit-btn {
+    background-color: #4caf50; /* Green background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  /* Delete button style */
+  .tree-table button.delete-btn {
+    background-color: #ff4444; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
