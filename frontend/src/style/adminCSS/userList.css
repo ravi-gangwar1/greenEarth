@@ -1,0 +1,44 @@
+/* UserList.css */
+
+.user-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #dfd5d5;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #1a1818;
+  }
+  
+  .even-row {
+    background-color: #3d3c3c;
+  }
+  
+  .odd-row {
+    background-color: #0a0909;
+  }
+  
+  .delete-button {
+    background-color: #ff6464;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

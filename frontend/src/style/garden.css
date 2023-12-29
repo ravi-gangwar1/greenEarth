@@ -1,0 +1,42 @@
+.garden-page{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.garden-page h2{
+    position: absolute;
+    font-size: 30px;
+    text-decoration: underline;
+    top: 5px;
+
+}
+.garden-page2{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.garden-card{
+    height: 200px;
+    width: 200px;
+    background-color: rgba(58, 58, 58, 0.813);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.garden-tree-img{
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+}
+.garden-card h1{
+    color: azure;
+}

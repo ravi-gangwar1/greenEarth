@@ -9,8 +9,9 @@
     margin:50px auto;
 }
 .contact-box{
-   background:white;
+   background:rgb(255, 255, 255);
    display:flex; 
+   border-radius: 10px 100px;
 }
 .contact-left{
     flex-basis:60%;
@@ -20,7 +21,8 @@
     flex-basis:40%;
     padding:40px;
     background:rgb(62, 61, 61);
-    color:#fff
+    color:#ffffff;
+    border-radius: 0px 0px 100px;
 }
 .heading1{
     margin-bottom: 0px;

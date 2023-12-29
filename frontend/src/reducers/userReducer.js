@@ -19,6 +19,30 @@ export const signupReducer = (state = {}, action) => {
             return {state};
     }
 }
+export const getAllUsersReducer = (state = {}, action) => {
+    switch(action.type){
+        case 'GET_USER_REQUEST':
+            return {
+                loading : true,
+                error: null
+
+            }
+        case 'GET_USER_SUCCESS':
+            return {
+                users: action.payload,
+                loading : false,
+                success : true
+            }
+        case 'GET_USER_FAIL':
+            return {
+                loading: false,
+                error: action.payload,
+                users: {},
+            }
+        default:
+            return state;
+    }
+}
 
 
 

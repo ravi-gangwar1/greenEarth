@@ -26,8 +26,8 @@ const orderSchema = mongoose.Schema({
         type: Number,
         require: [true, "order amount must be required"]
     },
-    isDeliverd : {
-        type: String,
+    isDelivered : {
+        type: Boolean,
         require: [true, "isDeliverd must be required"],
         default: false
     },

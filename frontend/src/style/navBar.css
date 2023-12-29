@@ -61,7 +61,7 @@ nav ul li:hover {
 .navBar-btns{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 5vh;
     width: 20%;
 }
@@ -104,21 +104,57 @@ nav ul li:hover {
     color: azure;
 }
 
-.userName{
+.userIcon{
+    position: absolute;
+    top: 2px;
     color: azure;
-    font-size: 20px;
-}
-.logout-btn {
-    padding: 5px 5px;
-    cursor: pointer;
+    font-size:30px;
+}  
+  .dropdown {
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    float:right
+  }
+
+  .dropbtn {
+    background-color: #ffffff00;
+    padding: 16px;
     border: none;
-    border-radius: 2px;
-    font-size: larger;
-    font-weight: 600;
-    margin-bottom: 10px;
-    background-color:rgba(27, 28, 28, 0.868);
-}
-.logout-btn:hover{
-    transition:500ms;
-    box-shadow: azure 0px 0px 20px 1px;
+    cursor: pointer;
+  }
+  .dropdown-content {
+    height: 150px;
+    width: 20px;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f3eeeeef;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(201, 194, 194, 0.407);
+    z-index: 1;
+  }
+  
+  .linksTag-dropDown {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: azure;
+    cursor: pointer;
+  }
+  .linksTag-dropDown:hover {
+    border-radius: 5px;
+    background-color: #000000ef;
+  }
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #252525ee;
+    border-radius: 5px;
 }

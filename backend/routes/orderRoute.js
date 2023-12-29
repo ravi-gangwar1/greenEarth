@@ -63,5 +63,34 @@ orderRouter.post('/getorders', async (req, res) => {
         console.log(error);
     }
 })
+orderRouter.post('/admin/getAllOrders', async (req, res) => {
+    try {
+        const orders = await orderModel.find({}).sort({ _id: -1 }).exec();
+        res.send(orders);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+orderRouter.post('/admin/delivered-order', async (req, res) => {
+    const id = req.body.orderId;
+    try {
+        const delivered = await orderModel.findOneAndUpdate(
+            { _id: id },
+            { isDelivered: true },
+            { new: true }
+        );
+        
+        if (delivered) {
+            res.status(200).send(delivered);
+        } else {
+            res.status(404).send({ error: 'Order not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
 
 export default orderRouter;

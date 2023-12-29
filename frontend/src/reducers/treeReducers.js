@@ -49,3 +49,85 @@ export const treeReducer = (state = { trees: [] }, action) => {
     }
   };
   
+  export const getTreeByIdReducer = (state = { }, action) => {
+    switch (action.type) {
+      case 'GET_TREE_BY_ID_TREE_REQUEST':
+        return { 
+          ...state, 
+          loading: true, 
+          error: null };
+  
+      case 'GET_TREE_BY_ID_TREE_SUCCESS':
+        return {
+          tree: action.payload,
+          loading: false,
+          error: null,
+        };
+  
+      case 'GET_TREE_BY_ID_TREE_FAIL':
+        return {
+          error: action.payload,
+          loading: false,
+        };
+      // Optionally, handle a 'RESET' action to reset the state to its initial values
+      case 'RESET_GET_TREE_BY_ID_TREE_STATE':
+        return { loading: false,tree: action.payload ,error: null };
+      default:
+        return state;
+    }
+  };
+  export const updateTreeByIdReducer = (state = { }, action) => {
+    switch (action.type) {
+      case 'UPDATE_TREE_BY_ID_TREE_REQUEST':
+        return { 
+          ...state, 
+          updateLoading: true, 
+          updateError: null };
+  
+      case 'UPDATE_TREE_BY_ID_TREE_SUCCESS':
+        return {
+          updateSuccess: true,
+          updateLoading: false,
+          updateError: null,
+        };
+  
+      case 'UPDATE_TREE_BY_ID_TREE_FAIL':
+        return {
+          updateError: action.payload,
+          updateLoading: false,
+        };
+      // Optionally, handle a 'RESET' action to reset the state to its initial values
+      case 'RESET_UPDATE_TREE_BY_ID_TREE_STATE':
+        return { loading: false,tree: action.payload ,error: null };
+      default:
+        return state;
+    }
+  };
+
+
+export const deleteTreeByIdReducer = (state = { }, action) => {
+    switch (action.type) {
+      case 'DELETE_TREE_BY_ID_TREE_REQUEST':
+        return { 
+          ...state, 
+          deleteLoading: true, 
+          deleteError: null };
+  
+      case 'DELETE_TREE_BY_ID_TREE_SUCCESS':
+        return {
+          deleteSuccess: true,
+          deleteLoading: false,
+          deleteError: null,
+        };
+      case 'DELETE_TREE_BY_ID_TREE_FAIL':
+        return {
+          deleteError: action.payload,
+          deleteLoading: false,
+        };
+      // Optionally, handle a 'RESET' action to reset the state to its initial values
+      case 'RESET_DELETE_TREE_BY_ID_TREE_STATE':
+        return { loading: false,tree: action.payload ,error: null };
+      default:
+        return state;
+    }
+  }

@@ -8,8 +8,10 @@ function AdminScreen() {
         <ul>
           <li><Link to="/admin/orders" className='adminBtns'>Orders</Link></li>
           <li><Link to="/admin/users" className='adminBtns'>Users</Link></li>
+          <li><Link to="/admin/emails" className='adminBtns'>Emails</Link></li>
           <li><Link to="/admin/trees" className='adminBtns'>Trees</Link></li>
           <li><Link to="/admin/add-tree" className='adminBtns'>Add Trees</Link></li>
+
         </ul>
       </div>
       <div className='display-controllers'>

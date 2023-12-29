@@ -8,8 +8,13 @@ import { loginUserReducer } from "./reducers/userReducer";
 import { placeOrderReducer } from "./reducers/orderReducer.js";
 import { getUserOrdersReducer } from "./reducers/orderReducer.js";
 import { AddTreeReducer } from "./reducers/treeReducers";
-
-
+import { getTreeByIdReducer } from "./reducers/treeReducers";
+import { updateTreeByIdReducer } from "./reducers/treeReducers";
+import { deleteTreeByIdReducer } from "./reducers/treeReducers";
+import { getAllUsersReducer } from "./reducers/userReducer";
+import { getAllUsersOrdersReducer } from "./reducers/orderReducer.js";
+import { deliveredOrderMarkReducer } from "./reducers/orderReducer.js";
+import { gardenReducer } from "./reducers/gardenReducer.js";
 
 const rootReducer = combineReducers({
     treeReducer,
@@ -18,7 +23,16 @@ const rootReducer = combineReducers({
     loginUserReducer,
     placeOrderReducer,
     getUserOrdersReducer,
-    AddTreeReducer
+    AddTreeReducer,
+    getTreeByIdReducer,
+    updateTreeByIdReducer,
+    deleteTreeByIdReducer,
+    getAllUsersReducer,
+    getAllUsersOrdersReducer,
+    deliveredOrderMarkReducer,
+    gardenReducer
+
+
 });
 const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null;
 const bucketItems = localStorage.getItem('bucketItems') ? JSON.parse(localStorage.getItem('bucketItems')) : [];

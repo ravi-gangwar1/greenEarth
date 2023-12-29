@@ -98,4 +98,16 @@ userRouter.post("/login", async (req, res)=>{
     }
 })
 
+
+userRouter.get('/getall-users', async (req, res)=>{
+    try {
+        const userList = await userModel.find({});
+        res.status(200).send(userList);
+    } catch (error) {
+        console.error(error); // Log the error
+        res.status(500).json({ message: "Error Fetching the error" });
+    }
+    
+})
+
 export default userRouter;

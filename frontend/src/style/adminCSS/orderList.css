@@ -1,0 +1,32 @@
+.admin-orders-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #d0cbcb;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #e64e46a2;
+  }
+  
+.mark-delivered{
+  padding: 5px 20px;
+  border: none;
+  background-color: #ff3030e1;
+  color: azure;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,72 @@
+.edit-tree-container {
+  height: 89vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.edit-tree-container h1 {
+  font-size: 24px;
+}
+
+/* Form */
+.edit-tree-container form {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: grid;
+  gap: 15px;
+}
+
+/* Label */
+.admit-editTree-labels {
+  line-height: 10px;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Input and Textarea */
+.admin-editTree-inputs{
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.admin-editTree-textarea {
+  height: 180px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+/* Button */
+.edit-tree-container button {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.edit-tree-container button:hover {
+  background-color: #0056b3;
+}
+.admin-editTree-image{
+  height: 300px;
+  object-fit: cover;
+  width: 300px;
+  position: absolute;
+  right: 10px;
+  border-radius: 5px;
+}

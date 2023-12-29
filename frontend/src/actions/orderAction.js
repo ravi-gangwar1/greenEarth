@@ -18,7 +18,6 @@ export const placeOrder = (token, total) => async (dispatch, getState) => {
 
 export const getUserOrders = () => async (dispatch, getState) => {
     const currentUser = getState().loginUserReducer.currentUser;
-    console.log(currentUser.data._id,  "=65664442717abf65bb4530a1");
     dispatch({ type: 'USER_ORDER_REQUEST' });
     try {
         const res = await axios.post('http://localhost:5000/api/orders/getorders', { userId: currentUser.data._id });
@@ -27,3 +26,24 @@ export const getUserOrders = () => async (dispatch, getState) => {
         dispatch({ type: 'USER_ORDER_FAIL', payload: error });
     }
 }
+export const getAllOrders = () => async (dispatch) => {
+    dispatch({ type: 'ALL_ORDER_REQUEST' });
+    try {
+        const res = await axios.post('http://localhost:5000/api/orders/admin/getAllOrders');
+        dispatch({ type: 'ALL_ORDER_SUCCESS', payload: res.data });
+    } catch (error) {
+        dispatch({ type: 'ALL_ORDER_FAIL', payload: error });
+    }
+}
+
+
+export const deliveredOrderMark = (orderId) => async (dispatch) => {
+    dispatch({ type: 'DELIVERED_ORDER_REQUEST' });
+    try {
+        const res = await axios.post('http://localhost:5000/api/orders/admin/delivered-order', {orderId});
+        dispatch({ type: 'DELIVERED_ORDER_SUCCESS', payload: res.data });
+        window.location.reload(false);  // Correct casing
+    } catch (error) {
+        dispatch({ type: 'DELIVERED_ORDER_FAIL', payload: error });
+    }
+};
