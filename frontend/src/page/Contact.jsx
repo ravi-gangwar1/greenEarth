@@ -1,7 +1,45 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import '../style/contact.css';
+import {useDispatch, useSelector} from "react-redux"
+import { contactAction } from '../actions/contactAction';
 
 function Contact() {
+
+  const dispatch = useDispatch();
+  const contactState = useSelector((state) => state.contactMessageReducer);
+  const { loading, success, error } = contactState;
+
+  useEffect(() => {
+    if (success === true) {
+      alert("Your message has been sent successfully");
+      setContactMessage({
+        ...contactMessage,
+        name: "",
+        email: "",
+        message: ""
+      });
+    }
+  }, [success]);
+  
+  const [contactMessage, setContactMessage ] = useState(
+    {
+      name: "",
+      email: "",
+      message: ""
+    }
+  )
+
+
+  const handleMessage = () => {
+    if (contactMessage.name !== "" && contactMessage.email !== "" && contactMessage.message !== "") {
+      console.log()
+      dispatch(contactAction(contactMessage));
+    } else {
+      alert("Fill all the fields");
+    }
+  };
+  
+
   return (
     <div className='contactPage'>
       <div className="ContactContainer">
@@ -21,24 +59,32 @@ function Contact() {
               <div className='secondContact'> 
                 <div className="input-row">
                   <div className="input-group">
-                    <input type="text" id="name" placeholder="Name" />
+                  <input 
+                    type="text" 
+                    id="name" 
+                    placeholder="Name" 
+                    onChange={(e) => setContactMessage({ ...contactMessage, name: e.target.value })}/>
                   </div>
                 </div>
                 <div className="input-row">
                   <div className="input-group">
-                    <input type="text" id="email" placeholder="Email address" />
+                    <input 
+                    type="text" 
+                    id="email" 
+                    placeholder="Email address"
+                    onChange={(e) => setContactMessage({ ...contactMessage, email: e.target.value })}/> 
                   </div>
                 </div>
                 <div className="input-row">
                   <div className="input-group">
-                    <input
+                    <textarea
                       type="text"
                       id="message"
                       placeholder="Tell us about it"
-                    />
+                      onChange={(e) => setContactMessage({ ...contactMessage, message: e.target.value })}/>
                   </div>
                 </div>
-                <button className='contactBtns' type="submit">Send</button>
+                <button className='contactBtns' type="submit"  onClick={handleMessage}>Send</button>
               </div>
             </div>
           </div>

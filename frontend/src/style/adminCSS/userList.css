@@ -1,6 +1,7 @@
 /* UserList.css */
 
 .user-list-container {
+  min-height: 100vh;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -19,7 +20,8 @@
   th, td {
     border: 1px solid #dfd5d5;
     padding: 10px;
-    text-align: left;
+    text-align: center;
+
   }
   
   th {
@@ -40,5 +42,18 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    font-weight: 700;
   }
-  
+.admin-users-action-btns button{
+  margin: 0 5px;
+}
+
+.delete-button-make{
+  background-color: #00ec4fe0;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+}

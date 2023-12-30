@@ -254,4 +254,115 @@ userRouter.post('/change-password', async (req, res) => {
     }
 });
 
+userRouter.post('/delete-user', async (req, res) => {
+    const {_id} = req.body;
+    try {
+            const deleteUser = await userModel.findOneAndDelete({_id});
+            if(deleteUser){
+                return res.status(200).json({
+                    message: "User Deleted",
+                    success: true,
+                    data : deleteUser,
+                })
+            }else{
+                return res.status(404).json({
+                    message: "Error while deleting the user",
+                    success: false
+                })
+            }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            message: "Server Error while deleting user",
+            error: error,
+        });
+    }
+});
+
+
+userRouter.post('/make-admin', async (req, res) => {
+    const {_id} = req.body;
+    try {
+            const makeAdmin = await userModel.findOneAndUpdate({_id}, {isAdmin : true},
+                {new : true});
+            if(makeAdmin){
+                return res.status(200).json({
+                    message: "User Admin now!",
+                    success: true,
+                    data : makeAdmin,
+                })
+            }else{
+                return res.status(404).json({
+                    message: "Error while Making admin",
+                    success: false
+                })
+            }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            message: "Server Error while Making admin",
+            error: error,
+        });
+    }
+});
+
+userRouter.post('/remove-admin', async (req, res) => {
+    const {_id} = req.body;
+    try {
+            const makeAdmin = await userModel.findOneAndUpdate({_id}, {isAdmin : false},
+                {new : true});
+            if(makeAdmin){
+                return res.status(200).json({
+                    message: "User removed as a Admin now!",
+                    success: true,
+                    data : makeAdmin,
+                })
+            }else{
+                return res.status(404).json({
+                    message: "Error while removing admin",
+                    success: false
+                })
+            }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            message: "Server Error while removing admin",
+            error: error,
+        });
+    }
+});
+
+userRouter.post('/make-worker', async (req, res) => {
+    const {_id} = req.body;
+    try {
+            const makeWorker = await userModel.findOneAndUpdate({_id}, {isWorker : true},
+                {new : true});
+            if(makeWorker){
+                return res.status(200).json({
+                    message: "User removed as a Worker now!",
+                    success: true,
+                    data : makeWorker,
+                })
+            }else{
+                return res.status(404).json({
+                    message: "Error while making worker",
+                    success: false
+                })
+            }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({
+            message: "Server Error while making worker",
+            error: error,
+        });
+    }
+});
+
+
+
+
 export default userRouter;

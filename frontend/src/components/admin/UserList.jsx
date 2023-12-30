@@ -3,12 +3,38 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../../actions/userAction";
+
+import 
+{ 
+  makeAdminAction, 
+  removeAdminAction, 
+  deleteUserAction, 
+  makeWorkerAction 
+} from "../../actions/userAction";
+
 import "../../style/adminCSS/userList.css"; // Import the CSS file for styling
 
 function UserList() {
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.getAllUsersReducer);
   const { users } = userState;
+  console.log(users);
+
+  function handleMakeAdmin(userId){
+    dispatch(makeAdminAction(userId));
+  }
+
+  function handleRemoveAdmin(userId) {
+    dispatch(removeAdminAction(userId));
+  }
+
+  function handleDeleteUser (userId){
+    dispatch(deleteUserAction(userId));
+  }
+
+  function handleMakeWorker(userId){
+    dispatch(makeWorkerAction(userId));
+  }
 
   useEffect(() => {
     dispatch(getAllUsers());
@@ -32,8 +58,18 @@ function UserList() {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{new Date(user.createdAt).toLocaleDateString()}</td>
-                <td>
-                  <button className="delete-button">Delete</button>
+                <td className="admin-users-action-btns">
+                  <button className="delete-button" onClick={() => handleDeleteUser(user._id)}>Delete</button>
+                  {
+                    user.isAdmin ?
+                    <button className="delete-button" onClick={() => handleRemoveAdmin(user._id)}>Remove Admin</button> :
+                    <button className="delete-button-make" onClick={() => handleMakeAdmin(user._id)}>Make Admin</button>
+                  }
+                  {
+                    user.isWorker ? 
+                    <button className="delete-button" onClick={() => handleMakeWorker(user._id)}>Remove Worker</button> : 
+                    <button className="delete-button-make" onClick={() => handleMakeWorker(user.id)}>Make Worker</button>
+                  }
                 </td>
               </tr>
             ))}

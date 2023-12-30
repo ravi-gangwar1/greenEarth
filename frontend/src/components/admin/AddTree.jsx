@@ -58,7 +58,6 @@ const AddTree = () => {
       <div className='add-tree-container-2'>
         <h2 className='admin-h2'>Add Tree</h2>
         <form onSubmit={handleSubmit}>
-        <input className='admin-addtree-input1' type="number" name="id" value={treeData.id} onChange={handleChange} />
         <input className='admin-addtree-input1' type="text" placeholder='Tree name' name="name" value={treeData.name} onChange={handleChange} />
         <input className='admin-addtree-input1' type="url" placeholder="Image-url" name="imageUrl" value={treeData.imageUrl} onChange={handleChange} />
         <input className='admin-addtree-input1' type="text" placeholder='Price' name="price" value={treeData.price} onChange={handleChange} />

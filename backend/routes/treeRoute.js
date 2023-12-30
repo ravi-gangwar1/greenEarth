@@ -8,16 +8,31 @@ const router = express.Router();
 
 // GET ALL FOODMENU || @GET REQUEST
 //crud opr also called
-router.get('/getall', async (req, res)=>{
-    try {
-        const treeList = await treeModel.find({});
-        res.status(200).send(treeList);
-    } catch (error) {
-        console.error(error); // Log the error
-        res.status(500).json({ message: "Internal server error" });
+router.get('/getall', async (req, res) => {
+  try {
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 15;
+    const totalDocuments = await treeModel.countDocuments();
+    if (page < 1 || limit < 1) {
+      return res.status(400).json({ message: "Invalid page or limit value" });
     }
-    
-})
+
+    const startIndex = (page - 1) * limit;
+    const totalPages = Math.ceil(totalDocuments / limit);
+
+    if (startIndex >= totalDocuments) {
+      return res.status(400).json({ message: "Page out of bounds" });
+    }
+
+    const treeList = await treeModel.find({}).skip(startIndex).limit(limit);
+
+    res.status(200).send({treeList, totalDocuments});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 
 
 // import { ObjectId } from 'mongodb';

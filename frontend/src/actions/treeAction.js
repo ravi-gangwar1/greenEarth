@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-export const getAllTree = () => async (dispatch) => {
+export const getAllTree = (page) => async (dispatch) => {
     dispatch({type : 'GET_TREE_REQUEST'})
     try {
-        const res = await axios.get('http://localhost:5000/api/trees/getall');
+        const res = await axios.get(`http://localhost:5000/api/trees/getall?page=${page}`);
         dispatch({type : 'GET_TREE_SUCCESS', payload: res.data})
+        console.log(res.data);
     } catch (error) {
         dispatch({type : 'GET_TREE_FAIL', payload: error})
     }

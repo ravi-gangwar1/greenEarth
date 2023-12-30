@@ -147,3 +147,115 @@ export const changePasswordReducer = (state = {}, action)=> {
             return state;
     }
 } 
+
+
+export const deleteUserReducer  = (state = {}, action)=> {
+    switch(action.type){
+        case "DELETE_USER_REQUEST":
+            return {
+                ...state,
+                deleteUserloading: true,
+                deleteUsersuccess: null,
+                deleteUsererror: null
+
+            };
+        case "DELETE_USER_SUCCESS":
+            return{
+                ...state,
+                deleteUserloading:false,
+                deleteUsersuccess: true,
+                deleteUsererror:null
+            };
+        case "DELETE_USER_FAIL":
+            return {
+                deleteUserloading: false,
+                deleteUsersuccess: false,
+                deleteUsererror: action.payload
+            };
+        default :
+            return state;
+    }
+}
+
+export const makeAdminReducer  = (state = {}, action)=> {
+    switch(action.type){
+        case "MAKE_ADMIN_REQUEST":
+            return {
+                ...state,
+                makeAdminloading: true,
+                makeAdminsuccess: null,
+                makeAdminerror: null
+
+            };
+        case "MAKE_ADMIN_SUCCESS":
+            return{
+                ...state,
+                makeAdminloading:false,
+                makeAdminsuccess: true,
+                makeAdminerror:null
+            };
+        case "MAKE_ADMIN_FAIL":
+            return {
+                makeAdminloading: false,
+                makeAdminsuccess: false,
+                makeAdminerror: action.payload
+            };
+        default :
+            return state;
+    }
+}
+
+export const removeAdminReducer  = (state = {}, action)=> {
+    switch(action.type){
+        case "REMOVE_ADMIN_REQUEST":
+            return {
+                ...state,
+                removeAdminloading :true,
+                removeAdminsuccess : null,
+                removeAdminerror : null
+            }
+        case "REMOVE_ADMIN_SUCCESS":
+            return{
+                ...state,
+                removeAdminloading :false,
+                removeAdminsuccess : true,
+                removeAdminerror : null
+            }
+        case "REMOVE_ADMIN_FAIL" :
+            return{
+                removeAdminloading :false,
+                removeAdminsuccess : false,
+                removeAdminerror : action.payload
+            }
+        default :
+            return state;
+    }
+}
+
+
+export const makeWorkerReducer  = (state = {}, action)=> {
+    switch(action.type){
+        case "REMOVE_ADMIN_REQUEST":
+            return {
+                ...state,
+                makeWorkerloading :true,
+                makeWorkersuccess : null,
+                makeWorkererror : null
+            }
+        case "REMOVE_ADMIN_SUCCESS":
+            return{
+                ...state,
+                makeWorkerloading :false,
+                makeWorkersuccess : true,
+                makeWorkererror : null
+            }
+        case "REMOVE_ADMIN_FAIL" :
+            return{
+                makeWorkerloading :false,
+                makeWorkersuccess : false,
+                makeWorkererror : action.payload
+            }
+        default :
+            return state;
+    }
+}

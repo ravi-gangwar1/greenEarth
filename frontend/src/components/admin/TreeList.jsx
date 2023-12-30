@@ -8,6 +8,7 @@ function TreeList() {
   const dispatch = useDispatch();
   const treestate = useSelector(state => state.treeReducer);
   const { trees, loading, error } = treestate;
+  const {totalDocuments, treeList} = trees;
   const deleteTreeState = useSelector((state) => state.deleteTreeByIdReducer);
   const {/*deleteError,*/ deleteLoading, deleteSuccess} = deleteTreeState;
 
@@ -48,8 +49,8 @@ function TreeList() {
               </td>
             </tr>
           ) : (
-            trees &&
-            trees.map((tree, index) => (
+            treeList &&
+            treeList.map((tree, index) => (
               <tr key={tree._id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
                 <td>{index + 1}</td>
                 <td><a href={tree.imageUrl} target='_blanck'>Image</a></td>

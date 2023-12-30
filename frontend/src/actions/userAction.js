@@ -88,3 +88,47 @@ export const changePasswordAction = ({email, newPassword}) => async dispatch => 
   }
 }
 
+export const deleteUserAction = (userId) => async dispatch => {
+  dispatch({type: 'DELETE_USER_REQUEST'});
+  try {
+      const res = await axios.post('http://localhost:5000/api/auth/delete-user', {_id: userId});
+      dispatch({type: 'DELETE_USER_SUCCESS', payload: res.data})
+      window.location.reload(false)
+  } catch (error) {
+      dispatch({type: "DELETE_USER_FAIL", payload: error});
+  }
+}
+
+export const makeAdminAction = (userId) => async dispatch => {
+  dispatch({type: 'MAKE_ADMIN_REQUEST'});
+  try {
+      const res = await axios.post('http://localhost:5000/api/auth/make-admin', {_id: userId});
+      dispatch({type: 'MAKE_ADMIN_SUCCESS', payload: res.data})
+      window.location.reload(false)
+  } catch (error) {
+      dispatch({type: "MAKE_ADMIN_FAIL", payload: error});
+  }
+}
+
+export const removeAdminAction = (userId) => async dispatch => {
+  dispatch({type: 'REMOVE_ADMIN_REQUEST'});
+  try {
+      const res = await axios.post('http://localhost:5000/api/auth/remove-admin', {_id: userId});
+      dispatch({type: 'REMOVE_ADMIN_SUCCESS', payload: res.data})
+      window.location.reload(false)
+  } catch (error) {
+      dispatch({type: "REMOVE_ADMIN_FAIL", payload: error});
+  }
+}
+
+export const makeWorkerAction = (userId) => async dispatch => {
+  dispatch({type: 'MAKE_WORKER_REQUEST'});
+  try {
+      const res = await axios.post('http://localhost:5000/api/auth/make-worker', {_id: userId});
+      dispatch({type: 'MAKE_WORKER_SUCCESS', payload: res.data})
+      window.location.reload(false)
+  } catch (error) {
+      dispatch({type: "MAKE_WORKER_FAIL", payload: error});
+  }
+}
+

@@ -4,7 +4,7 @@ const orderSchema = mongoose.Schema({
     name: {
         type: String,
         require: [true, 'user name is Required'],
-        minLength: [5, "name min length 5 char"],
+        minLength: [3, "name min length 5 char"],
         maxLength: [15, "name must be less than 15 char"],
         trim: true
     },

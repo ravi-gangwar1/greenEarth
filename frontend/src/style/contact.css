@@ -22,7 +22,6 @@
     padding:40px;
     background:rgb(62, 61, 61);
     color:#ffffff;
-    border-radius: 0px 0px 100px;
 }
 .heading1{
     margin-bottom: 0px;
@@ -103,4 +102,9 @@
 .contact-right p a{
     text-decoration: none;
     color:white;
+}
+#message{
+    height: 100px;
+    width: 200px;
+    resize: none;
 }

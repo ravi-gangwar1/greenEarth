@@ -1,4 +1,4 @@
-export const treeReducer = (state = { trees: [] }, action) => {
+export const treeReducer = (state = { trees: {} }, action) => {
     switch (action.type) {
       case 'GET_TREE_REQUEST':
         return { ...state, loading: true };

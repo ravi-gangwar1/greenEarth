@@ -8,6 +8,7 @@ import router from "./routes/treeRoute.js";
 import  cors from 'cors'
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoute.js";
+import contactRouter from "./routes/contactRouter.js";
 
 const app = express();
 app.use(cors());
@@ -28,6 +29,7 @@ app.use(morgan('dev'));
 app.use('/api/trees', router);
 app.use('/api/auth', userRouter);
 app.use('/api/orders', orderRouter);
+app.use('/api/user-message', contactRouter);
 
 
 

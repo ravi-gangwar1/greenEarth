@@ -18,7 +18,11 @@ import { gardenReducer } from "./reducers/gardenReducer.js";
 import { resetPasswordReducer } from "./reducers/userReducer";
 import { otpVerifyReducer } from "./reducers/userReducer"; 
 import { changePasswordReducer } from "./reducers/userReducer";
-
+import { contactMessageReducer } from "./reducers/messageReducer.js";
+import { deleteUserReducer } from "./reducers/userReducer";
+import { makeAdminReducer } from "./reducers/userReducer";
+import { makeWorkerReducer } from "./reducers/userReducer";
+import { removeAdminReducer } from "./reducers/userReducer";
 const rootReducer = combineReducers({
     treeReducer,
     bucketReducer,
@@ -36,7 +40,12 @@ const rootReducer = combineReducers({
     gardenReducer,
     resetPasswordReducer,
     otpVerifyReducer,
-    changePasswordReducer
+    changePasswordReducer,
+    contactMessageReducer,
+    removeAdminReducer,
+    makeWorkerReducer,
+    makeAdminReducer,
+    deleteUserReducer
 
 
 });

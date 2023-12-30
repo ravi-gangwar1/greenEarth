@@ -24,6 +24,18 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false,
+    },
+    isWorker : {
+        type : Boolean,
+        default: false,
+    },
+    isMember: {
+        type: Boolean,
+        default: false,
+    },
+    isMembership: {
+        type: String,
+        default: "none",
     }
 },{
     timestamps: true
