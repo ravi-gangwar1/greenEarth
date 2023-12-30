@@ -15,6 +15,9 @@ import { getAllUsersReducer } from "./reducers/userReducer";
 import { getAllUsersOrdersReducer } from "./reducers/orderReducer.js";
 import { deliveredOrderMarkReducer } from "./reducers/orderReducer.js";
 import { gardenReducer } from "./reducers/gardenReducer.js";
+import { resetPasswordReducer } from "./reducers/userReducer";
+import { otpVerifyReducer } from "./reducers/userReducer"; 
+import { changePasswordReducer } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
     treeReducer,
@@ -30,7 +33,10 @@ const rootReducer = combineReducers({
     getAllUsersReducer,
     getAllUsersOrdersReducer,
     deliveredOrderMarkReducer,
-    gardenReducer
+    gardenReducer,
+    resetPasswordReducer,
+    otpVerifyReducer,
+    changePasswordReducer
 
 
 });

@@ -23,8 +23,6 @@ app.use(morgan('dev'));
       console.error("MongoDB connection failed:", error);
     }
   })();
-  
-
 
 //routes
 app.use('/api/trees', router);

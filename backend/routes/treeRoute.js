@@ -23,7 +23,7 @@ router.get('/getall', async (req, res)=>{
 // import { ObjectId } from 'mongodb';
 
 router.post('/addtree', async (req, res) => {
-  const {id, name, price, imageUrl, category, description } = req.body;
+  const {id, name, price, imageUrl, category, discription } = req.body;
   try {
     const newTree = new treeModel({
       id,
@@ -31,7 +31,7 @@ router.post('/addtree', async (req, res) => {
       price,
       imageUrl,
       category,
-      description,
+      discription,
     });
     await newTree.save();
     res.status(200).send(newTree);
@@ -40,6 +40,9 @@ router.post('/addtree', async (req, res) => {
     res.status(500).json({ message: "Internal server error backend" });
   }
 });
+
+
+
 router.post('/get-tree', async (req, res) => {
   const {treeId} = req.body;
 

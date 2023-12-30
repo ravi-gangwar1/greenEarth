@@ -113,3 +113,13 @@ input{
     width: 335px;
     color: rgb(119, 103, 103);
 }
+.forget-password{
+    text-decoration: none;
+    text-align: left;
+    margin-right: 45px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.forget-password span {
+    color: azure;
+}

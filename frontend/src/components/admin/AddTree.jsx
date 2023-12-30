@@ -18,7 +18,7 @@ const AddTree = () => {
     id: treeLen+1,
     name: '',
     price: '',
-    description: '',
+    discription: '',
     category: '',
     imageUrl: ''
   });
@@ -39,12 +39,15 @@ const AddTree = () => {
     setTreeData({
       name: '',
       price: '',
-      description: '',
+      discription: '',
       category: '',
       imageUrl: ''
     });
-    setTreeLen(trees.length)
   };
+  useEffect(()=> {
+    setTreeLen(trees.length)
+  }, [dispatch])
+
   useEffect(() => {
     dispatch(getAllTree());
   }, []);
@@ -60,7 +63,7 @@ const AddTree = () => {
         <input className='admin-addtree-input1' type="url" placeholder="Image-url" name="imageUrl" value={treeData.imageUrl} onChange={handleChange} />
         <input className='admin-addtree-input1' type="text" placeholder='Price' name="price" value={treeData.price} onChange={handleChange} />
         <input className='admin-addtree-input1' type="text" placeholder='Category: indoor / outdoor' name="category" value={treeData.category} onChange={handleChange} />
-        <textarea className='admin-textarea1' name="description" placeholder='Description' value={treeData.description} onChange={handleChange} />
+        <textarea className='admin-textarea1' name="discription" placeholder='Discription' value={treeData.discription} onChange={handleChange} />
         <button className='admin-submit-btn' type="submit">{loading ? 'Loading...' : 'Add Tree'}</button>
         </form>
       </div>

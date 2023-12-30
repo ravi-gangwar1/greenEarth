@@ -1,11 +1,10 @@
 import { getUserOrders } from "../actions/orderAction.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import "../style/orderList.css"
+import "../style/orderList.css";
 
 function OrdersList() {
   const { orders, loading, error } = useSelector((state) => state.getUserOrdersReducer);
-  console.log(orders);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,48 +12,70 @@ function OrdersList() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="orderList-page">
       {loading ? (
         <h1>Loading...</h1>
       ) : error ? (
         <h1>{error}</h1>
       ) : (
-        orders.map((order) => (
-          <div className="mainOrderDiv" key={order._id}>
-            <div className="Orderdiv">
-              <div className="items">
-                {order.orderTrees.map((item) => (
-                  <div className="itemDetails" key={item._id}>
-                    <h1>{item.name}</h1>
-                    <h1>{item.price}</h1>
-                    <h1>{item.quantity}</h1>
-                  </div>
-                ))}
-              </div>
-              <div className="address">
-                <h1>Shipping Address</h1>
-                <p>Phone: {order.shippingAddress.phone}</p>
-                <p>Address:{order.shippingAddress.address}</p>
-                <p>City:{order.shippingAddress.city}</p>
-                <p>State:{order.shippingAddress.state}</p>
-                <p>PinCode :{order.shippingAddress.pincode}</p>
-              </div>
-            </div>
-            <div className="amtDiv">
-              <h1 className="amt">
-                Total Amount : {order.orderAmount}
-              </h1>
-              <h2 className="deliveryStatus">
-                Delivered: {order.isDelivered ? "Yes✅" : "No❌"}
-              </h2>
-              <button>
-                Cancel Now
-              </button>
-            </div>
-          </div>
-        ))
+        <table className="order-page-table">
+          <thead>
+            <tr>
+              <th>
+                  <td>
+                    Trees
+                  </td>
+                  <td>
+                    Amount
+                  </td>
+                  <td>
+                    Quantity
+                  </td>
+              </th>
+              <th>Total Amount</th>
+              <th>Address</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((odr, index) => (
+              <tr key={index} className={index % 2 === 0 ? 'table-row-light' : 'table-row-dark'}>
+                {/* Tree details */}
+                <td>
+                  {odr.orderTrees.map((trees, treeIndex) => (
+                    <tr key={treeIndex}>
+                      <td>{trees.name}</td>
+                      <td>Rs.{trees.price}/-</td>
+                      <td>{trees.quantity}</td>
+                    </tr>
+                  ))}
+                </td>
+
+                {/* Total Amount */}
+                <td>Rs.{odr.orderAmount}/-</td>
+
+                {/* Address */}
+                <td>
+                  <p>Email: {odr.shippingAddress.email}</p>
+                  <p>Phone: {odr.shippingAddress.phone}</p>
+                  <p>City: {odr.shippingAddress.city}</p>
+                  <p>Landmark: {odr.shippingAddress.landmark}</p>
+                  <p>Pincode: {odr.shippingAddress.pincode}</p>
+                  <p>State: {odr.shippingAddress.state}</p>
+                </td>
+
+                {/* Status */}
+                <td>Delivered: {odr.isDelivered ? "Yes✅" : "No❌"}</td>
+
+                {/* Action */}
+                <td className="cancel-order-order-list"><button>{odr.isDelivered ? "Give Ratings⭐" : "Cancel Now"}</button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-    </>
+    </div>
   );
 }
 

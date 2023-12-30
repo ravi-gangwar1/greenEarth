@@ -1,17 +1,31 @@
-.Orderdiv {
-display: flex;
+/* orderList.css */
+.orderList-page{
+    height: fit-content;
+    padding: 5px;
 }
-.itemDetails{
-    display: flex;
-    gap: 20px;
-}
-.address{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.amtDiv{
-    display: flex;
-    gap: 20px;
-}
+.order-page-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .order-page-table th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  .cancel-order-order-list button{
+    background-color: #ff5757;
+    font-weight: 600;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+.cancel-order-order-list:hover button{
+    background-color: #e43b3b;
+  }
+  
