@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "greenEarthProdeuction",
+    "name": "greenEarth",
     "builds": [
        { "src": "server.js", "use": "@vercel/node" }
     ],
