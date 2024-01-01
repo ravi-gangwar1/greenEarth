@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import { addAction, deleteFromCart } from '../actions/bucketAction';
 import '../style/bucketPage.css'
-import {loadStripe} from '@stripe/stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+
+//Actions
+import { placeOrderAction } from '../actions/orderAction';
 
 
 function BucketPage() {
@@ -27,11 +29,10 @@ const [address, setAddress] = useState("");
 const [landmark, setLandmark] = useState("");
 
 
-// 
-
+//verify input fields
 const addressHandler = ()=>{
   if(!currentUser) {
-    return <Navigate to="/login" />;
+    return window.location.href = '/login';
   }
   if(name && email && phone && state && city && pincode && address && landmark){
     makePayment();
@@ -44,7 +45,6 @@ const addressHandler = ()=>{
 
 // payment
 const makePayment = async () => {
-  const stripe = await loadStripe('pk_test_51OHyz1SB7yI7Si8Nh90kpRQBPIDSidKNxyKSdT49idzoM8IcAULsXJdJzFQ8l95bJ9M3xis06Xu2WUIDU5W4EFnM00xOnAp5Vi');
   const reqBody = {
     bucketItems: bucketItems,
     address: {
@@ -61,19 +61,7 @@ const makePayment = async () => {
     }
     
   };
-  const response = await fetch('http://localhost:5000/api/orders/placeorder', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(reqBody)
-    
-  });
-  const data = await response.json();
-  const { result } = await stripe.redirectToCheckout({ sessionId: data.id });
-  if (result.error) {
-    console.log("Error",result.error);
-  }
+  dispatch(placeOrderAction(reqBody))
 }
 
 
@@ -81,8 +69,8 @@ const makePayment = async () => {
     <div className='bucket-main'>
       <div className='bucketPage'>
         {bucketItems.length === 0 ? (<h1>Bucket is Empty.</h1>) : ("")}
-        {bucketItems.map((tree) => (
-          <div className='bucketItemContainer' key={tree.id}>
+        {bucketItems.map((tree, index) => (
+          <div className='bucketItemContainer' key={index}>
             <img className='bucketItemImg' src={tree.imageUrl} alt="notFound" />
               <h1>{tree.name}</h1>
               <h4>Price: &#x20B9;{tree.quantity*tree.price}</h4>

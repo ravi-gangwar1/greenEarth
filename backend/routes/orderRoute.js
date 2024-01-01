@@ -1,12 +1,18 @@
 import express from "express";
-import Stripe from 'stripe';
+
 import orderModel from "../model/orderModel.js"
 
 const orderRouter = express.Router();
+
+
+
+import Stripe from 'stripe';
+import userModel from "../model/userModel.js";
 const stripe = new Stripe('sk_test_51OHyz1SB7yI7Si8NED0HEr2OGThJUoUIYHATxbT9SY9ZKuaWI09BoZjGRQ0dVh4HevuS0ahzpNVQwIXAW10lPc4P0018ZXFqp6');
 
 orderRouter.post('/placeorder', async (req, res) => {
     const { bucketItems, address} = req.body;
+    console.log(bucketItems, address);
 
     // Construct line items
     const lineItems = bucketItems.map((item) => ({
@@ -25,7 +31,7 @@ orderRouter.post('/placeorder', async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: 'http://localhost:5173/orders',
+        success_url: 'http://localhost:5173/get-membership',
         cancel_url: 'http://localhost:5173/cancel',
     }); 
 
@@ -52,6 +58,85 @@ orderRouter.post('/placeorder', async (req, res) => {
         id: session.id,
     });
 });
+
+
+
+orderRouter.post('/get-membership', async (req, res) => {
+    const { _id, membership } = req.body;
+    console.log(_id, membership);
+    try {
+        const lineItems = [];
+
+        if (membership === 'Basic') {   
+            lineItems.push({
+                price_data: {
+                    currency: 'inr',
+                    product_data: {
+                        name: 'Basic Membership',
+                    },
+                    unit_amount: 199 * 100,
+                },
+                quantity: 1,
+            });
+        } else if (membership === 'Standard') {
+            lineItems.push({
+                price_data: {
+                    currency: 'inr',
+                    product_data: {
+                        name: 'Standard Membership',
+                    },
+                    unit_amount: 499 * 100,
+                },
+                quantity: 1,
+            });
+        } else if (membership === 'Premium') {
+            const price = 999;
+            lineItems.push({
+                price_data: {
+                    currency: 'inr',
+                    product_data: {
+                        name: 'Premium Membership',
+                    },
+                    unit_amount: 999 * 100,
+                },
+                quantity: 1,
+            });
+        } else {
+            return res.status(400).json({ error: 'Invalid membership type' });
+        }
+
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: lineItems,
+            mode: 'payment',
+            success_url: 'http://localhost:5173/orders',
+            cancel_url: 'http://localhost:5173/cancel',
+        });
+
+        if (session) {
+            const giveMembership = await userModel.findByIdAndUpdate({_id},
+                {isMember: true},
+                {isMembership: membership},
+                {new: true});
+
+            if (giveMembership) {
+                console.log('MemberShip given');
+            } else {
+                console.log('MemberShip not given');
+            }
+        }
+        res.json({
+            id: session.id,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
+
+
 
 
 orderRouter.post('/getorders', async (req, res) => {

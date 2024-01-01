@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css'
 import { useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
@@ -12,6 +13,7 @@ import Login from './page/Login'
 import PayCancel from './components/PayCancel'
 import PaySuccess from './components/PaySuccess'
 import OrdersList from './page/OrdersList'
+import TreeDetails from './page/treeDetails';
 
 
 
@@ -33,40 +35,68 @@ function App() {
   const userState = useSelector(state => state.loginUserReducer);
   const {currentUser} = userState;
   const isAdmin = currentUser?.data?.isAdmin === true;
-  return (
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/bucket' element={<BucketPage/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/success' element={<PaySuccess/>}/>
-        <Route path='/cancel' element={<PayCancel/>}/>
-        <Route path="*" element={<NotFound/>}/>
-        { currentUser ? 
-          <>
-            <Route path='/orders' element={<OrdersList/>}/>
-            <Route path='/garden/:userId' element={<Garden/>}/>
-            <Route path='/profile' element={<UserProfile/>}/>
-            <Route path='/get-membership' element={<GetMembership/>}/>
-          </> : ""
-        }
 
-        {isAdmin ? 
-        <>
-        <Route path='/admin/users' element={<UserList/>}/>
-        <Route path='/admin' element={<AdminScreen/>}/>
-        <Route path='/admin/trees' element={<TreeList/>}/>
-        <Route path='/admin/add-tree' element={<AddTree/>}/>
-        <Route path='/admin/orders' element={<AdminOrders/>}/>
-        <Route path='/admin/edit-tree/:treeId' element={<EditTree/>}/>
-        <Route path='/admin/user-messages' element={<UserMessages/>}/>
-        </> : ""}
-      </Routes>
-        <Footer/>
-    </BrowserRouter>
+  
+  const [winSize, setWinSize] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWinSize(window.innerWidth);
+  }
+  useEffect(() => {
+    // Attach the event listener on component mount
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup: Remove the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  return (
+    <>{
+      (winSize < 1260) ?(
+        <div className='mobile-container'>Please Open in desktop view!!</div>
+      ):
+      (
+        <BrowserRouter>
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/bucket' element={<BucketPage/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/success' element={<PaySuccess/>}/>
+            <Route path='/cancel' element={<PayCancel/>}/>
+            <Route path="*" element={<NotFound/>}/>
+            <Route path='/treeDetails/:treeId' element={<TreeDetails/>}/>
+            { currentUser ? 
+              <>
+                <Route path='/orders' element={<OrdersList/>}/>
+                <Route path='/garden/:userId' element={<Garden/>}/>
+                <Route path='/profile' element={<UserProfile/>}/>
+                <Route path='/get-membership' element={<GetMembership/>}/>
+              </> : ""
+            }
+    
+            {isAdmin ? 
+            <>
+            <Route path='/admin/users' element={<UserList/>}/>
+            <Route path='/admin' element={<AdminScreen/>}/>
+            <Route path='/admin/trees' element={<TreeList/>}/>
+            <Route path='/admin/add-tree' element={<AddTree/>}/>
+            <Route path='/admin/orders' element={<AdminOrders/>}/>
+            <Route path='/admin/edit-tree/:treeId' element={<EditTree/>}/>
+            <Route path='/admin/user-messages' element={<UserMessages/>}/>
+            </> : ""}
+          </Routes>
+            <Footer/>
+        </BrowserRouter>
+
+      )
+
+
+      }
+  </>
   )
 }
 

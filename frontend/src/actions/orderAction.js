@@ -1,19 +1,35 @@
 import axios from 'axios';
+import {loadStripe} from '@stripe/stripe-js';
 
-export const placeOrder = (token, total) => async (dispatch, getState) => {
+export const placeOrderAction = (reqBody) => async (dispatch) => {
+    const stripe = await loadStripe('pk_test_51OHyz1SB7yI7Si8Nh90kpRQBPIDSidKNxyKSdT49idzoM8IcAULsXJdJzFQ8l95bJ9M3xis06Xu2WUIDU5W4EFnM00xOnAp5Vi');
+    console.log("REqbody", reqBody);
+  
     dispatch({ type: 'PLACE_ORDER_REQUEST' });
-    const currentUser = getState().loginUserReducer.currentUser;
-    const bucketItems = getState().bucketReducer.bucketItems;
+  
     try {
-        console.log({ token, total, currentUser, bucketItems });
-        const res = await axios.post('http://localhost:5000/api/orders/placeorder', { token, total, currentUser, bucketItems });
+      const response = await axios.post('http://localhost:5000/api/orders/placeorder', reqBody, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = response.data;
+      const { result, error } = await stripe.redirectToCheckout({ sessionId: data.id });
+  
+      if (error) {
+        dispatch({ type: 'PLACE_ORDER_FAIL'});
+        console.log('Error in Stripe Checkout:', error);
+      } else {
         dispatch({ type: 'PLACE_ORDER_SUCCESS' });
-        console.log(res);
+        console.log('Order placed successfully:', result);
+      }
     } catch (error) {
-        dispatch({ type: 'PLACE_ORDER_FAIL' });
-        console.log('error in action frontend', error);
+        dispatch({ type: 'PLACE_ORDER_FAIL', payload: { error } });
+
+      console.log('Error in placing order:', error);
     }
-};
+  };
+  
 
 
 export const getUserOrders = () => async (dispatch, getState) => {

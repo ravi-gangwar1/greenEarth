@@ -3,14 +3,12 @@
     width: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     flex-direction: column;
     color: azure;
-    /* background-color: green; */
 
 }
-.container{
-    /* background-color: red; */
+.login-container{
     height: 80%;
     width: 350px;
     display: flex;

@@ -5,7 +5,6 @@ import { treeReducer } from "./reducers/treeReducers";
 import { bucketReducer } from "./reducers/bucketReducer";
 import { signupReducer } from "./reducers/userReducer";
 import { loginUserReducer } from "./reducers/userReducer";
-import { placeOrderReducer } from "./reducers/orderReducer.js";
 import { getUserOrdersReducer } from "./reducers/orderReducer.js";
 import { AddTreeReducer } from "./reducers/treeReducers";
 import { getTreeByIdReducer } from "./reducers/treeReducers";
@@ -23,12 +22,18 @@ import { deleteUserReducer } from "./reducers/userReducer";
 import { makeAdminReducer } from "./reducers/userReducer";
 import { makeWorkerReducer } from "./reducers/userReducer";
 import { removeAdminReducer } from "./reducers/userReducer";
+import { orderPaymentReducer } from "./reducers/orderReducer.js";
+import { getMembershipReducer } from "./reducers/getMembershipReducer.js";
+import { searchTreeReducer } from "./reducers/searchTreeReducer.js";
+
+
+
+
 const rootReducer = combineReducers({
     treeReducer,
     bucketReducer,
     signupReducer,
     loginUserReducer,
-    placeOrderReducer,
     getUserOrdersReducer,
     AddTreeReducer,
     getTreeByIdReducer,
@@ -45,7 +50,11 @@ const rootReducer = combineReducers({
     removeAdminReducer,
     makeWorkerReducer,
     makeAdminReducer,
-    deleteUserReducer
+    deleteUserReducer,
+    orderPaymentReducer,
+    getMembershipReducer,
+    searchTreeReducer
+    
 
 
 });

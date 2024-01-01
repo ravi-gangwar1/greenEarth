@@ -1,0 +1,50 @@
+.tree-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .tree-details-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+
+  .tree-details-container p {
+    margin-bottom: 8px;
+  }
+  
+  /* Image styles */
+  .tree-details-container img {
+    width: 60%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  /* Button styles */
+  .tree-details-container button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tree-details-container button:hover {
+    background-color: #45a049;
+  }
+  

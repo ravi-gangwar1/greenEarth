@@ -18,8 +18,6 @@ router.get('/getall', async (req, res) => {
     }
 
     const startIndex = (page - 1) * limit;
-    const totalPages = Math.ceil(totalDocuments / limit);
-
     if (startIndex >= totalDocuments) {
       return res.status(400).json({ message: "Page out of bounds" });
     }
@@ -32,6 +30,24 @@ router.get('/getall', async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+
+
+
+router.get('/search-tree', async (req, res) => {
+
+  try {
+    const allTrees = await treeModel.find({});
+    res.status(200).send(allTrees);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+
+
 
 
 

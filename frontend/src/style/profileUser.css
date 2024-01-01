@@ -8,7 +8,7 @@
 .profile-div{
     position: relative;
     height: 70vh;
-    width: 30%;
+    width: fit-content;
     text-align: center;
     background-color: rgb(48, 48, 48);
     padding: 20px;

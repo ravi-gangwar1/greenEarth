@@ -59,7 +59,7 @@ function TreeList() {
                 <td>{tree.discription}</td>
                 <td>{tree.categeory}</td>
                 <td>
-                <Link to={`/admin/edit-tree/${tree._id}`}><button className="edit-btn">Edit</button></Link>
+                <Link className='editTree-btn-admin' to={`/admin/edit-tree/${tree._id}`}><button>Edit</button></Link>
                 <button className="delete-btn" onClick={() => handleDeleteTree(tree._id)}>{deleteLoading ? "Deleting..." : "Delete"}</button>
                 </td>
               </tr>

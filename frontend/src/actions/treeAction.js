@@ -5,7 +5,6 @@ export const getAllTree = (page) => async (dispatch) => {
     try {
         const res = await axios.get(`http://localhost:5000/api/trees/getall?page=${page}`);
         dispatch({type : 'GET_TREE_SUCCESS', payload: res.data})
-        console.log(res.data);
     } catch (error) {
         dispatch({type : 'GET_TREE_FAIL', payload: error})
     }
@@ -22,6 +21,7 @@ export const addTree = (treeData) => async (dispatch) => {
   };
   
   export const getTreeById = (treeId) => async (dispatch) => {
+    console.log("ActionId", treeId)
       dispatch({ type: 'GET_TREE_BY_ID_TREE_REQUEST' });
       try {
         const res = await axios.post('http://localhost:5000/api/trees/get-tree', treeId);

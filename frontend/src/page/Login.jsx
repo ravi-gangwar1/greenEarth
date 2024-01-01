@@ -90,7 +90,7 @@ const Login = () => {
     }
     return (
         <div className='main-div'>
-           <div className='container'>
+           <div className='login-container'>
             <div className='container-2nd'>
                 <h5 className='h5-fisrt'>greenEarth</h5>
                 {

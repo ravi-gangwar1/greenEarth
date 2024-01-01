@@ -31,9 +31,9 @@
     background-color: #ffdddd;
     color: #ff0000;
   }
-  .tree-table button.edit-btn {
-    background-color: #4caf50; /* Green background color */
-    color: #fff; /* White text color */
+  .editTree-btn-admin button {
+    background-color: #4caf50;
+    color: #fff;
     border: none;
     padding: 8px 12px;
     cursor: pointer;

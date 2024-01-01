@@ -16,7 +16,7 @@ function Treecard({ tree }) {
     <div className='main-card'>
       <div className='box-card'>
         <div className="img-div">
-          <Link to={`/details/${tree._id}`}>
+          <Link to={`/treeDetails/${tree._id}`}>
             <img src={tree.imageUrl} alt="" />
           </Link>
         </div>
