@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import { Routes, Route } from 'react-router-dom'
-import About from './page/about'
+import About from './page/About.jsx'
 import Contact from './page/Contact'
 import Home from './page/Home'
 import BucketPage from './page/BucketPage'

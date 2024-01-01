@@ -15,7 +15,7 @@ const app = express();
 const corsOptions = {
   origin: process.env.FRONTEND_URI, 
   methods: 'GET,POST',
-  credentials: true, 
+  credentials: true,
 };
 
 app.use(cors(corsOptions));

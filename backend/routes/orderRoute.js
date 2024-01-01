@@ -1,14 +1,16 @@
 import express from "express";
-
 import orderModel from "../model/orderModel.js"
-
 const orderRouter = express.Router();
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 
 import Stripe from 'stripe';
 import userModel from "../model/userModel.js";
-const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}`);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
+
 
 orderRouter.post('/placeorder', async (req, res) => {
     const { bucketItems, address} = req.body;
@@ -31,8 +33,8 @@ orderRouter.post('/placeorder', async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: `${FRONTEND_URI}/get-membership`,
-        cancel_url: `${FRONTEND_URI}/cancel`,
+        success_url: `${process.env.FRONTEND_URI}/get-membership`,
+        cancel_url: `${process.env.FRONTEND_URI}/cancel`,
     }); 
 
     if(session){
@@ -90,7 +92,6 @@ orderRouter.post('/get-membership', async (req, res) => {
                 quantity: 1,
             });
         } else if (membership === 'Premium') {
-            const price = 999;
             lineItems.push({
                 price_data: {
                     currency: 'inr',
@@ -109,8 +110,8 @@ orderRouter.post('/get-membership', async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `${FRONTEND_URI}/orders`,
-            cancel_url: `${FRONTEND_URI}/cancel`,
+            success_url: `${process.env.FRONTEND_URI}/orders`,
+            cancel_url: `${process.env.FRONTEND_URI}/cancel`,
         });
 
         if (session) {

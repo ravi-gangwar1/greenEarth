@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import '../style/searchBar.css';
+import '../style/searchbar.css';
 function SearchBar({updateSearchTerm}) {
-    const [term, setSearchTerm] = useState('');
+
   return (
     <div className="container">
       <input
