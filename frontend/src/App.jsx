@@ -21,6 +21,8 @@ import TreeDetails from './page/treeDetails';
 import UserProfile from './page/UserProfile';
 import GetMembership from './page/GetMembership';
 
+
+
 import AdminScreen from './page/AdminScreen'
 import UserMessages from './components/admin/UserMessages';
 import AdminOrders from './components/admin/AdminOrders';
@@ -43,10 +45,7 @@ function App() {
     setWinSize(window.innerWidth);
   }
   useEffect(() => {
-    // Attach the event listener on component mount
     window.addEventListener('resize', handleResize);
-
-    // Cleanup: Remove the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };

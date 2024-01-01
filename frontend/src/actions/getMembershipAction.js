@@ -1,14 +1,15 @@
-
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
 
+const BASE_URL = import.meta.env.VITE_BACKED_DOMAIN;
+
 export const getMembershipAction = ({ _id, membership }) => async (dispatch) => {
     try {
-        const stripe = await loadStripe('pk_test_51OHyz1SB7yI7Si8Nh90kpRQBPIDSidKNxyKSdT49idzoM8IcAULsXJdJzFQ8l95bJ9M3xis06Xu2WUIDU5W4EFnM00xOnAp5Vi');
+        const stripe = await loadStripe(`${import.meta.env.VITE_STRIPE_PRIVATE_KEY}`);
 
         dispatch({ type: 'GET_MEMBERSHIP_REQUEST' });
 
-        const response = await axios.post('http://localhost:5000/api/orders/get-membership', { _id, membership }, {
+        const response = await axios.post(`${BASE_URL}/api/orders/get-membership`, { _id, membership }, {
             headers: {
                 'Content-Type': 'application/json',
             },

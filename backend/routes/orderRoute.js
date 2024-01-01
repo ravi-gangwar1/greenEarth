@@ -8,7 +8,7 @@ const orderRouter = express.Router();
 
 import Stripe from 'stripe';
 import userModel from "../model/userModel.js";
-const stripe = new Stripe('sk_test_51OHyz1SB7yI7Si8NED0HEr2OGThJUoUIYHATxbT9SY9ZKuaWI09BoZjGRQ0dVh4HevuS0ahzpNVQwIXAW10lPc4P0018ZXFqp6');
+const stripe = new Stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
 orderRouter.post('/placeorder', async (req, res) => {
     const { bucketItems, address} = req.body;
@@ -31,8 +31,8 @@ orderRouter.post('/placeorder', async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: 'http://localhost:5173/get-membership',
-        cancel_url: 'http://localhost:5173/cancel',
+        success_url: `${FRONTEND_URI}/get-membership`,
+        cancel_url: `${FRONTEND_URI}/cancel`,
     }); 
 
     if(session){
@@ -109,8 +109,8 @@ orderRouter.post('/get-membership', async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: 'http://localhost:5173/orders',
-            cancel_url: 'http://localhost:5173/cancel',
+            success_url: `${FRONTEND_URI}/orders`,
+            cancel_url: `${FRONTEND_URI}/cancel`,
         });
 
         if (session) {

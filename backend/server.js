@@ -1,6 +1,6 @@
 import express from "express";
 import "colors";
-import morgan, { compile } from "morgan";
+import morgan from "morgan";
 import connectDB from './config/config.js';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -11,7 +11,14 @@ import orderRouter from "./routes/orderRoute.js";
 import contactRouter from "./routes/contactRouter.js";
 
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: process.env.FRONTEND_URI, 
+  methods: 'GET,POST',
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(morgan('dev'));
@@ -34,18 +41,6 @@ app.use('/api/user-message', contactRouter);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(5000, ()=> {
-    console.log(`Server running on http://localhost:5000`.bgGreen.white);
+app.listen(process.env.PORT, ()=> {
+    console.log(`Server running on http://localhost:${process.env.PORT}`.bgGreen.white);
 })
