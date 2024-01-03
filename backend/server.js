@@ -13,7 +13,7 @@ import contactRouter from "./routes/contactRouter.js";
 const app = express();
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URI, 
+  origin: https://green-earth-flame.vercel.app, 
   methods: 'GET,POST',
   credentials: true,
 };
