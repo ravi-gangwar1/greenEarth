@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "../style/home.css"
 import SearchBar from '../components/SearchBar';
 import SearchList from '../components/homePage/SearchList';
 import ListAllTress from '../components/homePage/ListAllTrees';
+import { useSelector } from 'react-redux';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('')
+
+  const userState = useSelector(state => state.loginUserReducer);
+  const {currentUser} = userState;
+
+  useEffect(()=> {
+    if(!currentUser) {
+      window.location.href = '/login';
+    }
+  })
   return (
     <div className='home'>
         <>

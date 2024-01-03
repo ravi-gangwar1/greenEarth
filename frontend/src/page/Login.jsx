@@ -3,6 +3,7 @@ import '../style/login.css'
 import { signupAction, loginAction, resetAction, otpVerifyAction, changePasswordAction } from '../actions/userAction';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom'
+import Loader from '../components/Loader';
 
 const Login = () => {
 
@@ -51,13 +52,24 @@ const Login = () => {
         }
     }, []);
 
+
+    const loginState = useSelector((state)=> state.loginUserReducer)
+    const {loginLoading,currentUser, loginSuccess, loginError} = loginState;
+
     const handleLogin = ()=> {
         const user = {email, password};
         dispatch(loginAction(user));
         setEmail('');
         setPassword('');
     }
+    useEffect(()=>{ 
+        if(loginError){
+            alert("Email or Password not matched")
+        }
+            
+    }, [loginError])
 
+    const {loading, success, error} =  useSelector((state)=> state.signupReducer)
     const handleSignup = ()=> {
         if(password !== confirmPassword){
             alert("Confirm Password not matched")
@@ -65,12 +77,20 @@ const Login = () => {
 
         const user = {name, email, password, confirmPassword};
         dispatch(signupAction(user));
-        setEmail('');
-        setPassword('');
-        setName('')
-        setConfirmPassword('');
         }
     }
+    useEffect(()=> {
+        if(success === true){
+            window.location.reload(false);
+            setEmail('');
+            setPassword('');
+            setName('')
+            setConfirmPassword('');
+            alert("Signup Successfull")
+        }
+
+    }, [success])
+
     const handleReset = () => {
         if (email) {
           dispatch(resetAction(email));
@@ -89,11 +109,15 @@ const Login = () => {
         }
     }
     return (
+
+        <>
+            {
+                !loginSuccess && loginLoading ? <Loader/> : 
         <div className='main-div'>
            <div className='login-container'>
             <div className='container-2nd'>
                 <h5 className='h5-fisrt'>greenEarth</h5>
-                {
+                { 
                 changePasswordState ? (
                     <>
                     <input 
@@ -184,7 +208,10 @@ const Login = () => {
                             <p className='para2'>By signing up, you agree to our <Link to='#'>Terms</Link>, <br/><Link to='#'>Privacy Policy</Link> and <Link to='#'>Cookies Policy.</Link></p>
                             {state==="Log In" ? 
                                 <button className='signbtn' type='' onClick={handleLogin}>Log In</button> :
-                                <button className='signbtn' type='' onClick={handleSignup}>Sign Up</button>
+                                <button className='signbtn' type={loading === true ? "button" : "submit"} disabled={loading === true} onClick={handleSignup}>
+                                    {loading ? "Loading..." : success ? "Sign Up Successfull" : "Sign Up" }
+                                </button>
+
                             }
                         </>
                     )
@@ -202,6 +229,8 @@ const Login = () => {
             }
 
         </div>
+            }
+        </>
     )
 }
 

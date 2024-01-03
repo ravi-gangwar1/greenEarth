@@ -1,0 +1,19 @@
+.pay-success-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .success-icon {
+    font-size: 60px;
+    color: #4caf50; /* Green color */
+  }
+  
+  .h1-pay {
+    color: #333;
+  }
+  
+  .p-pay {
+    color: #666;
+    margin-top: 10px;
+  }
+  

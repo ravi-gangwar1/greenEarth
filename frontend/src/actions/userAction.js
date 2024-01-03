@@ -18,8 +18,15 @@ export const loginAction = (user) => async dispatch => {
     try {
         const res = await axios.post(`${BASE_URL}/api/auth/login`, user);
         dispatch({type: 'USER_LOGIN_SUCCESS', payload: res.data});
+        console.log(res.data, "this is response");
         localStorage.setItem("currentUser", JSON.stringify(res.data));
-        window.location.href = '/';
+        if(res.data.success === true){
+            window.location.href = '/';
+        }
+        if(res.data.succuess === false){
+            console.log(res.data, "this is f response");
+            dispatch({type: "USER_LOGIN_FAIL", payload: res.data});
+        }
     } catch (error) {
         dispatch({type: "USER_LOGIN_FAIL", payload: error});
     }

@@ -3,7 +3,7 @@ import '../style/treeDetails.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTreeById } from '../actions/treeAction';
-
+import Loader from '../components/Loader';
 function TreeDetails() {
     const treeId = useParams();
     const dispatch = useDispatch();
@@ -24,7 +24,10 @@ function TreeDetails() {
 
   return (
     <>
-    { tree ? <div className="tree-details-container">
+
+    {
+      loading ? <Loader/> :
+    tree ? <div className="tree-details-container">
     <img src={tree.imageUrl} alt={tree.name} />
       <h1>{tree.name}</h1>
       <p>Category: {tree.categeory}</p>

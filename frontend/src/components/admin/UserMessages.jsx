@@ -2,9 +2,13 @@ import React from 'react'
 
 function UserMessages() {
   return (
-    <div className='user-messages-page'>
-      <h1>User interactions</h1>
-    </div>
+
+    <>
+        <div className='user-messages-page'>
+          <h1>User interactions</h1>
+        </div>
+    </>
+
   )
 }
 

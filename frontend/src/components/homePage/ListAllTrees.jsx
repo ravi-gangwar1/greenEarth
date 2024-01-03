@@ -5,6 +5,10 @@ import Treecard from '../Treecard'
 import "../../style/home.css"
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllTree } from '../../actions/treeAction';
+import Loader from '../Loader';
+
+
+
 
 function ListAllTress() {
   const dispatch = useDispatch();
@@ -37,7 +41,8 @@ function ListAllTress() {
   return (
     <div className='home'>
       {loading ? (
-        <h1 className='loading'>Loading...</h1>
+        // <h1 className='loading'>Loading...</h1>
+         <Loader className='loading'/>
       ) : error ? (
         <h1 className='error'>Server Error or data not fetched</h1>
       ) : (

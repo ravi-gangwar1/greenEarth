@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './App.css'
 import { useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
@@ -14,10 +13,6 @@ import PayCancel from './components/PayCancel'
 import PaySuccess from './components/PaySuccess'
 import OrdersList from './page/OrdersList'
 import TreeDetails from './page/treeDetails';
-
-
-
-
 import UserProfile from './page/UserProfile';
 import GetMembership from './page/GetMembership';
 
@@ -33,28 +28,16 @@ import EditTree from './components/admin/EditTree';
 import Garden from './page/Garden';
 import Footer from './components/Footer';
 
+
 function App() {
   const userState = useSelector(state => state.loginUserReducer);
   const {currentUser} = userState;
   const isAdmin = currentUser?.data?.isAdmin === true;
 
-  
-  const [winSize, setWinSize] = useState(window.innerWidth);
 
-  const handleResize = () => {
-    setWinSize(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+
   return (
     <>{
-      (winSize < 1260) ?(
-        <div className='mobile-container'>Please Open in desktop view!!</div>
-      ):
       (
         <BrowserRouter>
           <NavBar/>

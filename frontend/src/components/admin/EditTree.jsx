@@ -4,6 +4,7 @@ import { getTreeById } from "../../actions/treeAction";
 import { updateTree } from "../../actions/treeAction";
 import { useParams } from "react-router-dom";
 import "../../style/adminCSS/editTree.css";
+import Loader from "../Loader";
 
 function EditTree() {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function EditTree() {
 
   return (
     <>
-    {loading ? <h1>Loading...</h1> : null}
+    {loading ?<Loader/> : null}
     <div className='edit-tree-container'>
       <h1 className=''>Edit Tree</h1>
       <form className='' onSubmit={handleSubmit}>

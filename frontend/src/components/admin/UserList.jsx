@@ -13,11 +13,12 @@ import
 } from "../../actions/userAction";
 
 import "../../style/adminCSS/userList.css"; // Import the CSS file for styling
+import Loader from "../Loader";
 
 function UserList() {
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.getAllUsersReducer);
-  const { users } = userState;
+  const { loading, users } = userState;
   console.log(users);
 
   function handleMakeAdmin(userId){
@@ -42,6 +43,8 @@ function UserList() {
 
   return (
     <div className="user-list-container">
+      {
+        loading ? <Loader/> :
       <table>
         <thead>
           <tr>
@@ -75,6 +78,7 @@ function UserList() {
             ))}
         </tbody>
       </table>
+      }
     </div>
   );
 }

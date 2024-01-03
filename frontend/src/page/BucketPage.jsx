@@ -4,6 +4,7 @@ import { addAction, deleteFromCart } from '../actions/bucketAction';
 import '../style/bucketPage.css'
 // import {loadStripe} from '@stripe/stripe-js';
 import { useState } from 'react';
+import PaySuccess from '../components/PaySuccess';
 
 //Actions
 import { placeOrderAction } from '../actions/orderAction';
@@ -28,6 +29,8 @@ const [pincode, setPincode] = useState("");
 const [address, setAddress] = useState("");
 const [landmark, setLandmark] = useState("");
 
+const paymentState = useSelector((state) => state.orderPaymentReducer);
+  const {success } = paymentState;
 
 //verify input fields
 const addressHandler = ()=>{

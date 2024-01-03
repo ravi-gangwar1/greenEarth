@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllTree } from '../../actions/treeAction';
 import "../../style/adminCSS/treesList.css"
 import { deleteTree } from "../../actions/treeAction";
+import Loader from '../Loader';
 function TreeList() {
   const dispatch = useDispatch();
   const treestate = useSelector(state => state.treeReducer);
@@ -24,7 +25,11 @@ function TreeList() {
   }
 
   return (
+
     <>
+
+    {
+      loading ? <Loader/> : 
       <table className="tree-table">
         <thead>
           <tr className='heads'>
@@ -67,6 +72,7 @@ function TreeList() {
           )}
         </tbody>
       </table>
+    }
     </>
   );
 }

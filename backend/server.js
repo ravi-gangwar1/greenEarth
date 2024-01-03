@@ -12,26 +12,16 @@ import contactRouter from "./routes/contactRouter.js";
 
 const app = express();
 
-// const corsOptions = {
-//   origin: process.env.FRONTEND_URI, 
-//   methods: 'GET,POST',
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: process.env.FRONTEND_URI, 
+  methods: 'GET,POST',
+  credentials: true,
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-app.use(cors());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://green-earth-iota.vercel.app/');
-  res.header('Access-Control-Allow-Methods', "GET,OPTIONS,PATCH,DELETE,POST,PUT");
-  res.header('Access-Control-Allow-Headers', "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
-  res.header('Access-Control-Allow-Credentials', 'true');
-  if (req.method === 'OPTIONS') {
-  res.status(200).end();
-  return;
-  };
-  next();
-  });
+// app.use(cors());
+
 
 app.use(express.json());
 app.use(morgan('dev'));

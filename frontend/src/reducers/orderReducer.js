@@ -13,6 +13,7 @@ export const orderPaymentReducer = (state = {}, action) => {
           loading: false,
           sessionId: action.payload.sessionId,
           error: null,
+          success: true,
         };
   
       case 'PLACE_ORDER_FAIL':
@@ -21,6 +22,7 @@ export const orderPaymentReducer = (state = {}, action) => {
           loading: false,
           sessionId: null,
           error: action.payload.error,
+          success: false,
         };
   
       default:

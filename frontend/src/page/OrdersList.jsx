@@ -2,6 +2,7 @@ import { getUserOrders } from "../actions/orderAction.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import "../style/orderList.css";
+import Loader from "../components/Loader.jsx";
 
 function OrdersList() {
   const { orders, loading, error } = useSelector((state) => state.getUserOrdersReducer);
@@ -14,7 +15,7 @@ function OrdersList() {
   return (
     <div className="orderList-page">
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader/>
       ) : error ? (
         <h1>{error}</h1>
       ) : (

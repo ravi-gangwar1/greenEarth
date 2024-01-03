@@ -64,47 +64,58 @@ userRouter.post('/signup' , async (req, res) => {
 
 
 
-userRouter.post("/login", async (req, res)=>{
-    console.log(req.body)
+userRouter.post("/login", async (req, res) => {
     try {
-        const {email, password} = req.body;
-    
-        if(!email && !password){
-            return res.status(400).json({
-                succuess: false,
-                message: "Every field is mandatory"
-            })
-        }
-    
-        const user = await userModel.find({
-            email, password
-        });
+        const { email, password } = req.body;
 
-        if(user.length > 0) {
-            const currentUser = {
-                name : user[0].name,
-                email : user[0].email,
-                isAdmin : user[0].isAdmin,
-                _id : user[0].id
-            }
-            res.status(200).json({
-                succuess: true,
-                data: currentUser
-            })
-        }
-        if(!user && user.password !== password){
+        if (!email || !password) {
             return res.status(400).json({
-                succuess: false,
-                message: "Invlaid credentials"
-            })
+                success: false,
+                message: "Both email and password are required"
+            });
+        }
+
+        const user = await userModel.findOne({ email }).select('+password');
+
+        if (user) {
+            const storedPassword = user.password;
+
+            if (storedPassword === password) {
+                const currentUser = {
+                    name: user.name,
+                    email: user.email,
+                    isAdmin: user.isAdmin,
+                    _id: user.id
+                };
+
+                return res.status(200).json({
+                    success: true,
+                    data: currentUser
+                });
+            } else {
+                console.log("Password does not match");
+                return res.status(400).json({
+                    success: false,
+                    message: "Invalid password"
+                });
+            }
+        } else {
+            console.log("No user found with the provided email");
+            return res.status(400).json({
+                success: false,
+                message: "Invalid email"
+            });
         }
     } catch (error) {
-        res.status(400).json({
-            succuess: false,
-            message: `Login in Error ${error}`
-        })
+        res.status(500).json({
+            success: false,
+            message: `Login error: ${error.message}`
+        });
     }
-})
+});
+
+
+
 
 
 userRouter.get('/getall-users', async (req, res)=>{

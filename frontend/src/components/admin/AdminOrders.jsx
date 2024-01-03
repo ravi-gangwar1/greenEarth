@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../../actions/orderAction";
 import "../../style/adminCSS/orderList.css"
 import { deliveredOrderMark } from "../../actions/orderAction";
+import Loader from "../Loader";
 
 function AdminOrders() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function AdminOrders() {
 
   return (
     <div className="admin-orders-container">
-      {loading && <p>Loading...</p>}
+      {loading && <Loader />}
       {error && <p>Error: {error}</p>}
       {orders && (
         <table className="order-table">
