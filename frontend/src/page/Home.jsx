@@ -8,14 +8,14 @@ import { useSelector } from 'react-redux';
 function Home() {
   const [searchTerm, setSearchTerm] = useState('')
 
-  const userState = useSelector(state => state.loginUserReducer);
-  const {currentUser} = userState;
+  // const userState = useSelector(state => state.loginUserReducer);
+  // const {currentUser} = userState;
 
-  useEffect(()=> {
-    if(!currentUser) {
-      window.location.href = '/login';
-    }
-  })
+  // useEffect(()=> {
+  //   if(!currentUser) {
+  //     window.location.href = '/login';
+  //   }
+  // })
   return (
     <div className='home'>
         <>
