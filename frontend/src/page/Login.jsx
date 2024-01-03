@@ -120,7 +120,7 @@ const Login = () => {
                 { 
                 changePasswordState ? (
                     <>
-                    <input 
+                    <input
                     type="text" 
                     placeholder='Enter New Password' 
                     value={newPassword} onChange={(e)=> setNewPassword(e.target.value)}></input>
