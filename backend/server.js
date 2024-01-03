@@ -12,15 +12,15 @@ import contactRouter from "./routes/contactRouter.js";
 
 const app = express();
 
-const corsOptions = {
-  origin: "https://green-earth-flame.vercel.app", 
-  methods: 'GET,POST',
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "https://green-earth-flame.vercel.app", 
+//   methods: 'GET,POST',
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-// app.use(cors());
+app.use(cors());
 
 
 app.use(express.json());
