@@ -12,15 +12,17 @@ import contactRouter from "./routes/contactRouter.js";
 
 const app = express();
 
-const corsOptions = {
-  origin: process.env.FRONTEND_URI, 
-  methods: 'GET,POST',
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: process.env.FRONTEND_URI, 
+//   methods: 'GET,POST',
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // app.use(cors());
+app.use(cors({ origin: '*' }));
+
 
 
 app.use(express.json());
