@@ -92,7 +92,7 @@ nav ul li:hover {
 
 .userIcon{
   color: azure;
-  font-size:40px;
+  font-size:60px;
 }
 .dropdown {
   height: 100%;
@@ -104,8 +104,7 @@ nav ul li:hover {
 }
 
 .dropbtn {
-  background-color: #ffffff00;
-  padding: 16px;
+  background: none;
   border: none;
   cursor: pointer;
 }
@@ -145,7 +144,7 @@ nav ul li:hover {
 
 .side-baar-button{
 color: azure;
-font-size: 30px;
+font-size: 60px;
 border: none;
 background:none;
 cursor: pointer;
@@ -207,3 +206,75 @@ nav ul {
 }
 }
 
+@media (min-width: 50px) and (max-width: 201px) {
+  .navBar-btns .bucket-btn{
+    font-size: 40px;
+  }
+  .bucket-btn span{
+    height: 30px;
+    width: 35%;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 201px) and (max-width: 450px) {
+  .navBar-btns .bucket-btn{
+    font-size: 40px;
+  }
+  .bucket-btn span{
+    height: 30px;
+    width: 35%;
+    font-size: 25px;
+  }
+  .userIcon{
+    font-size: 45px;
+  }
+  .side-baar-button{
+    font-size: 45px;
+  }
+  .navBar-btns{
+    width: 50%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 600px) {
+  .navBar-btns .bucket-btn{
+    font-size: 40px;
+  }
+  .bucket-btn span{
+    height: 30px;
+    width: 35%;
+    font-size: 25px;
+  }
+  .userIcon{
+    font-size: 45px;
+  }
+  .side-baar-button{
+    font-size: 45px;
+  }
+  .navBar-btns{
+    width: 50%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .navBar-btns .bucket-btn{
+    font-size: 40px;
+  }
+  .bucket-btn span{
+    height: 30px;
+    width: 35%;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .navBar-btns .bucket-btn{
+    font-size: 40px;
+  }
+  .bucket-btn span{
+    height: 30px;
+    width: 35%;
+    font-size: 25px;
+  }
+}

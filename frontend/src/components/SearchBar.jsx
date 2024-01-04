@@ -2,7 +2,7 @@ import '../style/searchbar.css';
 function SearchBar({updateSearchTerm}) {
 
   return (
-    <div className="container">
+    <div className="searchBar-container">
       <input
         type="text"
         placeholder="Search..."
