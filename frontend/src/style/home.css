@@ -30,9 +30,9 @@
     font-size: 40px;
 }
 .search-div{
-    width: fit-content;
-    gap: 20px;
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     height: 10vh;
 }
@@ -85,8 +85,33 @@
 
 }
 
-@media  screen and (min-width : 430px) {
-    .card-div{
-        flex-basis: 50%;
+
+@media (min-width: 50px) and (max-width: 201px) {
+    .search-div {
+       flex-direction: column;
+    }
+}
+
+@media (min-width: 201px) and (max-width: 450px) {
+    .search-div {
+        flex-direction: column;
+     }
+}
+
+@media (min-width: 451px) and (max-width: 600px) {
+    .search-div {
+        flex-direction: column;
+     }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .search-div {
+        flex-direction: column;
+     }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+    .main-card {
+        flex-basis: 23%;
     }
 }

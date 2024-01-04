@@ -1,22 +1,16 @@
 .link-div{
     text-decoration: none;
 }
-/* navBar.css */
-nav {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  nav.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.792); 
-    backdrop-filter: blur;
-    font-weight: 700;
-    box-shadow: 0px 2px 5px rgba(152, 152, 152, 0.742); 
+nav.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.792); 
+  backdrop-filter: blur;
+  font-weight: 700;
+  box-shadow: 0px 2px 5px rgba(152, 152, 152, 0.742); 
     
-  }
+}
   
   
 nav{
@@ -25,9 +19,9 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     font-weight: 700;
     box-shadow: 0px 2px 5px rgba(152, 152, 152, 0.742); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .logo{
     height: 100%;
@@ -50,7 +44,6 @@ nav ul {
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    list-style: none;
 }
 nav ul li {
     color: azure;
@@ -65,24 +58,9 @@ nav ul li:hover {
 .navBar-btns{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 5vh;
-    gap: 20px;
-    width: 20%;
-}
-.login-btn {
-    width: 100%;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 2px;
-    font-size: larger;
-    font-weight: 600;
-    background-color:rgb(147, 163, 163);
-}
-.login-btn:hover{
-    transition:500ms;
-    box-shadow: azure 0px 0px 20px 1px;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 30%;
 }
 .navBar-btns .bucket-btn {
     position: relative;
@@ -101,6 +79,8 @@ nav ul li:hover {
 .bucket-btn span{
     position: absolute;
     font-size: 5px;
+    width: 10px;
+    height: 15px;
     top: 0;
     right:0;
     background-color: rgb(238, 108, 77);
@@ -110,10 +90,8 @@ nav ul li:hover {
 }
 
 .userIcon{
-    position: absolute;
-    top: 2px;
     color: azure;
-    font-size:30px;
+    font-size:40px;
 }
   .dropdown {
     height: 100%;
