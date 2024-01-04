@@ -75,13 +75,13 @@
 
 
 
-@media (min-width: 0px) and (max-width: 429px) {
+@media (min-width: 0px) and (max-width: 400px) {
     .main-card {
         flex-basis: 100%;
     }
 }
 
-@media (min-width: 430px) and (max-width: 600px) {
+@media (min-width: 400px) and (max-width: 600px) {
     .main-card {
         flex-basis: 42%;
     }
