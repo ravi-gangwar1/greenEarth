@@ -2,10 +2,7 @@
     min-height: 100vh;
     width: 100vw;
     text-align: center;
-    color: azure;
-}
-.about-page h1{
-    font-size: 40px;
+    color: rgb(152, 152, 152);
 }
 .about-div-website{
     min-height: 60vh;
@@ -19,6 +16,10 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 20px;
+}
+.about-greenearth img{
+    margin-right: 20px;
+    filter: drop-shadow(10px 10px 10px rgba(255, 255, 255, 0.429));
 }
 
 .about-greenearth p{
@@ -86,6 +87,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    filter: drop-shadow(10px 10px 10px rgba(255, 255, 255, 0.11));
 }
 .team-member-details{
     display: flex;
@@ -95,4 +97,8 @@
 }
 .team-member-details span{
     display: flex;
+    color: rgb(154, 154, 154);
+}
+.team-member-details span p{
+    font-weight: 600;
 }

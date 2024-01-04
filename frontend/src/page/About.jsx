@@ -3,9 +3,6 @@ import '../style/aboutPage.css';
 function About() {
   return (
     <div className='about-page'>
-      <h1>
-        About Us
-      </h1>
       <div className='about-div-website'>
         <div className='what-greenearth'>
           <h1>What is greenEarth?</h1>
@@ -16,7 +13,7 @@ function About() {
                      farmers and customers across India, allowing them to plant trees
                       based on their location. We will provide regular updates on the
                        progress and charge a nominal fee for this service.</p>
-          <img src="https://t4.ftcdn.net/jpg/05/75/28/67/360_F_575286707_XWzAVa98BubEYQjAy2LsfRWXDCgc2gJT.jpg" alt="" />
+          <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/green-earth.png?raw=true" alt="" />
       </div>
       </div>
          <div className='objectives'>
