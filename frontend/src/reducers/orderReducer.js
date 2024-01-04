@@ -94,3 +94,28 @@ export const deliveredOrderMarkReducer = (state = {}, action) => {
             return state
     }
 }
+
+export const cancelOrderReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'CANCEL_ORDER_REQUEST':
+            return {
+                cancelLoading: true,
+                cancelSuccess: false,
+                ...state
+            }
+        case 'CANCEL_ORDER_SUCCESS':
+            return {
+                cancelLoading: false,
+                cancelSuccess: true,
+                errorCancel: null,
+            }
+        case 'CANCEL_ORDER_FAIL':
+            return {
+
+                errorCancel: action.payload,
+                cancelLoading: false,
+            }
+        default: 
+            return state
+    }
+}

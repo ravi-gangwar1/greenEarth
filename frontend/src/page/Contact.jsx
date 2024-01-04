@@ -7,7 +7,7 @@ function Contact() {
 
   const dispatch = useDispatch();
   const contactState = useSelector((state) => state.contactMessageReducer);
-  const { loading, success, error } = contactState;
+  const { loading, success } = contactState;
 
   useEffect(() => {
     if (success === true) {
@@ -20,11 +20,14 @@ function Contact() {
       });
     }
   }, [success]);
+
+  const userState = useSelector(state => state.loginUserReducer);
+  const {currentUser} = userState;
   
   const [contactMessage, setContactMessage ] = useState(
     {
+      userId: currentUser.data._id,
       name: "",
-      email: "",
       message: ""
     }
   )
@@ -34,6 +37,11 @@ function Contact() {
     if (contactMessage.name !== "" && contactMessage.email !== "" && contactMessage.message !== "") {
       console.log()
       dispatch(contactAction(contactMessage));
+      setContactMessage({
+        ...contactMessage,
+        name: "",
+        message: ""
+      })
     } else {
       alert("Fill all the fields");
     }
@@ -68,15 +76,6 @@ function Contact() {
                 </div>
                 <div className="input-row">
                   <div className="input-group">
-                    <input 
-                    type="text" 
-                    id="email" 
-                    placeholder="Email address"
-                    onChange={(e) => setContactMessage({ ...contactMessage, email: e.target.value })}/> 
-                  </div>
-                </div>
-                <div className="input-row">
-                  <div className="input-group">
                     <textarea
                       type="text"
                       id="message"
@@ -84,7 +83,7 @@ function Contact() {
                       onChange={(e) => setContactMessage({ ...contactMessage, message: e.target.value })}/>
                   </div>
                 </div>
-                <button className='contactBtns' type="submit"  onClick={handleMessage}>Send</button>
+                <button className='contactBtns' type="submit"  onClick={handleMessage}>{loading ? "Loading..." : "Send"}</button>
               </div>
             </div>
           </div>

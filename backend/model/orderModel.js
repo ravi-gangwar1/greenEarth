@@ -31,6 +31,10 @@ const orderSchema = mongoose.Schema({
         require: [true, "isDeliverd must be required"],
         default: false
     },
+    isCancelled : { 
+        type: Boolean,
+        default: false,
+    },
     transectionId : {
         type: String,
         require: [true, "transectionId must be required"]

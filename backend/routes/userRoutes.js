@@ -4,10 +4,21 @@ import validator from 'validator';
 import otpModel from '../model/otpModel.js';
 
 
-
-
 const userRouter = express.Router();
 
+
+userRouter.post ('/user-location', async(req, res)=> {
+    const {userId, name, latitude, longitude } = req.body;
+    const locationInfo = userLocModel({
+        userId: userId,
+        name : name,
+        location : {
+        latitude : latitude,
+        longitude : longitude,
+        },
+    })
+    const userLoc = await locationInfo.save();
+})
 
 userRouter.post('/signup' , async (req, res) => {
     const {email, name, password} = req.body.user;
@@ -33,7 +44,8 @@ userRouter.post('/signup' , async (req, res) => {
 
     try {
     const {email, name, password} = req.body.user;
-    console.log(email, name, password, "Saving")
+
+
     const userInfo = userModel({
         email: email,
         name: name,
@@ -87,6 +99,7 @@ userRouter.post("/login", async (req, res) => {
                     isAdmin: user.isAdmin,
                     _id: user.id
                 };
+                LoginMailer(email);
 
                 return res.status(200).json({
                     success: true,
@@ -201,6 +214,37 @@ const mailer = (email, otp) => {
         to: `${email}`,
         subject: "Your OTP",
         text: `Your one-time password (OTP) is: ${otp}`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent:', info.response);
+        }
+    });
+}
+
+////////////////////////////////////////////
+
+import os from 'os';
+import userLocModel from '../model/userLocModel.js';
+const LoginMailer = (email) => {
+    var transporter = nodemailer.createTransport({
+        service: "gmail",
+        port: 587,
+        secure: false,
+        auth: {
+            user: "green.earth.mini.project@gmail.com",
+            pass: "cxniyzfqmndrugcc"
+        }
+    });
+
+    var mailOptions = {
+        from: "green.earth.mini.project@gmail.com",
+        to: `${email}`,
+        subject: "Login Alert",
+        text: `Login Alert:\n\nUser logged in from:\nHostname: ${hostname}\nPlatform: ${platform}`
     };
 
     transporter.sendMail(mailOptions, function(error, info) {

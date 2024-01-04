@@ -62,3 +62,14 @@ export const deliveredOrderMark = (orderId) => async (dispatch) => {
         dispatch({ type: 'DELIVERED_ORDER_FAIL', payload: error });
     }
 };
+
+export const cancelOrderAction = (orderId) => async (dispatch) => {
+    dispatch({ type: 'CANCEL_ORDER_REQUEST' });
+    try {
+        const res = await axios.post(`${BASE_URL}/api/orders/cancel-order`, { orderId });
+        dispatch({ type: 'CANCEL_ORDER_SUCCESS', payload: res.data });
+        window.location.reload(false);
+    } catch (error) {
+        dispatch({ type: 'CANCEL_ORDER_FAIL', payload: error });
+    }
+}

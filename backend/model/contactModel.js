@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 const {Schema} = mongoose;
 
 const conatctSchema = new Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        require: [true, "user id is required"]
+        
+    },
     name: {
         type : String,
         require : [true, "User name is Required"],
 
-    },
-    email : {
-        type : String,
-        require: [true, "user email must be required"],
-        lowercase: true
     },
     message: {
         type : String,

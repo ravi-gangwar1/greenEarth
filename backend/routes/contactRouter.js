@@ -5,11 +5,11 @@ const contactRouter = express.Router();
 
 contactRouter.post('/contact', async (req, res) => {
     try {
-        const { name, email, message } = req.body.contactMessage;
+        const {userId, name, message } = req.body.contactMessage;
         console.log(req.body);
         const userMessage = new contactModel({
+            userId: userId,
             name: name,
-            email: email,
             message: message
         });
 

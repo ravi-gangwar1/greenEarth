@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { garderAction } from '../actions/gadernAction';
 import "../style/garden.css"
+import Loader from '../components/Loader';
 function Garden() {
     const dispatch = useDispatch();
     const userId = useParams();
+
+
     const gardenState = useSelector((state) => state.gardenReducer);
     const {gadernTrees, loading, error} = gardenState;
     var allTrees = [];
@@ -26,8 +29,10 @@ function Garden() {
     
   return (
     <div className='garden-page'>
-      <h2 className=''>Your Garden</h2>
-    {loading ? <h1>Loading...</h1> : error ? <h1>{error}</h1> : 
+      {
+        allTrees.length === 0 ? <h1>You have Empty garden.</h1> : <h2 className=''>Your Garden</h2>
+      }
+    {loading ? <Loader/> : error ? <h1>{error}</h1> : 
     <div className='garden-page2'>
       {
         allTrees.map((tree) => 

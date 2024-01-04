@@ -149,6 +149,22 @@ orderRouter.post('/getorders', async (req, res) => {
         console.log(error);
     }
 })
+
+
+orderRouter.post('/cancel-order', async (req, res) => {
+    const { orderId } = req.body;
+    try {
+        const cancelOrder = await orderModel.findByIdAndUpdate(
+            {_id : orderId},
+            {isCancelled : true},
+            {new : true}
+            );
+        res.status(200).send(cancelOrder);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 orderRouter.post('/admin/getAllOrders', async (req, res) => {
     try {
         const orders = await orderModel.find({}).sort({ _id: -1 }).exec();
@@ -160,6 +176,28 @@ orderRouter.post('/admin/getAllOrders', async (req, res) => {
 
 
 orderRouter.post('/admin/delivered-order', async (req, res) => {
+    const id = req.body.orderId;
+    try {
+        const delivered = await orderModel.findOneAndUpdate(
+            { _id: id },
+            { isDelivered: true },
+            { new: true }
+        );
+        
+        if (delivered) {
+            res.status(200).send(delivered);
+        } else {
+            res.status(404).send({ error: 'Order not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }
+});
+
+
+
+orderRouter.post('/', async (req, res) => {
     const id = req.body.orderId;
     try {
         const delivered = await orderModel.findOneAndUpdate(

@@ -12,7 +12,6 @@ function AdminOrders() {
 
   const ordersState = useSelector((state) => state.getAllUsersOrdersReducer);
   const { orders, loading, error } = ordersState;
-  console.log(orders)
   // const deliveredState = useSelector((state) => state.deliveredOrderMarkReducer);
   // const {deliveredLoading, errorDelivered } = deliveredState;
   useEffect(() => {
@@ -63,7 +62,7 @@ function AdminOrders() {
                     }
                 </td>
                 <td>{order.isDelivered ? "Delivered✅" : (
-                  <button className="mark-delivered" onClick={ () => dispatch(deliveredOrderMark(order._id))}>Mark</button>
+                  <button className="mark-delivered" onClick={ () => order.isCancelled ? "" : dispatch(deliveredOrderMark(order._id))}>{order.isCancelled ? "Order Cancelled" : "Mark"}</button>
                   )}
                 </td>
               </tr>
