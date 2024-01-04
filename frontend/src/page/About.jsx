@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import '../style/aboutPage.css';
 
 function About() {
@@ -60,7 +59,7 @@ function About() {
 
             <div className='teamCard-1'>
               <div className='team-member-img'>
-                <img src="" alt="" />
+                <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/r.png?raw=true" alt="" />
               </div>
               <div className='team-member-details'>
                   <span>Name: <p>Ravi Gangwar</p></span>
@@ -70,7 +69,7 @@ function About() {
             </div>
             <div className='teamCard-1'>
               <div className='team-member-img'>
-                <img src="" alt="" />
+                <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/v.png?raw=true" alt="" />
               </div>
               <div className='team-member-details'>
                   <span>Name: <p>Vaishnavi Katiyar</p></span>
@@ -79,7 +78,7 @@ function About() {
             </div>
             <div className='teamCard-1'>
               <div className='team-member-img'>
-                <img src="" alt="" />
+                <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/k.png?raw=true" alt="" />
               </div>
               <div className='team-member-details'>
                   <span>Name: <p>Kaushiki Tripathi</p></span>
@@ -88,7 +87,7 @@ function About() {
             </div>
             <div className='teamCard-1'>
               <div className='team-member-img'>
-                <img src="" alt="" />
+                <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/a.png?raw=true" alt="" />
               </div>
               <div className='team-member-details'>
                   <span>Name: <p>Anand Kumar</p></span>
