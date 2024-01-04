@@ -6,40 +6,43 @@ import '../style/navBar.css';
 import { logoutAction } from '../actions/userAction';
 import { useDispatch } from 'react-redux';
 import { FaUserCircle } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
+
 function NavBar() {
   const bucketState = useSelector((state) => state.bucketReducer);
   const userState = useSelector(state => state.loginUserReducer);
   const {currentUser} = userState;
   const isAdmin = currentUser && currentUser.data.isAdmin;
   const dispatch = useDispatch();
-  // State to track whether the navbar should be sticky
+
+  const [sideBar, setSideBar] = useState(false);
+  const handleSidebar = () => { 
+      setSideBar(!sideBar);
+  }
+
+
   const [isSticky, setIsSticky] = useState(false);
-  // Effect to handle scroll events and update the isSticky state
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
-
-      // Check if the user has scrolled 1vh down
       setIsSticky(scrollY > window.innerHeight * 0.10);
     };
-
-    // Attach the scroll event listener
     window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
+  <>
     <nav id="navBarId" className={isSticky ? 'sticky' : ''}>
       <div id="logoId" className="logo">
         <Link className="link-div" to="/">
           <img src="https://github.com/ravi-gangwar/greenEarth/blob/main/frontend/src/assets/green-earth.png?raw=true" alt="" />
         </Link>
       </div>
-      <ul>
+      <ul >
         <Link className="link-div" to="/">
           <li>Home</li>
         </Link>
@@ -85,8 +88,37 @@ function NavBar() {
             <span>{bucketState.bucketItems.length}</span>
           </button>
         </Link>
+{         sideBar ? <button className="side-baar-button" onClick={handleSidebar}><RxCross2/></button>  :<button className="side-baar-button" onClick={handleSidebar}>
+          <IoMenu/>
+          </button>}
       </div>
     </nav>
+    <div className={sideBar ? "open-side-bar-div" : "off-side-bar-div"}>
+          <div className='inner-side-bar-div'>
+            <Link className="link-div" to="/">
+              <p>Home</p>
+            </Link>
+            <Link className="link-div" to={currentUser ? `/garden/${currentUser.data._id}` : "/login"}>
+              <p>Garden</p>
+            </Link>
+              {currentUser ?
+                <>
+                  <Link className="link-div" to="/orders"> <p>Orders</p></Link>
+                </> 
+                : <></>}
+              {isAdmin === true ? <Link to="/admin">
+                <p>Dashboard</p>
+              </Link> : null}
+                <Link className="link-div" to="/contact">
+                  <p>Contact</p>
+                </Link>
+              <Link className="link-div" to="/about">
+                <p>About Us</p>
+              </Link>
+
+          </div>
+      </div>
+  </>
   );
 }
 

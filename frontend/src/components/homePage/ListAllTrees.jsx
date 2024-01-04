@@ -41,7 +41,6 @@ function ListAllTress() {
   return (
     <div className='home'>
       {loading ? (
-        // <h1 className='loading'>Loading...</h1>
          <Loader className='loading'/>
       ) : error ? (
         <h1 className='error'>Server Error or data not fetched</h1>
