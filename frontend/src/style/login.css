@@ -121,3 +121,10 @@ input{
 .forget-password span {
     color: azure;
 }
+.password-toggle-btn{
+    background-color: rgba(245, 222, 179, 0);
+    color: azure;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}

@@ -5,8 +5,7 @@ const BASE_URL = import.meta.env.VITE_BACKED_DOMAIN;
 export const signupAction = (user) => async dispatch => {
     dispatch({type: 'USER_REGISTER_REQUEST'});
     try {
-        const res = await axios.post(`${BASE_URL}/api/auth/signup`, {user: user});
-        console.log(res, "this is response");
+        await axios.post(`${BASE_URL}/api/auth/signup`, {user: user});
         dispatch({type: 'USER_REGISTER_SUCCESS'});
     } catch (error) {
         dispatch({type: 'USER_REGISTER_FAIL', payload: error});
@@ -18,7 +17,6 @@ export const loginAction = (user) => async dispatch => {
     try {
         const res = await axios.post(`${BASE_URL}/api/auth/login`, user);
         dispatch({type: 'USER_LOGIN_SUCCESS', payload: res.data});
-        console.log(res.data, "this is response");
         localStorage.setItem("currentUser", JSON.stringify(res.data));
         if(res.data.success === true){
             window.location.href = '/';

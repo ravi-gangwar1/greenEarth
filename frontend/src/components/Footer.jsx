@@ -41,31 +41,34 @@ const Footer = () => {
         </li>
         
         <li className="nav__item nav__item--extra">
-          <h2 className="nav__title">Technology</h2>
+          <h2 className="nav__title">Technologies</h2>
           
           <ul className="nav__ul nav__ul--extra">
             <li>
-              <Link to="#">Hardware Design</Link>
+              <Link to="#">HTML</Link>
             </li>
             
             <li>
-              <Link to="#">Software Design</Link>
+              <Link to="#">CSS</Link>
             </li>
             
             <li>
-              <Link to="#">Digital Signage</Link>
+              <Link to="#">JavaScript</Link>
             </li>
             
             <li>
-              <Link to="#">Automation</Link>
+              <Link to="#">React</Link>
             </li>
             
             <li>
-              <Link to="#">Artificial Intelligence</Link>
+              <Link to="#">Node js</Link>
             </li>
             
             <li>
-              <Link to="#">IoT</Link>
+              <Link to="#">Express js</Link>
+            </li>
+            <li>
+              <Link to="#">MongoDb</Link>
             </li>
           </ul>
         </li>
@@ -93,11 +96,11 @@ const Footer = () => {
         <p>&copy; {currentYear} Something. All rights reserved.</p>
         
         <div className="legal__links">
-            <FaTwitter/>
-            <FaLinkedin/>
-            <FaFacebook/>
-            <FaInstagram/>
-            <FaWhatsappSquare/>
+            <Link to={"https://twitter.com/_Ravi_Gangwar"} target="_blank"><FaTwitter className="links-fopter"/></Link>
+            <Link to={"https://www.linkedin.com/in/ravi-gangwar/"} target="_blank"><FaLinkedin className="links-fopter"/></Link>
+            <Link to={"https://twitter.com/_Ravi_Gangwar"} target="_blank"><FaFacebook className="links-fopter"/></Link>
+            <Link to={"https://twitter.com/_Ravi_Gangwar"} target="_blank"><FaInstagram className="links-fopter"/></Link>
+            <Link to={""} target="_blank"><FaWhatsappSquare className="links-fopter"/></Link>
         </div>
       </div>
     </footer>

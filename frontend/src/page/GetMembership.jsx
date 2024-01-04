@@ -1,6 +1,8 @@
 import "../style/getMembership.css"
 import { useDispatch, useSelector } from "react-redux"
 import { getMembershipAction } from "../actions/getMembershipAction";
+import { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 function GetMembership() {
 
 
@@ -9,21 +11,39 @@ function GetMembership() {
 
     const dispatch = useDispatch();
 
+
+
+
     const _id = currentUser.data._id;
     const basic = "Basic";
     const standard = "Standard";
     const premium = "Premium";
 
+    const [loader, setLoader] = useState(false)
+    const { success, error} = useSelector((state) => state.getMembershipReducer)
+
 
     const handleMembership = (_id, membership) => {
-        console.log({_id, membership})
+        setLoader(true)
         dispatch(getMembershipAction(_id, membership))
     }
 
 
+    useEffect(() => {
+        if(success){
+            setLoader(false)
+        }
+        if(error){
+            setLoader(false)
+        }
+    }, [success, error])
+
+
 
   return (
-    <div className='getMembership-page'>
+    <>
+    { loader ? <Loader/> :
+        <div className='getMembership-page'>
         <h1>Become Member</h1>
         <div className='all-membership-div'>
             <table>
@@ -65,7 +85,8 @@ function GetMembership() {
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>}
+    </>
   )
 }
 

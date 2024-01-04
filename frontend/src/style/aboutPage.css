@@ -1,4 +1,92 @@
 .about-page{
-    height: 95vh;
+    min-height: 100vh;
+    width: 100vw;
+    text-align: center;
+    color: azure;
+}
+.about-page h1{
+    font-size: 40px;
+}
+.about-div-website{
+    min-height: 60vh;
     width: 100%;
+}
+.about-greenearth{
+    margin-top: 30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-greenearth p{
+    font-size: 20px;
+
+}
+.about-greenearth img {
+    height: 90%;
+    width: 60%;
+    padding: 20px;
+}
+.objectives{
+    min-height: 70vh;   
+    width: 100%;
+}
+.objective-cards{
+    margin-top: 10px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.objective-card{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background-color: black;
+    flex-basis: 25%;
+}
+.objective-card h2{
+    font-size: 30px;
+    margin: 10px 0;
+}
+.objective-card p{
+    font-size: 20px;
+}
+
+.aboutus-team {
+    min-height: 70vh;
+
+}
+.members-team{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.teamCard-1{
+    height: fit-content;
+    padding: 10px;
+
+}
+.team-member-img{
+    height: 50%;
+    background-color: black;
+}
+.team-member-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.team-member-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.team-member-details span{
+    display: flex;
 }

@@ -65,7 +65,6 @@ orderRouter.post('/placeorder', async (req, res) => {
 
 orderRouter.post('/get-membership', async (req, res) => {
     const { _id, membership } = req.body;
-    console.log(_id, membership);
     try {
         const lineItems = [];
 
@@ -110,15 +109,19 @@ orderRouter.post('/get-membership', async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `${process.env.FRONTEND_URI}/orders`,
+            success_url: `${process.env.FRONTEND_URI}/profile`,
             cancel_url: `${process.env.FRONTEND_URI}/cancel`,
         });
 
         if (session) {
-            const giveMembership = await userModel.findByIdAndUpdate({_id},
-                {isMember: true},
-                {isMembership: membership},
-                {new: true});
+            const giveMembership = await userModel.findByIdAndUpdate(
+                { _id },
+                {
+                  isMember: true,
+                  isMembership: membership,
+                },
+                { new: true }
+              );
 
             if (giveMembership) {
                 console.log('MemberShip given');
@@ -126,7 +129,7 @@ orderRouter.post('/get-membership', async (req, res) => {
                 console.log('MemberShip not given');
             }
         }
-        res.json({
+        res.status(200).json({
             id: session.id,
         });
     } catch (error) {

@@ -9,15 +9,29 @@ const userRouter = express.Router();
 
 userRouter.post ('/user-location', async(req, res)=> {
     const {userId, name, latitude, longitude } = req.body;
-    const locationInfo = userLocModel({
-        userId: userId,
-        name : name,
-        location : {
-        latitude : latitude,
-        longitude : longitude,
-        },
-    })
-    const userLoc = await locationInfo.save();
+
+    const response = await userLocModel.findById({_id : userId}) 
+
+    if(response){
+        const location = {
+            latitude: latitude,
+            longitude: longitude,
+        }
+        await userLocModel.findOneAndUpdate({
+            location : location,
+        }, {new: true})
+    }else {
+
+        const locationInfo = userLocModel({
+            userId: userId,
+            name : name,
+            location : {
+            latitude : latitude,
+            longitude : longitude,
+            },
+        })
+        await locationInfo.save();
+    }
 })
 
 userRouter.post('/signup' , async (req, res) => {
@@ -88,8 +102,8 @@ userRouter.post("/login", async (req, res) => {
         }
 
         const user = await userModel.findOne({ email }).select('+password');
-
         if (user) {
+
             const storedPassword = user.password;
 
             if (storedPassword === password) {
@@ -97,7 +111,10 @@ userRouter.post("/login", async (req, res) => {
                     name: user.name,
                     email: user.email,
                     isAdmin: user.isAdmin,
-                    _id: user.id
+                    _id: user.id,
+                    isWorker: user.isWorker,
+                    isMember : user.isMember,
+                    isMembership : user.isMembership,
                 };
                 LoginMailer(email);
 
@@ -227,8 +244,9 @@ const mailer = (email, otp) => {
 
 ////////////////////////////////////////////
 
-import os from 'os';
+
 import userLocModel from '../model/userLocModel.js';
+import os from 'os';
 const LoginMailer = (email) => {
     var transporter = nodemailer.createTransport({
         service: "gmail",
@@ -244,7 +262,7 @@ const LoginMailer = (email) => {
         from: "green.earth.mini.project@gmail.com",
         to: `${email}`,
         subject: "Login Alert",
-        text: `Login Alert:\n\nUser logged in from:\nHostname: ${hostname}\nPlatform: ${platform}`
+        text: `Login Alert:\n\nUser logged in from:\nHostname: ${os.hostname}\nPlatform: ${os.platform}`
     };
 
     transporter.sendMail(mailOptions, function(error, info) {

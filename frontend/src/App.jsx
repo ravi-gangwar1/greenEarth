@@ -27,38 +27,17 @@ import AddTree from './components/admin/AddTree';
 import EditTree from './components/admin/EditTree';
 import Garden from './page/Garden';
 import Footer from './components/Footer';
-import { useEffect } from 'react';
-import axios from 'axios';
 
 
 function App() {
   const userState = useSelector(state => state.loginUserReducer);
   const {currentUser} = userState;
+
+
   const isAdmin = currentUser?.data?.isAdmin === true;
 
 
-  async function getLocation() {
-    const userId = currentUser?.data?._id;
-    const name = currentUser?.data?.name;
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async(position) => {
-          const { latitude, longitude } = position.coords;
-          console.log('Latitude:', latitude);
-          console.log('Longitude:', longitude);
-          await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/auth/user-location`, {userId, name,  latitude, longitude });
-        },
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  }
-
-  useEffect(()=> {
-    getLocation();
-
-
-  }, [])
+  
 
 
   return (

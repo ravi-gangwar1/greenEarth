@@ -85,19 +85,27 @@
     column-gap: 1.25em;
   }
   
-  .legal {
+  .legal{
     display: flex;
     flex-wrap: wrap;
     color: #999;
   }
     
-  .legal__links {
+  .legal__links{
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 20px;
     cursor: pointer;
   }
+  Link {
+    text-decoration: none;
+    color: #2f2f30;
+  }
+  .links-fopter{
+    text-decoration: none;
+    color: #999;
+}
   
   .heart {
     color: #2f2f2f;

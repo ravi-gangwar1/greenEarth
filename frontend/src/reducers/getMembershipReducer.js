@@ -4,6 +4,7 @@ export const getMembershipReducer = (state = {}, action) => {
         return {
           ...state,
           loading: true,
+          success: false,
           error: null,
         };
   
@@ -11,6 +12,7 @@ export const getMembershipReducer = (state = {}, action) => {
         return {
           ...state,
           loading: false,
+          success: true,
           sessionId: action.payload.sessionId,
           error: null,
         };
@@ -21,6 +23,7 @@ export const getMembershipReducer = (state = {}, action) => {
           loading: false,
           sessionId: null,
           error: action.payload.error,
+          success: false,
         };
   
       default:

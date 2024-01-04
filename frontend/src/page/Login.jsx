@@ -31,6 +31,13 @@ const Login = () => {
     const [newPassword, setNewPassword] = useState('');
     const [comfirmNewPassword, setConfirmNewPassword] = useState('');
 
+
+
+    const [showPassword, setShowPassword] = useState(false);
+    const handleTogglePassword = () => {
+      setShowPassword(!showPassword);
+    };
+
     const handleChangePassword = () => {
         if(comfirmNewPassword === newPassword ){
             dispatch(changePasswordAction({email, newPassword}))
@@ -112,7 +119,7 @@ const Login = () => {
 
         <>
             {
-                !loginSuccess && loginLoading ? <Loader/> : 
+            loginLoading || otpVerifyloading || changePasswordloading ? <Loader/> : 
         <div className='main-div'>
            <div className='login-container'>
             <div className='container-2nd'>
@@ -120,12 +127,19 @@ const Login = () => {
                 { 
                 changePasswordState ? (
                     <>
-                    <input
-                    type="text" 
-                    placeholder='Enter New Password' 
-                    value={newPassword} onChange={(e)=> setNewPassword(e.target.value)}></input>
+                    <label>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder='Enter New Password'
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
+                        />
+                        <button onClick={handleTogglePassword}>
+                            {showPassword ? 'Hide' : 'Show'} Password
+                        </button>
+                    </label>
                     <input 
-                    type="text" 
+                    type={showPassword ? 'text' : 'password'} 
                     placeholder='Confirm New Password' 
                     value={comfirmNewPassword} onChange={(e)=> setConfirmNewPassword(e.target.value)}></input>
                     <p className='forget-password' onClick={()=> window.location.reload(false)}><span>Back to Login page.</span> click here!!</p>
@@ -157,16 +171,21 @@ const Login = () => {
                 ) :
                 (state==="Log In" ? 
                 <> 
+                    <input
+                        type="email"
+                        placeholder='Enter your Email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                     <input 
-                    type="text" 
-                    placeholder='email address' 
-                    value={email} onChange={(e)=> setEmail(e.target.value)}></input>
-                    <input 
-                    type="password" 
+                    type={showPassword ? 'text' : 'password'}
                     placeholder='Password'
                     value={password} 
                     onChange={(e)=> setPassword(e.target.value)}
                     ></input>
+                    <button className='password-toggle-btn' onClick={handleTogglePassword}>
+                        {showPassword ? 'Hide' : 'Show'} Password
+                    </button>
                     <p className='forget-password' onClick={()=> setReset(!(reset))}><span>forget password.</span> click here!!</p>
                 </> :
                 <>
@@ -181,17 +200,20 @@ const Login = () => {
                     onChange={(e)=> setName(e.target.value)}
                     ></input>
                     <input 
-                    type="password" 
+                    type={showPassword ? 'text' : 'password'}
                     placeholder='Password'
                     value={password} 
                     onChange={(e)=> setPassword(e.target.value)}
                     ></input>
                     <input 
-                    type="password" 
+                    type={showPassword ? 'text' : 'password'} 
                     placeholder='Confirm Password'
                     value={confirmPassword} 
                     onChange={(e)=> setConfirmPassword(e.target.value)}
                     ></input>
+                    <button className='password-toggle-btn' onClick={handleTogglePassword}>
+                        {showPassword ? 'Hide' : 'Show'} Password
+                    </button>
                 </>)}
                 {
                     changePasswordState ? (

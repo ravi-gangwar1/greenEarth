@@ -1,15 +1,18 @@
 import "../style/profileUser.css"
 import { FaEdit } from "react-icons/fa";
 import { useSelector } from "react-redux"
-import { useEffect } from "react"
+
+
 function UserProfile() {
     const userState = useSelector(state => state.loginUserReducer);
     const {currentUser} = userState;
     console.log(currentUser)
 
-    useEffect(()=> {
 
-    }, [])
+    function handleProfile(){
+      alert("Edit profile will be added soon!!!!!")
+      return;
+    }
 
   return (
     <div className="profile-page">
@@ -22,8 +25,12 @@ function UserProfile() {
                     <td> <span>{currentUser.data.name}</span></td>
                 </tr>
                 <tr>
+                <td><h2 className="user-membership">Role:</h2></td>
+                <td><span>{currentUser.data.isAdmin ? "Admin" : currentUser.data.isWorker ? "Employee" : "User"}</span></td>
+                </tr>
+                <tr>
                 <td><h2 className="user-membership">Membership:</h2></td>
-                <td><span></span></td>
+                <td><span>{currentUser.data.isMember ? currentUser.data.isMembership : "No"}</span></td>
                 </tr>
                 <tr>
                     <td><h2 className="dob">Date of Birth:</h2></td>
@@ -45,7 +52,7 @@ function UserProfile() {
             </tbody>
         </table>
         
-        <button className="edit-btn"><FaEdit/></button>        
+        <button className="edit-btn" onClick={()=> handleProfile()}><FaEdit/></button>        
       </div>
     </div>
   )
