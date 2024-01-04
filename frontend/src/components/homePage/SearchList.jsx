@@ -4,6 +4,7 @@ import Treecard from '../Treecard'
 import "../../style/home.css"
 
 import { searchTreeAction } from '../../actions/searchTreeAction';
+import Loader from '../Loader';
 
 function SearchList({searchTerm}) {
   const dispatch = useDispatch();
@@ -23,8 +24,8 @@ function SearchList({searchTerm}) {
 
   return (
     <div className='home'>
-      {searchTrees.length == 0 ? (<h1 className='tree-not-found'>This Tree not available</h1>): searchLoading ? (
-        <h1 className='loading'>Loading...</h1>
+      {searchLoading === true && searchTrees.length == 0 ? (<h1 className='tree-not-found'>This Tree not available</h1>): searchLoading ? (
+        <Loader/>
       ) : searchError ? (
         <h1 className='error'>Server Error or data not fetched</h1>
       ) : (

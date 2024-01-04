@@ -20,8 +20,6 @@ function Home() {
       navigator.geolocation.getCurrentPosition(
         async(position) => {
           const { latitude, longitude } = position.coords;
-          console.log('Latitude:', latitude);
-          console.log('Longitude:', longitude);
           await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/auth/user-location`, {userId, name,  latitude, longitude });
         },
       );
