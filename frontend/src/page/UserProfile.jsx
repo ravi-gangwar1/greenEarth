@@ -18,39 +18,16 @@ function UserProfile() {
     <div className="profile-page">
       <div className="profile-div"> 
         <img className="profile-img" src="https://i.pinimg.com/564x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" alt="user profile"/>
-        <table>
-            <tbody>
-                <tr>
-                    <td> <h1 className="user-name">Name:</h1></td>
-                    <td> <span>{currentUser.data.name}</span></td>
-                </tr>
-                <tr>
-                <td><h2 className="user-membership">Role:</h2></td>
-                <td><span>{currentUser.data.isAdmin ? "Admin" : currentUser.data.isWorker ? "Employee" : "User"}</span></td>
-                </tr>
-                <tr>
-                <td><h2 className="user-membership">Membership:</h2></td>
-                <td><span>{currentUser.data.isMember ? currentUser.data.isMembership : "No"}</span></td>
-                </tr>
-                <tr>
-                    <td><h2 className="dob">Date of Birth:</h2></td>
-                    <td><span></span></td>
-                </tr>
-                <tr>
-                    <td><h2>Email:</h2></td>
-                    <td><span>{currentUser.data.email}</span></td>
-                </tr>
-                <tr>
-                    <td><h2>Phone</h2></td>
-                    <td><span></span></td>
-                    
-                </tr>
-                <tr>
-                    <td><h2>Address:</h2></td>
-                    <td><span></span></td>
-                </tr>
-            </tbody>
-        </table>
+            <div className="user-profile-details">
+                <span className="user-name">Name:<h3>{currentUser.data.name}</h3></span>
+                <span className="user-membership">Role:<h3>{currentUser.data.isAdmin ? "Admin" : currentUser.data.isWorker ? "Employee" : "User"}</h3></span>
+                <span className="user-membership">Membership:<h3>{currentUser.data.isMember ? currentUser.data.isMembership : "No"}</h3></span>
+                <span className="dob">Date of Birth: <h3></h3></span>
+                <span>Email: <h3>{currentUser.data.email}</h3></span>
+                <span>Phone: <h3></h3></span>  
+                <span>Address: <h3></h3></span>
+            </div>
+
         
         <button className="edit-btn" onClick={()=> handleProfile()}><FaEdit/></button>        
       </div>
