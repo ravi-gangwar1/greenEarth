@@ -8,7 +8,7 @@
 .profile-div{
     position: relative;
     height: 70vh;
-    width: fit-content;
+    width: 70%;
     text-align: center;
     background-color: rgb(48, 48, 48);
     padding: 20px;
@@ -17,8 +17,8 @@
 }
 
 .profile-img{
-    height: 150px;
-    width: 150px;
+    height: 25%;
+    width: 50%;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -31,4 +31,8 @@
     font-size: 20px;
     color: azure;
     cursor: pointer;
+}
+.profile-div table{
+    height: 70%;
+    width: 90%;
 }
