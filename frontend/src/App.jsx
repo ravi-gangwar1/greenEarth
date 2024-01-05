@@ -59,7 +59,7 @@ function App() {
     if(currentUser){
       getLocation();
     }
-  }, [currentUser])
+  }, [])
 
   useEffect(()=> {
     if(!currentUser) {
