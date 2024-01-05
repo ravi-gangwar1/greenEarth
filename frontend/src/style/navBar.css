@@ -60,8 +60,8 @@ nav ul li:hover {
   display: flex;
   height: 100%;
   align-items: center;
-  justify-content: center;
-  width: 30%;
+  justify-content: space-evenly;
+  width: 15%;
 }
 .bucket-btn {
   position: relative;
@@ -211,78 +211,7 @@ nav ul {
   display: none;
 }
 }
-@media (min-width: 0px) and (max-width: 320px) {
-  .navBar-btns{
-    width: 30%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .bucket{
-    font-size: 30px;
-  }
-  .userIcon{
-    font-size: 30px;
-    margin-top: 2px;
-  }
-  .side-baar-button{
-    margin-top: 10px;
-  }
-  .inner-side-bar-div{
-    font-size: 15px;
-    width: 20vh;
-  }
-}
 
-@media (min-width: 321px) and (max-width: 375px) {
-  .navBar-btns {
-    width: 30%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .bucket{
-    font-size: 30px;
-  }
-
-  .userIcon {
-    font-size: 30px;
-    margin-top: 2px;
-  }
-
-  .side-baar-button {
-    margin-top: 10px;
-  }
-
-  .inner-side-bar-div {
-    font-size: 15px;
-    width: 20vh;
-  }
-}
-
-@media (min-width: 425px) and (max-width: 768px) {
-  .navBar-btns {
-    width: 30%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .bucket {
-    font-size:30px;
-  }
-
-  .userIcon {
-    font-size: 35px;
-  }
-
-  .side-baar-button {
-    margin-top: 10px;
-  }
-
-  .inner-side-bar-div {
-    font-size: 15px;
-    width: 20vh;
-  }
-}
 
 @media (min-width : 0px) and (max-width: 431px) {
   .navBar-btns{
