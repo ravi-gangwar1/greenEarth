@@ -285,8 +285,18 @@ nav ul {
 }
 
 @media (min-width : 0px) and (max-width: 431px) {
+  .navBar-btns{
+    gap: 10px;
+    width: 35%;
+  }
   .userIcon {
-    margin-top: 6px;
+    margin-top: 5px;
     font-size: 35px;
+  }
+  .inner-side-bar-div{
+    font-size: 15px;
+    font-size: 20px;
+    height: 90%;
+    border-radius: 10px;
   }
 }
