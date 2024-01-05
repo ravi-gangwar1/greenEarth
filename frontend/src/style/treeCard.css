@@ -2,7 +2,6 @@
     background-color: rgb(58, 59, 64);
     height: 30vh;
     color: azure;
-    width:18vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,28 +74,86 @@
 
 
 
-@media (min-width: 0px) and (max-width: 400px) {
-    .main-card {
+@media (min-width: 320px) {
+    .main-card{
         flex-basis: 100%;
     }
 }
-
-@media (min-width: 400px) and (max-width: 600px) {
-    .main-card {
-        flex-basis: 42%;
+  
+  /* Small devices (portrait tablets and large phones) */
+  @media (min-width: 375px) {
+    .main-card{
+        flex-basis: 43%;
     }
-}
-
-@media (min-width: 601px) and (max-width: 1200px) {
-    .main-card {
+  }
+  
+  /* Medium devices (landscape tablets) */
+  @media (min-width: 425px) {
+    .main-card{
+        flex-basis: 43%;
+    }
+  }
+  
+  /* Large devices (laptops/desktops) */
+  @media (min-width: 768px) {
+    .main-card{
         flex-basis: 30%;
     }
-}
-
-@media (min-width: 1201px) and (max-width: 1600px) {
-    .main-card {
-        flex-basis: 23%;
-    }
-}
-
+  }
   
+  /* Extra large devices (large laptops and desktops) */
+  @media (min-width: 1024px) {
+    .main-card{
+        flex-basis: 30%;
+        height: 25vh;
+        font-size: 20px;
+    }
+    .plantBtn {
+        font-size: 25px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .bucketBtn {
+        font-size: 25px;
+        padding: 10px;
+        border-radius: 10px; 
+    }
+  }
+  
+  /* Extra extra large devices (larger desktops) */
+  @media (min-width: 1440px) {
+    .main-card{
+        flex-basis: 18%;
+        height: 25vh;
+        font-size: 20px;
+    }
+    .plantBtn {
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .bucketBtn {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 10px; 
+    }
+  }
+  @media (min-width: 2560px) {
+    .main-card{
+        flex-basis: 19%;
+        height:25vh;
+        font-size: 45px;
+    }
+    .plantBtn {
+        font-size: 40px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .bucketBtn {
+        font-size: 35px;
+        padding: 15px;
+        border-radius: 10px; 
+    }
+  }
+  
+

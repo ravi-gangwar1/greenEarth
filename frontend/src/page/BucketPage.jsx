@@ -4,7 +4,6 @@ import { addAction, deleteFromCart } from '../actions/bucketAction';
 import '../style/bucketPage.css'
 // import {loadStripe} from '@stripe/stripe-js';
 import { useState } from 'react';
-import PaySuccess from '../components/PaySuccess';
 
 //Actions
 import { placeOrderAction } from '../actions/orderAction';
@@ -29,8 +28,6 @@ const [pincode, setPincode] = useState("");
 const [address, setAddress] = useState("");
 const [landmark, setLandmark] = useState("");
 
-const paymentState = useSelector((state) => state.orderPaymentReducer);
-  const {success } = paymentState;
 
 //verify input fields
 const addressHandler = ()=>{
@@ -78,15 +75,15 @@ const makePayment = async () => {
               <h1>{tree.name}</h1>
               <h4>Price: &#x20B9;{tree.quantity*tree.price}</h4>
             <div className='inc-dec-btn'>
-              <FaPlusCircle
+              <FaPlusCircle className='incdec-btn'
                 onClick={() => {
                   if (tree.quantity < 10) {
                     dispatch(addAction(tree, tree.quantity + 1));
                   }
                 }}
               />
-              <div>{tree.quantity}</div>
-              <FaMinusCircle
+              <div className='quantity-trees'>{tree.quantity}</div>
+              <FaMinusCircle className='incdec-btn'
                 onClick={() => {
                   if (tree.quantity > 1) {
                     dispatch(addAction(tree, tree.quantity - 1));
@@ -112,9 +109,9 @@ const makePayment = async () => {
         <input className="inp" type="text" value={address} onChange={(e)=>setAddress(e.target.value)} placeholder='Enter Address'/>
         <input className="inp" type="text" value={landmark} onChange={(e)=>setLandmark(e.target.value)} placeholder='Enter Landmark'/>
         <div className='totalPriceDiv'> 
-        <h3>Total Amount: &#x20B9;{total}/-</h3>
-        <button className='pay-btn' onClick={addressHandler}>Pay Now</button>
-      </div>
+          <h3>Total Amount: &#x20B9;{total}/-</h3>
+          <button className='pay-btn' onClick={addressHandler}>Pay Now</button>
+        </div>
         
       </div>
       
