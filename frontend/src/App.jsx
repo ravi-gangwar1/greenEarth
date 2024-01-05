@@ -61,11 +61,9 @@ function App() {
     }
   }, [])
 
-  useEffect(()=> {
     if(!currentUser) {
       window.location.href = '/login';
     }
-  })
 
   
 
