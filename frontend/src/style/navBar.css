@@ -58,27 +58,31 @@ nav ul li:hover {
 
 .navBar-btns{
   display: flex;
+  height: 100%;
+  /* background-color: #fff; */
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
   width: 30%;
 }
-.navBar-btns .bucket-btn {
+.bucket-btn {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25x;
-  font-size: 35px;
+  height: 100%;
   cursor: pointer;
   border: none;
-  border-radius:2px;
-  background-color: transparent;
+  font-size: 100%;
+  background: none;
   color: aliceblue;
+}
+.bucket{
+  font-size: 35px;
 }
 .bucket-btn span{
   position: absolute;
-  font-size: 5px;
+  font-size: 12px;
   width: 10px;
   height: 15px;
   top: 0;
@@ -94,7 +98,7 @@ nav ul li:hover {
 
 .userIcon{
   color: azure;
-  font-size:40px;
+  font-size:33px;
 }
 .dropdown {
   height: 100%;
@@ -150,6 +154,7 @@ font-size: 40px;
 border: none;
 background:none;
 cursor: pointer;
+margin-top: 10px;
 
 }
 
@@ -207,5 +212,98 @@ nav ul {
   display: none;
 }
 }
+@media (min-width: 0px) and (max-width: 320px) {
+  .navBar-btns{
+    width: 30%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .bucket{
+    font-size: 30px;
+  }
+  .userIcon{
+    font-size: 30px;
+    margin-top: 2px;
+  }
+  .side-baar-button{
+    margin-top: 10px;
+  }
+  .inner-side-bar-div{
+    font-size: 15px;
+    width: 20vh;
+  }
+}
 
+@media (min-width: 321px) and (max-width: 375px) {
+  .navBar-btns {
+    width: 30%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 
+  .bucket{
+    font-size: 30px;
+  }
+
+  .userIcon {
+    font-size: 30px;
+    margin-top: 2px;
+  }
+
+  .side-baar-button {
+    margin-top: 10px;
+  }
+
+  .inner-side-bar-div {
+    font-size: 15px;
+    width: 20vh;
+  }
+}
+@media (min-width: 375px) and (max-width: 425px) {
+  .navBar-btns {
+    width: 30%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .bucket {
+    font-size: 30px;
+  }
+
+  .userIcon {
+    font-size: 30px;
+  }
+
+  .side-baar-button {
+    margin-top: 10px;
+  }
+
+  .inner-side-bar-div {
+    font-size: 15px;
+    width: 20vh;
+  }
+}
+@media (min-width: 425px) and (max-width: 768px) {
+  .navBar-btns {
+    width: 30%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .bucket {
+    font-size:30px;
+  }
+
+  .userIcon {
+    font-size: 35px;
+  }
+
+  .side-baar-button {
+    margin-top: 10px;
+  }
+
+  .inner-side-bar-div {
+    font-size: 15px;
+    width: 20vh;
+  }
+}

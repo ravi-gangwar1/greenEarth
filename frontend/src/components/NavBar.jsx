@@ -82,13 +82,13 @@ function NavBar() {
         <Link to="/login">
           <button className="login-btn">Login</button>
         </Link>}
-        <Link to="bucket">
+        <Link to="/bucket">
           <button className="bucket-btn">
             <FaBucket className="bucket" />
             <span>{bucketState.bucketItems.length}</span>
           </button>
         </Link>
-{         sideBar ? <button className="side-baar-button" onClick={handleSidebar}><RxCross2/></button>  :<button className="side-baar-button" onClick={handleSidebar}>
+            {sideBar ? <button className="side-baar-button" onClick={handleSidebar}><RxCross2/></button>  :<button className="side-baar-button" onClick={handleSidebar}>
           <IoMenu/>
           </button>}
       </div>
@@ -96,10 +96,10 @@ function NavBar() {
     <div className={sideBar ? "open-side-bar-div" : "off-side-bar-div"}>
           <div className='inner-side-bar-div'>
             <Link className="link-div" to="/">
-              <p>Home</p>
+              <p onClick={()=> setSideBar(!sideBar)}>Home</p>
             </Link>
             <Link className="link-div" to={currentUser ? `/garden/${currentUser.data._id}` : "/login"}>
-              <p>Garden</p>
+              <p onClick={()=> setSideBar(!sideBar)}>Garden</p>
             </Link>
               {currentUser ?
                 <>
@@ -107,13 +107,13 @@ function NavBar() {
                 </> 
                 : <></>}
               {isAdmin === true ? <Link to="/admin">
-                <p>Dashboard</p>
+                <p onClick={()=> setSideBar(!sideBar)}>Dashboard</p>
               </Link> : null}
                 <Link className="link-div" to="/contact">
-                  <p>Contact</p>
+                  <p onClick={()=> setSideBar(!sideBar)}>Contact</p>
                 </Link>
               <Link className="link-div" to="/about">
-                <p>About Us</p>
+                <p onClick={()=> setSideBar(!sideBar)}>About Us</p>
               </Link>
 
           </div>

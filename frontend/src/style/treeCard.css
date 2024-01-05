@@ -1,6 +1,7 @@
 .main-card{
     background-color: rgb(58, 59, 64);
-    height: 30vh;
+    height: 250px;
+    width: 285px;
     color: azure;
     display: flex;
     justify-content: center;
