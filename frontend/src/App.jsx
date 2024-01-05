@@ -34,8 +34,6 @@ import { useEffect } from 'react';
 function App() {
   const userState = useSelector(state => state.loginUserReducer);
   const {currentUser} = userState;
-
-
   const isAdmin = currentUser?.data?.isAdmin === true;
 
 
@@ -60,13 +58,6 @@ function App() {
       getLocation();
     }
   }, [])
-
-    if(!currentUser) {
-      window.location.href = '/login';
-    }
-
-  
-
 
   return (
     <>{
