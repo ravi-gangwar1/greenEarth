@@ -44,6 +44,7 @@
 .user-profile-details span{
     color: #bfbfbf;
     display: flex;
+    flex-wrap: wrap;
     height: 14%;
     align-items: center;
     width: 100%;
