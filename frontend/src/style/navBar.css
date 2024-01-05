@@ -59,10 +59,8 @@ nav ul li:hover {
 .navBar-btns{
   display: flex;
   height: 100%;
-  /* background-color: #fff; */
   align-items: center;
-  justify-content: space-evenly;
-  height: 100%;
+  justify-content: center;
   width: 30%;
 }
 .bucket-btn {
@@ -71,6 +69,7 @@ nav ul li:hover {
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: fit-content;
   cursor: pointer;
   border: none;
   font-size: 100%;
@@ -259,30 +258,7 @@ nav ul {
     width: 20vh;
   }
 }
-@media (min-width: 375px) and (max-width: 425px) {
-  .navBar-btns {
-    width: 30%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
 
-  .bucket {
-    font-size: 30px;
-  }
-
-  .userIcon {
-    font-size: 30px;
-  }
-
-  .side-baar-button {
-    margin-top: 10px;
-  }
-
-  .inner-side-bar-div {
-    font-size: 15px;
-    width: 20vh;
-  }
-}
 @media (min-width: 425px) and (max-width: 768px) {
   .navBar-btns {
     width: 30%;
@@ -305,5 +281,12 @@ nav ul {
   .inner-side-bar-div {
     font-size: 15px;
     width: 20vh;
+  }
+}
+
+@media (min-width : 0px) and (max-width: 431px) {
+  .userIcon {
+    margin-top: 6px;
+    font-size: 35px;
   }
 }

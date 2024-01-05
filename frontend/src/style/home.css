@@ -35,6 +35,7 @@
     justify-content: center;
     font-size: 20px;
     color: azure;
+    gap: 5px;
 }
 .cetageory input {
     margin-right: 20px;
@@ -80,3 +81,14 @@
 }
 
 
+@media (min-width : 0px) and (max-width : 431px) {
+    .search-div{
+      flex-direction: column;
+    }
+    .cetageory input{
+        width: 25px;
+    }
+    .preNextDanger{
+        font-size: 18px;
+    }
+  }

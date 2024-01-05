@@ -74,3 +74,8 @@
 
 
 
+@media (min-width : 0px) and (max-width : 431px) {
+    .main-card{
+        flex-basis: 43%;
+    }
+}
