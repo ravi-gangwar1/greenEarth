@@ -43,9 +43,12 @@ function GetMembership() {
   return (
     <>
     { loader ? <Loader/> :
+        <div className="main-new-div">
+        <h1 className="member-h1">Become Member</h1>
         <div className='getMembership-page'>
-        <h1>Become Member</h1>
+
         <div className='all-membership-div'>
+
             <table>
                 <thead>
                     <tr>
@@ -78,14 +81,39 @@ function GetMembership() {
                         <td>Free Delivery,<br/> Unlimited Service</td>
                         <td><button onClick={() => handleMembership({_id: _id, membership: premium})}>Get Membership</button></td>
                     </tr>
-                    <tr>
-
-                    </tr>
-                    
                 </tbody>
             </table>
         </div>
-    </div>}
+    </div>
+    <div className="slider-container">
+      <div className="card">
+        <span className="span-card-member"><h1>Basic</h1></span>
+        <span className="span-card-member">Price: <h3>299</h3></span>
+        <span className="span-card-member">Duration: <h3>6 Month</h3></span>
+        <span className="span-card-member">Benefits: <h3>Free delivery, <br />Unlimited Service</h3></span>
+        <span className="span-card-member"><button onClick={() => handleMembership({_id: _id, membership: basic})}>Buy Now!!</button></span>
+      </div>
+      <div className="card">
+        <span className="span-card-member"><h1>Standard</h1></span>
+        <span className="span-card-member">Price: <h3>499</h3></span>
+        <span className="span-card-member">Duration: <h3>1 Year</h3></span>
+        <span className="span-card-member">Benefits: <h3>Free delivery, <br />Unlimited Service</h3></span>
+        <span className="span-card-member"><button onClick={() => handleMembership({_id: _id, membership: standard})}>Buy Now!!</button></span>
+      </div>
+      <div className="card">
+        <span className="span-card-member"><h1>Premium</h1></span>
+        <span className="span-card-member">Price: <h3>999</h3></span>
+        <span className="span-card-member">Duration: <h3>2 Year</h3></span>
+        <span className="span-card-member">Benefits: <h3>Free delivery, <br />Unlimited Service</h3></span>
+        <span className="span-card-member"><button onClick={() => handleMembership({_id: _id, membership: premium})}>Buy Now!!</button></span>
+      </div>
+
+      
+    </div>
+    </div>
+    }
+    
+
     </>
   )
 }

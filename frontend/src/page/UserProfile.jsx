@@ -19,13 +19,13 @@ function UserProfile() {
       <div className="profile-div"> 
         <img className="profile-img" src="https://i.pinimg.com/564x/0d/64/98/0d64989794b1a4c9d89bff571d3d5842.jpg" alt="user profile"/>
             <div className="user-profile-details">
-                <span className="user-name">Name:<h3>{currentUser.data.name}</h3></span>
-                <span className="user-membership">Role:<h3>{currentUser.data.isAdmin ? "Admin" : currentUser.data.isWorker ? "Employee" : "User"}</h3></span>
-                <span className="user-membership">Membership:<h3>{currentUser.data.isMember ? currentUser.data.isMembership : "No"}</h3></span>
-                <span className="dob">Date of Birth: <h3></h3></span>
-                <span>Email: <h3>{currentUser.data.email}</h3></span>
-                <span>Phone: <h3></h3></span>  
-                <span>Address: <h3></h3></span>
+                <span className="profile-spans">Name:<h3>{currentUser.data.name}</h3></span>
+                <span className="profile-spans">Role:<h3>{currentUser.data.isAdmin ? "Admin" : currentUser.data.isWorker ? "Employee" : "User"}</h3></span>
+                <span className="profile-spans">Membership:<h3>{currentUser.data.isMember ? currentUser.data.isMembership : "No"}</h3></span>
+                <span className="profile-spans">Date of Birth: <h3></h3></span>
+                <span className="profile-spans">Email: <h3>{currentUser.data.email}</h3></span>
+                <span className="profile-spans">Phone: <h3></h3></span>  
+                <span className="profile-spans">Address: <h3></h3></span>
             </div>
 
         

@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.user-profile-details span{
+.user-profile-details .profile-spans{
     color: #bfbfbf;
     display: flex;
     flex-wrap: wrap;
@@ -51,7 +51,7 @@
     justify-content: center;
     border-top: 1px solid #000;
 }
-.user-profile-details span h3{
+.user-profile-details .profile-spans h3{
     margin-left: 10px;
     color: #afafaf;
     text-decoration: underline;
