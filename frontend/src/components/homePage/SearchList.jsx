@@ -24,7 +24,7 @@ function SearchList({searchTerm}) {
 
   return (
     <div className='home'>
-      {searchLoading === true && searchTrees.length == 0 ? (<h1 className='tree-not-found'>This Tree not available</h1>): searchLoading ? (
+      {searchLoading === false && searchTrees.length == 0 ? (<h1 className='tree-not-found'>This Tree not available</h1>): searchLoading ? (
         <Loader/>
       ) : searchError ? (
         <h1 className='error'>Server Error or data not fetched</h1>

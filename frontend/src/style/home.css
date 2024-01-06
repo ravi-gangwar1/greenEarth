@@ -1,6 +1,6 @@
 .home{
     position: relative;
-    min-height: fit-content;
+    min-height: 60vh;
     width: 100vw;
     display: flex;
     align-items: center;
