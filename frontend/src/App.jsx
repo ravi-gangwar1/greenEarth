@@ -15,6 +15,7 @@ import OrdersList from './page/OrdersList'
 import TreeDetails from './page/treeDetails';
 import UserProfile from './page/UserProfile';
 import GetMembership from './page/GetMembership';
+import PlantTree from './components/PlantTree.jsx';
 
 
 
@@ -27,8 +28,8 @@ import AddTree from './components/admin/AddTree';
 import EditTree from './components/admin/EditTree';
 import Garden from './page/Garden';
 import Footer from './components/Footer';
-import axios from 'axios';
-import { useEffect } from 'react';
+// import axios from 'axios';
+// import { useEffect } from 'react';
 
 
 function App() {
@@ -38,26 +39,26 @@ function App() {
 
 
 
-  async function getLocation() {
-    const userId = currentUser?.data?._id;
-    const name = currentUser?.data?.name;
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async(position) => {
-          const { latitude, longitude } = position.coords;
-          await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/auth/user-location`, {userId, name,  latitude, longitude });
-        },
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  }
+  // async function getLocation() {
+  //   const userId = currentUser?.data?._id;
+  //   const name = currentUser?.data?.name;
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       async(position) => {
+  //         const { latitude, longitude } = position.coords;
+  //         await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/auth/user-location`, {userId, name,  latitude, longitude });
+  //       },
+  //     );
+  //   } else {
+  //     console.error('Geolocation is not supported by this browser.');
+  //   }
+  // }
 
-  useEffect(()=> {
-    if(currentUser){
-      getLocation();
-    }
-  }, [])
+  // useEffect(()=> {
+  //   if(currentUser){
+  //     getLocation();
+  //   }
+  // }, [])
 
   return (
     <>{
@@ -80,6 +81,7 @@ function App() {
                 <Route path='/garden/:userId' element={<Garden/>}/>
                 <Route path='/profile' element={<UserProfile/>}/>
                 <Route path='/get-membership' element={<GetMembership/>}/>
+                <Route path='/plant-tree/:treeId' element={<PlantTree/>}/>
               </> : ""
             }
     

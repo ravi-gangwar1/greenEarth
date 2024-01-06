@@ -5,7 +5,6 @@ const BASE_URL = import.meta.env.VITE_BACKED_DOMAIN;
 
 export const placeOrderAction = (reqBody) => async (dispatch) => {
     const stripe = await loadStripe(`${import.meta.env.VITE_STRIPE_PRIVATE_KEY}`);
-    console.log("REqbody", reqBody);
 
     dispatch({ type: 'PLACE_ORDER_REQUEST' });
 

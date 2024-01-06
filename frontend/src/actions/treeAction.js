@@ -26,7 +26,6 @@ export const getTreeById = (treeId) => async (dispatch) => {
     try {
         const res = await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/trees/get-tree`, treeId);
         dispatch({ type: 'GET_TREE_BY_ID_TREE_SUCCESS', payload: res.data });
-        console.log(res.data);
     } catch (error) {
         dispatch({ type: 'RESET_GET_TREE_BY_ID_TREE_STATE', payload: error.message || 'An error occurred' });
     }

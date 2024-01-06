@@ -8,16 +8,13 @@ import { getAllTree } from '../../actions/treeAction';
 import Loader from '../Loader';
 
 
-
-
-function ListAllTress() {
+function ListAllTress({ indoor, outdoor }) {
   const dispatch = useDispatch();
   const treestate = useSelector(state => state.treeReducer);
   const { trees, loading, error } = treestate;
-  const {totalDocuments, treeList} = trees;
+  const { totalDocuments, treeList } = trees;
 
   const [page, setPage] = useState(1);
-
   const handlePrev = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -25,31 +22,32 @@ function ListAllTress() {
   };
 
   const handleNext = () => {
-    if (page*15 > totalDocuments) {
-        alert("No more data to show");
-        return;
-    }else{
+    if (page * 15 > totalDocuments) {
+      alert("No more data to show");
+    } else {
       setPage(page + 1);
     }
-
   };
 
   useEffect(() => {
     dispatch(getAllTree(page));
-  }, [page]);
+  }, [page,indoor, outdoor]);
 
   return (
     <div className='home'>
       {loading ? (
-         <Loader className='loading'/>
+        <Loader className='loading' />
       ) : error ? (
         <h1 className='error'>Server Error or data not fetched</h1>
       ) : (
         <>
           <div className='card-div'>
-            {Array.isArray(treeList) && treeList.map((tree) => (
-              <Treecard key={tree.id} tree={tree} />
-            ))}
+            {Array.isArray(treeList) &&
+              treeList.map((tree, index) => (
+                (indoor=== true && tree.categeory === "indoor") || (outdoor===true && tree.categeory === "outdoor") ? (
+                  <Treecard key={index} tree={tree} />
+                ) : <Treecard key={index} tree={tree} />
+              ))}
           </div>
         </>
       )}
@@ -60,10 +58,10 @@ function ListAllTress() {
         <button className={page * 15 > totalDocuments ? "preNextDanger" : "prevNext"} onClick={handleNext}>
           {page * 15 > totalDocuments ? "No more data to show" : "Next"}
         </button>
-
       </div>
     </div>
   );
 }
 
 export default ListAllTress;
+

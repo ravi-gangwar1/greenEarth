@@ -10,11 +10,15 @@ function TreeDetails() {
     const dispatch = useDispatch();
     const getTreeByState = useSelector((state) => state.getTreeByIdReducer);
     const { tree, loading, /*error*/ } = getTreeByState;
+
+  
     useEffect(() => {
         dispatch(getTreeById(treeId));
       }, [treeId, dispatch]);
+
+
     const handlePlantButtonClick = () => {
-        console.log('Plant button clicked');
+        window.location.href = `/plant-tree/${tree._id}`;
       };
     
       const handleAddToBucketButtonClick = () => {

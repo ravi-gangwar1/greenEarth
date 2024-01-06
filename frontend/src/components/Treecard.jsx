@@ -6,6 +6,11 @@ import { addAction } from '../actions/bucketAction'
 
 function Treecard({ tree }) {
   const dispatch = useDispatch();
+  const treeId = tree._id;
+
+  const handlePlantAction = () => {
+    window.location.href = `/plant-tree/${treeId}`;
+  }
 
   const addToBucketHandler = () => {
     dispatch(addAction(tree));
@@ -24,7 +29,7 @@ function Treecard({ tree }) {
           <p>Price: &#x20B9;{tree.price}</p>
         </div>
         <div className='cardBtns'>
-          <button className='plantBtn'>Plant</button>
+          <button className='plantBtn' onClick={handlePlantAction}>Plant</button>
           <button onClick={addToBucketHandler} className='bucketBtn'>
             Add Bucket
           </button>
