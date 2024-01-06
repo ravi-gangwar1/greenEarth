@@ -49,6 +49,41 @@ function About() {
                   </p>
               </div>
             </div>
+            <div className="about-slider-container">
+      <div className="about-card">
+        <span className="about-span-card-member"><h1>Vision</h1></span>
+        <span className="about-about-span-card-member">
+          <p> 
+            To build a model eco-farming community on our land donation, skillfully master 
+            planned to allow for future-allocated areas for forests, schools, parks, marketplaces
+            ,sports and recreational facilities, and community training center.
+          </p>
+        </span>
+      </div>
+      <div className="about-card">
+        <span className="about-span-card-member"><h1>Mission</h1></span>
+        <span className="about-span-card-member">
+          <p> We are committed to making this planet a better place for all of us. We understand
+              the importance of keeping our environment balanced and sustainable. We believe that everyone
+              can do their part to ensure the health of the planet and we will work hard to make
+              sure our goals become realities.
+          </p>
+        </span>
+
+      </div>
+      <div className="about-card">
+        <span className="about-span-card-member"><h1>Objective</h1></span>
+        <span className="about-span-card-member">
+          <p> 
+            Planting trees is a great way to help the environment and 
+            the world we live in. Here are some benefits of planting 
+            trees:-<br/>1. Economic benefits<br/>2. Environmental benefits<br/>3. Wildlife benefits
+          </p>
+        </span>
+      </div>
+
+      
+    </div>
          </div>
          <div className='aboutus-team'>
           <h1>Our Team</h1>

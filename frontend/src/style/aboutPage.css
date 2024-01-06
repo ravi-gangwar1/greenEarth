@@ -102,3 +102,91 @@
 .team-member-details span p{
     font-weight: 600;
 }
+
+.about-slider-container::-webkit-scrollbar{
+    height: 8px;
+}
+.about-slider-container::-webkit-scrollbar-track{
+    background: #f1f1f1f1;
+    border-radius: 25px;
+}
+.about-slider-container::-webkit-scrollbar-thumb{
+    background: #722DF9;
+    border-radius: 25px;
+}
+.about-slider-container::-webkit-scrollbar-thumb:hover{
+    background: #000000ce;
+}
+.about-slider-container{
+    display: flex;
+    max-width: 60%;
+    min-height: 70vh;
+    background: #8e8e8e3d;
+    border-radius: 12px;
+    padding: 30px 20px;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-padding: 30px;
+    gap: 12px;
+}
+.about-slider-container .about-card{
+    flex: 0  0 100%;
+    border-radius: 12px;
+    padding:30px;
+    scroll-snap-align: start;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+.about-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #e5e5e5;
+    text-align: center;
+    background-color: #6f6f6f;
+}
+.about-span-card-member{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 23%;
+    width: 100%;
+}
+@media (max-width : 810px){
+    .about-greenearth{
+        flex-direction: column;
+    }
+    .about-greenearth img{
+        height: 300px;
+        width: 300px;
+    }
+    .objective-cards{
+        display: none;
+    }
+    .objectives{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .members-team{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .about-page{
+        height: fit-content;
+    }
+    .aboutus-team {
+        height: fit-content;
+    }
+    
+
+}
+@media (min-width : 809px){
+    .about-slider-container{
+        display: none;
+    }
+}
