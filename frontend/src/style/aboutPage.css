@@ -212,6 +212,6 @@
         overflow: hidden;
     }
     .about-greenearth p:hover{
-        max-height: 1100px;
+        max-height: fit-content;
     }
 }
