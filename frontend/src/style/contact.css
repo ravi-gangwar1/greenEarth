@@ -65,6 +65,7 @@
     border: none;
     background-color: #1d1c1c;
     color: azure;
+    cursor: pointer;
     border-radius: 10px;
 }
 .contact-right{

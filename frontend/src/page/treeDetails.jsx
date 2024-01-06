@@ -4,11 +4,12 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTreeById } from '../actions/treeAction';
 import Loader from '../components/Loader';
+import { addAction } from '../actions/bucketAction';
 function TreeDetails() {
     const treeId = useParams();
     const dispatch = useDispatch();
     const getTreeByState = useSelector((state) => state.getTreeByIdReducer);
-    const { tree, loading, error } = getTreeByState;
+    const { tree, loading, /*error*/ } = getTreeByState;
     useEffect(() => {
         dispatch(getTreeById(treeId));
       }, [treeId, dispatch]);
@@ -17,9 +18,7 @@ function TreeDetails() {
       };
     
       const handleAddToBucketButtonClick = () => {
-
-        
-        console.log('Add to Bucket button clicked');
+          dispatch(addAction(tree));
       };
 
   return (

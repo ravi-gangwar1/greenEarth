@@ -9,17 +9,7 @@ function Contact() {
   const contactState = useSelector((state) => state.contactMessageReducer);
   const { loading, success } = contactState;
 
-  useEffect(() => {
-    if (success === true) {
-      alert('Your message has been sent successfully');
-      setContactMessage({
-        ...contactMessage,
-        name: '',
-        email: '',
-        message: '',
-      });
-    }
-  }, [success]);
+
 
   const userState = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userState;
@@ -31,18 +21,19 @@ function Contact() {
   });
 
   const handleMessage = () => {
-    if (contactMessage.name !== '' && contactMessage.email !== '' && contactMessage.message !== '') {
+    if (contactMessage.name !== '' && contactMessage.message !== '') {
       dispatch(contactAction(contactMessage));
-      setContactMessage({
-        ...contactMessage,
-        name: '',
-        email: '',
-        message: '',
-      });
     } else {
       alert('Fill all the fields');
     }
   };
+
+  useEffect(() => {
+    if (success === true) {
+      alert('Your message has been sent successfully');
+    }
+  }, [success]);
+  
 
   return (
     <div className='contactPage'>

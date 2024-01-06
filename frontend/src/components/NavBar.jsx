@@ -71,7 +71,7 @@ function NavBar() {
         <>
         <div className="dropdown">
           <button className="dropbtn">
-          <FaUserCircle className='userIcon'/>
+          <FaUserCircle className='userIcon'onMouseOver={() =>sideBar === true ? setSideBar(false) : ""} onClick={() => sideBar === true ? setSideBar(false) : ""}/>
           </button>
             <div className="dropdown-content">
             <Link className="linksTag-dropDown" to="/profile">Profile</Link>
@@ -85,8 +85,8 @@ function NavBar() {
           <button className="login-btn">Login</button>
         </Link>}
         <Link to="/bucket">
-          <button className="bucket-btn">
-            <FaBucket className="bucket" />
+          <button className="bucket-btn" onClick={() =>sideBar === true ? setSideBar(false) : ""}>
+            <FaBucket className="bucket" onClick={() =>sideBar === true ? setSideBar(false) : ""}/>
             <span>{bucketState.bucketItems.length}</span>
           </button>
         </Link>

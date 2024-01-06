@@ -34,6 +34,10 @@ const addressHandler = ()=>{
   if(!currentUser) {
     return window.location.href = '/login';
   }
+  if(bucketItems.length === 0){
+    alert("Please add trees to bucket")
+    return;
+  }
   if(name && email && phone && state && city && pincode && address && landmark){
     makePayment();
   }else{
@@ -97,6 +101,7 @@ const makePayment = async () => {
           </div>
         ))}
       </div>
+      
       <div className='address-div'>
 
         <h1>ADDRESS DETAILS</h1>

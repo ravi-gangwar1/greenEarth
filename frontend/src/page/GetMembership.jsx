@@ -1,7 +1,6 @@
 import "../style/getMembership.css"
 import { useDispatch, useSelector } from "react-redux"
 import { getMembershipAction } from "../actions/getMembershipAction";
-import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 function GetMembership() {
 
@@ -19,30 +18,18 @@ function GetMembership() {
     const standard = "Standard";
     const premium = "Premium";
 
-    const [loader, setLoader] = useState(false)
-    const { success, error} = useSelector((state) => state.getMembershipReducer)
+    const {loading, /*success, error*/} = useSelector((state) => state.getMembershipReducer)
 
 
     const handleMembership = (_id, membership) => {
-        setLoader(true)
         dispatch(getMembershipAction(_id, membership))
     }
-
-
-    useEffect(() => {
-        if(success){
-            setLoader(false)
-        }
-        if(error){
-            setLoader(false)
-        }
-    }, [success, error])
 
 
 
   return (
     <>
-    { loader ? <Loader/> :
+    { loading ? <Loader/> :
         <div className="main-new-div">
         <h1 className="member-h1">Become Member</h1>
         <div className='getMembership-page'>
@@ -62,21 +49,21 @@ function GetMembership() {
                 <tbody>
                     <tr>
                         <td>Basic</td>
-                        <td>$10</td>
+                        <td>Rs.299\-</td>
                         <td>6 Month</td>
                         <td>Free Delivery,<br/> Unlimited Service</td>
                         <td><button onClick={() => handleMembership({_id: _id, membership: basic})}>Get Membership</button></td>
                     </tr>
                     <tr>
                         <td>Standard</td>
-                        <td>$15</td>
+                        <td>Rs.499\-</td>
                         <td>1 year</td>
                         <td>Free Delivery,<br/> Unlimited Service</td>
                         <td><button onClick={() => handleMembership({_id: _id, membership: standard})}>Get Membership</button></td>
                     </tr>
                     <tr>
                         <td>Premium</td>
-                        <td>$20</td>
+                        <td>Rs.999\-</td>
                         <td>2 year</td>
                         <td>Free Delivery,<br/> Unlimited Service</td>
                         <td><button onClick={() => handleMembership({_id: _id, membership: premium})}>Get Membership</button></td>
