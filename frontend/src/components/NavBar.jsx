@@ -28,6 +28,8 @@ function NavBar() {
       const scrollY = window.scrollY || window.pageYOffset;
       setIsSticky(scrollY > window.innerHeight * 0.10);
     };
+
+    
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
