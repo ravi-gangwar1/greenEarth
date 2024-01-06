@@ -23,7 +23,7 @@ orderRouter.post('/placeorder', async (req, res) => {
             },
             unit_amount: item.price * 100,
         },
-        quantity: item.quantity,
+        quantity: item.quantity || 1,
     }));
 
     try {
@@ -36,7 +36,6 @@ orderRouter.post('/placeorder', async (req, res) => {
             cancel_url: `${process.env.FRONTEND_URI}/cancel`,
         });
 
-        // Save order if Stripe session is successfully created
         if (session) {
             const newOrder = new orderModel({
                 name: address.name,
@@ -55,7 +54,6 @@ orderRouter.post('/placeorder', async (req, res) => {
                 console.log("Order not saved");
             }
 
-            // Return the session ID in the response
             res.json({
                 id: session.id,
             });
