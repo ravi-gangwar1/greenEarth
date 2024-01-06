@@ -1,26 +1,7 @@
 .orderList-page{
   min-height: 100vh;
-  text-align: center;
-}
-
-.order-page-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  
-.order-page-table thead{
-  border: 1px solid #ddd;
-  text-align: left;
-}
-.cancel-order-order-list button{
   width: 100%;
-  border: none;
-  font-weight: 600;
-  padding: auto;
-  color: azure;
-  border-radius: 10px;
-  background-color: red;
+  text-align: center;
 }
 .zero-orders{
   position: absolute;
@@ -28,6 +9,105 @@
   left: 40%;
   font-size: 30px;
 }
-.zero-orders span{
-  color: #e43b3b;
+
+.orderList-page h1{
+  margin: 50px;
+  font-size: 50px;
+}
+.order-cards-list {
+  min-width: 100%;
+  min-height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.order-tree-card {
+  min-height: 25vh;
+  margin: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  background-color: #282828;
+  box-shadow: 0px 10px 30px #282828;
+}
+
+.cancel-order-tree-card{
+  min-height: 25vh;
+  margin: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  background-color: #423030;
+  box-shadow: 0px 10px 30px #282828;
+}
+
+.first-inside-div,
+.second-inside-div {
+  min-height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.first-inside-div span,
+.second-inside-div span {
+  margin-bottom: 10px; 
+  display: flex;
+  gap: 5px;
+}
+
+.order-tree-card button {
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+}
+.cancel-order-tree-card button {
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.rate-button-orders {
+ background-color: rgb(21, 21, 21);
+ color: azure;
+ font-weight: 700;
+}
+.rate-button-orders:hover {
+  background-color: rgba(21, 21, 21, 0.451);
+}
+.cancel-button-orders{
+  background-color: red;
+  color: azure;
+  font-weight: 700;
+}
+.cancel-button-orders:hover{
+  background-color: rgba(255, 0, 0, 0.746);
+}
+
+@media (min-width : 0px)  and (max-width: 455px) {
+  .order-tree-card{
+    width: 350px;
+  }
+  .cancel-order-tree-card{
+    width: 350px;
+  }
+  .orderList-page h1{
+    font-size: 20px;
+  }
 }
