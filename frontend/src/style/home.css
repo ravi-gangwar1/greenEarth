@@ -91,4 +91,8 @@
     .preNextDanger{
         font-size: 18px;
     }
+    .tree-not-found{
+        font-size: 15px;
+        color: red;
+    }
   }
