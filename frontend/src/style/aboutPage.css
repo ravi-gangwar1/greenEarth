@@ -15,7 +15,8 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 20px;
+    padding: 20px;
+
 }
 .about-greenearth img{
     margin-right: 20px;
@@ -24,10 +25,11 @@
 
 .about-greenearth p{
     font-size: 20px;
+    padding: 0 50px;
 }
 .about-greenearth img {
-    height: 90%;
-    width: 60%;
+    height: 300px;
+    width: 300px;
     border-radius: 10px;
 }
 .objectives{
@@ -37,7 +39,6 @@
     margin-bottom: 40px;
 }
 .objective-cards{
-    
     margin-top: 10px;
     height: fit-content;
     display: flex;
@@ -51,9 +52,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: fit-content;
     background-color: rgba(95, 95, 95, 0.461);
     flex-basis: 25%;
+    overflow: hidden;
+    padding-bottom:10px;
+    max-height: 200px;
+    transition: max-height 0.5s ease;
+}
+.objective-card:hover{
+    max-height: 800px;
+
 }
 .objective-card h2{
     font-size: 30px;
@@ -61,6 +69,10 @@
 }
 .objective-card p{
     font-size: 20px;
+    padding-bottom: 10px;
+}
+.read-more-btn{
+    margin-top: 5px;
 }
 
 .aboutus-team {
@@ -132,27 +144,25 @@
 .about-slider-container .about-card{
     flex: 0  0 100%;
     border-radius: 12px;
-    padding:30px;
     scroll-snap-align: start;
     box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    min-height: fit-content;
 }
 .about-card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 4px;
     font-size: 18px;
     font-weight: 400;
     color: #e5e5e5;
     text-align: center;
-    background-color: #6f6f6f;
+    background-color: #555555a3;
 }
 .about-span-card-member{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    height: 23%;
     width: 100%;
 }
 @media (max-width : 810px){
@@ -194,5 +204,14 @@
 @media (min-width : 0px) and (max-width : 431px) {
     .about-slider-container{
         max-width: 80%;
+        overflow-y: hidden;
+    }
+    .about-greenearth p{
+        padding: 10px;
+        max-height: 300px;
+        overflow: hidden;
+    }
+    .about-greenearth p:hover{
+        max-height: 1100px;
     }
 }

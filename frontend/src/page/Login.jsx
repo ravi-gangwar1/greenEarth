@@ -245,7 +245,7 @@ const Login = () => {
             {
                 reset ? ("") : (
                     <div className='loginContainer'>
-                        <p>{state === "Log In" ? "Havn't an account? ":" Have an account? "}<Link to='#' onClick={ () =>{setState( state == "Log In" ? "Sign Up" : "Log In")}}>{state === 'Log In' ? 'Sign Up' : 'Log In'}</Link></p>
+                        <p>{state === "Log In" ? "Havn't an account? ":" Have an account? "}<Link to='#' className='login-signup-btn-link' onClick={ () =>{setState( state == "Log In" ? "Sign Up" : "Log In")}}>{state === 'Log In' ? 'Sign Up' : 'Log In'}</Link></p>
                     </div>
                 )
             }

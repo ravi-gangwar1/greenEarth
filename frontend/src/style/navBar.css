@@ -62,7 +62,14 @@ nav ul li:hover {
   height: 100%;
   align-items: center;
   justify-content: space-around;
-  width: 15%;
+  width: 30%;
+}
+.login-btn{
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
 }
 .bucket-btn {
   position: relative;
@@ -217,7 +224,7 @@ nav ul {
 @media (min-width : 0px) and (max-width: 431px) {
   .navBar-btns{
     gap: 10px;
-    width: 35%;
+    width: 45%;
   }
   .userIcon {
     margin-top: 5px;

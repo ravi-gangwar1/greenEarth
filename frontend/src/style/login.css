@@ -1,5 +1,5 @@
 .main-div{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -104,12 +104,16 @@ input{
 }
 .loginContainer{
     border: 1px solid rgb(207, 193, 193);
-    height: 6%;
+    height: 5vh;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 335px;
     color: rgb(119, 103, 103);
+}
+.login-signup-btn-link{
+    color: rgb(255, 255, 255);
 }
 .forget-password{
     text-decoration: none;
