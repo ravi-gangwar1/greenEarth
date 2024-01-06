@@ -9,12 +9,10 @@ dotenv.config();
 import Stripe from 'stripe';
 import userModel from "../model/userModel.js";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
 
 
 orderRouter.post('/placeorder', async (req, res) => {
-    const { bucketItems, address} = req.body;
-    console.log(bucketItems, address);
+    const { bucketItems, address } = req.body;
 
     // Construct line items
     const lineItems = bucketItems.map((item) => ({
@@ -28,38 +26,46 @@ orderRouter.post('/placeorder', async (req, res) => {
         quantity: item.quantity,
     }));
 
-    // Create a Checkout Session with the session data
-    const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items: lineItems,
-        mode: 'payment',
-        success_url: `${process.env.FRONTEND_URI}/get-membership`,
-        cancel_url: `${process.env.FRONTEND_URI}/cancel`,
-    }); 
+    try {
+        // Create a Checkout Session with the session data
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: lineItems,
+            mode: 'payment',
+            success_url: `${process.env.FRONTEND_URI}/get-membership`,
+            cancel_url: `${process.env.FRONTEND_URI}/cancel`,
+        });
 
-    if(session){
-        const newOrder = new orderModel({
-            name: address.name,
-            email: address.email,
-            userId: address.userId,
-            orderTrees: bucketItems,
-            shippingAddress: address,
-            orderAmount: address.amount,
-            transectionId: session.id,
-        })
-        const saveOrder = await newOrder.save();
-        if(saveOrder){
-            console.log("order save");
+        // Save order if Stripe session is successfully created
+        if (session) {
+            const newOrder = new orderModel({
+                name: address.name,
+                email: address.email,
+                userId: address.userId,
+                orderTrees: bucketItems,
+                shippingAddress: address,
+                orderAmount: address.amount,
+                transectionId: session.id,
+            });
+
+            const saveOrder = await newOrder.save();
+            if (saveOrder) {
+                console.log("Order saved");
+            } else {
+                console.log("Order not saved");
+            }
+
+            // Return the session ID in the response
+            res.json({
+                id: session.id,
+            });
         }
-        else{
-            console.log("order not save");
-        }
+    } catch (error) {
+        console.error("Error creating Checkout Session:", error);
+        res.status(500).json({ error: "Failed to create Checkout Session" });
     }
-
-    res.json({
-        id: session.id,
-    });
 });
+
 
 
 
