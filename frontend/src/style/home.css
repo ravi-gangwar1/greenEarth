@@ -6,11 +6,11 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    text-align: center;
 }
 .tree-not-found{
     position: absolute;
     top: 40%;
-    left: 35%;
     font-size: 40px;
     color: azure;
 
@@ -92,7 +92,8 @@
         font-size: 18px;
     }
     .tree-not-found{
-        font-size: 20px;
+        font-size: 25px;
+        font-weight: 600;
         color: red;
     }
   }
