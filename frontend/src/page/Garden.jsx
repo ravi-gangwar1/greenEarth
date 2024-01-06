@@ -17,7 +17,6 @@ function Garden() {
           allTrees.push(tree);
         }));
     }
-    console.log(allTrees);
     useEffect(()=>{
         if(userId){
           dispatch(garderAction(userId))
@@ -35,13 +34,13 @@ function Garden() {
     {loading ? <Loader/> : error ? <h1>{error}</h1> : 
     <div className='garden-page2'>
       {
-        allTrees.map((tree) => 
-        (<>
-          <div className='garden-card'>
+        allTrees.map((tree, index) => 
+        (
+          <div className='garden-card' key={index}>
             <img className='garden-tree-img' src={tree.imageUrl} alt={tree.name}></img>
             <h1 className='garden-h1'>{tree.name}</h1>
           </div>
-          </>
+
         )
       )}
     </div>

@@ -6,7 +6,6 @@ import { useSelector } from "react-redux"
 function UserProfile() {
     const userState = useSelector(state => state.loginUserReducer);
     const {currentUser} = userState;
-    console.log(currentUser)
 
 
     function handleProfile(){

@@ -190,3 +190,9 @@
         display: none;
     }
 }
+
+@media (min-width : 0px) and (max-width : 431px) {
+    .about-slider-container{
+        max-width: 80%;
+    }
+}
