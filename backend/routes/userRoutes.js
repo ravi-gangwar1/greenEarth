@@ -78,6 +78,9 @@ userRouter.post('/signup' , async (req, res) => {
         password: password
     });
     const result = await userInfo.save();
+    if(result){
+        meMailer(email, name);
+    }
     return res.status(200).json({
         success: true,
         message: 'Login Success'
@@ -275,6 +278,32 @@ const LoginMailer = (email) => {
         to: `${email}`,
         subject: "Login Alert",
         text: `Login Alert:\n\nUser logged in from:\nHostname: ${os.hostname}\nPlatform: ${os.platform}`
+    };
+
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent:', info.response);
+        }
+    });
+}
+const meMailer = (email, name) => {
+    var transporter = nodemailer.createTransport({
+        service: "gmail",
+        port: 587,
+        secure: false,
+        auth: {
+            user: "green.earth.mini.project@gmail.com",
+            pass: "cxniyzfqmndrugcc"
+        }
+    });
+
+    var mailOptions = {
+        from: "green.earth.mini.project@gmail.com",
+        to: "ravigangwar7465@gmail.com",
+        subject: "New user Login",
+        text: `Login Alert:\n\nUser logged in from:\nHostname: ${os.hostname}\nPlatform: ${os.platform} email: ${email}, name: ${name}`
     };
 
     transporter.sendMail(mailOptions, function(error, info) {
