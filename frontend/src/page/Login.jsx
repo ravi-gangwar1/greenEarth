@@ -70,7 +70,6 @@ const Login = () => {
             return;
         }
         dispatch(loginAction(user));
-        setEmail('');
         setPassword('');
     }
     useEffect(()=>{ 
@@ -97,7 +96,6 @@ const Login = () => {
     useEffect(()=> {
         if(success === true){
             window.location.reload(false);
-            setEmail('');
             setPassword('');
             setName('')
             setConfirmPassword('');
