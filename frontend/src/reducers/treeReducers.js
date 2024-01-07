@@ -19,6 +19,27 @@ export const treeReducer = (state = { trees: {} }, action) => {
         return state;
     }
   };
+export const getTreeWithTypeReducer = (state = { tree: [] }, action) => {
+    switch (action.type) {
+      case 'GET_TYPE_TREE_REQUEST':
+        return { ...state, loading: true };
+  
+      case 'GET_TYPE_TREE_SUCCESS':
+        return {
+          tree: action.payload,
+          loading: false,
+        };
+  
+      case 'GET_TYPE_TREE_FAIL':
+        return {
+          error: action.payload,
+          loading: false,
+        };
+  
+      default:
+        return state;
+    }
+  };
   export const AddTreeReducer = (state = { loading: false, success: false, error: null }, action) => {
     switch (action.type) {
       case 'ADD_TREE_REQUEST':

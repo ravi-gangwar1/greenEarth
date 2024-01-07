@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-// import Treecard from '../../components/Treecard'
 import Treecard from '../Treecard'
 import "../../style/home.css"
 import {useDispatch, useSelector} from 'react-redux';
@@ -8,7 +7,7 @@ import { getAllTree } from '../../actions/treeAction';
 import Loader from '../Loader';
 
 
-function ListAllTress({ indoor, outdoor }) {
+function ListAllTress() {
   const dispatch = useDispatch();
   const treestate = useSelector(state => state.treeReducer);
   const { trees, loading, error } = treestate;
@@ -31,7 +30,7 @@ function ListAllTress({ indoor, outdoor }) {
 
   useEffect(() => {
     dispatch(getAllTree(page));
-  }, [page,indoor, outdoor]);
+  }, [page]);
 
   return (
     <div className='home'>
@@ -44,9 +43,7 @@ function ListAllTress({ indoor, outdoor }) {
           <div className='card-div'>
             {Array.isArray(treeList) &&
               treeList.map((tree, index) => (
-                (indoor=== true && tree.categeory === "indoor") || (outdoor===true && tree.categeory === "outdoor") ? (
-                  <Treecard key={index} tree={tree} />
-                ) : <Treecard key={index} tree={tree} />
+                 <Treecard key={index} tree={tree} />
               ))}
           </div>
         </>

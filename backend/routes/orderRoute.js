@@ -36,6 +36,8 @@ orderRouter.post('/placeorder', async (req, res) => {
             cancel_url: `${process.env.FRONTEND_URI}/cancel`,
         });
 
+        console.log(session);
+
         if (session) {
             const newOrder = new orderModel({
                 name: address.name,

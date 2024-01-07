@@ -4,19 +4,34 @@ const {Schema} = mongoose;
 const userLocSchema = new Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        require: [true, "user id is required"]
-        
+        required: [true, "user id is required"]
     },
     name: {
         type: String,
-        require: [true, "name is required"]
+        required: [true, "name is required"]
     },
-    location: {
-        type : Object,
-    }
-},{
-    timestamps : true
+    location: [
+        {
+            coordinates: {
+                latitude: {
+                    type: Number,
+                    required: true
+                },
+                longitude: {
+                    type: Number,  
+                    required: true
+                }
+            },
+            timestamps: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ]
+}, {
+    timestamps: true
 });
+
 
 const userLocModel = mongoose.model('userLocation', userLocSchema);
 export default userLocModel;

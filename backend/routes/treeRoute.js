@@ -31,6 +31,16 @@ router.get('/getall', async (req, res) => {
   }
 });
 
+router.post('/get-all-type', async (req, res) => {
+  try {
+    const trees = await treeModel.find({});
+    res.status(200).send(trees);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 
 
 

@@ -62,7 +62,7 @@ nav ul li:hover {
   height: 100%;
   align-items: center;
   justify-content: space-around;
-  width: 30%;
+  width: 20%;
 }
 .login-btn{
   padding: 5px 10px;
@@ -236,4 +236,12 @@ nav ul {
     height: 90%;
     border-radius: 10px;
   }
+}
+
+@media (min-width : 0px) and (max-width: 376px) {
+  .userIcon {
+    margin-top: 0px;
+    font-size: 35px;
+  }
+
 }

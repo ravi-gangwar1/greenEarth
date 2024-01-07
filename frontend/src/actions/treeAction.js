@@ -9,6 +9,15 @@ export const getAllTree = (page) => async (dispatch) => {
         dispatch({ type: 'GET_TREE_FAIL', payload: error });
     }
 }
+export const getTreeWithType = () => async (dispatch) => {
+    dispatch({ type: 'GET_TYPE_TREE_REQUEST' });
+    try {
+        const res = await axios.post(`${import.meta.env.VITE_BACKED_DOMAIN}/api/trees/get-all-type`);
+        dispatch({ type: 'GET_TYPE_TREE_SUCCESS', payload: res.data });
+    } catch (error) {
+        dispatch({ type: 'GET_TYPE_TREE_FAIL', payload: error });
+    }
+}
 
 export const addTree = (treeData) => async (dispatch) => {
     dispatch({ type: 'ADD_TREE_REQUEST' });

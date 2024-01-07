@@ -36,11 +36,23 @@
     font-size: 20px;
     color: azure;
     gap: 5px;
+    margin-top: 5px;
 }
-.cetageory input {
-    margin-right: 20px;
-    height: 50px;
-    width: 30px;
+.cetageory button{
+    padding: 5px 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: rgb(240, 255, 255);
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+.btn-cate1{
+    background-color: red;
+}
+.btn-cate2{
+    background-color: rgb(66, 67, 66);
 }
 .card-div{
     display: flex;
@@ -79,9 +91,13 @@
     color: azure;
 
 }
+@media (min-width : 0px) and (max-width : 720px) {
+    .search-div{
+      flex-direction: column;
+    }
+  }
 
-
-@media (min-width : 0px) and (max-width : 431px) {
+@media (min-width : 340px) and (max-width : 606px) {
     .search-div{
       flex-direction: column;
     }

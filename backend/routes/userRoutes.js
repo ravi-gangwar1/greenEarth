@@ -6,33 +6,45 @@ import otpModel from '../model/otpModel.js';
 
 const userRouter = express.Router();
 
+userRouter.post('/user-location', async (req, res) => {
+    const { userId, name, latitude, longitude } = req.body;
 
-userRouter.post ('/user-location', async(req, res)=> {
-    const {userId, name, latitude, longitude } = req.body;
+    try {
+        const response = await userLocModel.findOne({ userId });
 
-    const response = await userLocModel.findById({_id : userId}) 
-
-    if(response){
-        const location = {
-            latitude: latitude,
-            longitude: longitude,
+        if (response) {
+            const newCoordinates = {
+                latitude,
+                longitude,
+            };
+            await userLocModel.findOneAndUpdate(
+                { userId },
+                { $push: { location: { coordinates: newCoordinates } } },
+                { new: true }
+            );
+        } else {
+            const locationInfo = new userLocModel({
+                userId,
+                name,
+                location: [
+                    {
+                        coordinates: {
+                            latitude,
+                            longitude,
+                        },
+                    },
+                ],
+            });
+            await locationInfo.save();
         }
-        await userLocModel.findOneAndUpdate({
-            location : location,
-        }, {new: true})
-    }else {
 
-        const locationInfo = userLocModel({
-            userId: userId,
-            name : name,
-            location : {
-            latitude : latitude,
-            longitude : longitude,
-            },
-        })
-        await locationInfo.save();
+        res.status(200).json({ message: 'User location updated or created successfully.' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
-})
+});
+
 
 userRouter.post('/signup' , async (req, res) => {
     const {email, name, password} = req.body.user;
