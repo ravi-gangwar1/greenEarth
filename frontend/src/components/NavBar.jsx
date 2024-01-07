@@ -103,7 +103,7 @@ function NavBar() {
             <Link className="link-div" to={currentUser ? `/garden/${currentUser.data._id}` : "/login"}>
               <p onClick={()=> setSideBar(!sideBar)}>Garden</p>
             </Link>
-              <Link className="link-div" to={currentUser ? "/orders" : "/login"}> <p>Orders</p></Link>
+              <Link className="link-div" to={currentUser ? "/orders" : "/login"}> <p onClick={()=> setSideBar(!sideBar)}>Orders</p></Link>
               {isAdmin === true ? <Link to="/admin">
                 <p onClick={()=> setSideBar(!sideBar)}>Dashboard</p>
               </Link> : null}
