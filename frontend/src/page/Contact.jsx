@@ -13,9 +13,9 @@ function Contact() {
 
   const userState = useSelector((state) => state.loginUserReducer);
   const { currentUser } = userState;
-
+  const userId = currentUser?.data?._id || "";
   const [contactMessage, setContactMessage] = useState({
-    userId: currentUser.data._id ,
+    userId: userId,
     name: '',
     message: '',
   });
