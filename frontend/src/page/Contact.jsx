@@ -15,12 +15,17 @@ function Contact() {
   const { currentUser } = userState;
 
   const [contactMessage, setContactMessage] = useState({
-    userId: currentUser.data._id,
+    userId: currentUser.data._id ,
     name: '',
     message: '',
   });
 
   const handleMessage = () => {
+    if(!currentUser){
+      alert('Please login to send message');
+      window.location.href = '/login';
+      return;
+    }
     if (contactMessage.name !== '' && contactMessage.message !== '') {
       dispatch(contactAction(contactMessage));
     } else {
