@@ -6,7 +6,7 @@ import ListAllTress from '../components/homePage/ListAllTrees';
 import { useSelector } from 'react-redux';
 import OutdoorTrees from "../components/homePage/OutdoorTress.jsx";
 import IndoorTrees from "../components/homePage/IndoorTrees.jsx";
-import axios from 'axios';
+
 
 function Home() {
   const userState = useSelector(state => state.loginUserReducer);

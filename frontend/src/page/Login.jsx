@@ -65,6 +65,10 @@ const Login = () => {
 
     const handleLogin = ()=> {
         const user = {email, password};
+        if(email===""|| password === ""){
+            alert("Fill all fields!!")
+            return;
+        }
         dispatch(loginAction(user));
         setEmail('');
         setPassword('');
@@ -78,6 +82,10 @@ const Login = () => {
 
     const {loading, success, error} =  useSelector((state)=> state.signupReducer)
     const handleSignup = ()=> {
+        if(email===""|| password === "" || password === "" || confirmPassword === ""){
+            alert("Fill all fields!!")
+            return;
+        }
         if(password !== confirmPassword){
             alert("Confirm Password not matched")
         }else{
@@ -99,6 +107,10 @@ const Login = () => {
     }, [success])
 
     const handleReset = () => {
+        if(email === ""){
+            alert("Enter Email!!")
+            return;
+        }
         if (email) {
           dispatch(resetAction(email));
           setOtpState(true);
@@ -109,6 +121,10 @@ const Login = () => {
       };
 
     const handleOTPverify = async () => {
+        if(otp === ""){
+            alert("Enter OTP!!")
+            return;
+        }
         if(otp) {
             dispatch(otpVerifyAction(email,otp));
         }else{
