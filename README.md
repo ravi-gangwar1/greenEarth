@@ -1,2 +1,2 @@
 # greenEarth
-#College mini Project
+#College mini project
